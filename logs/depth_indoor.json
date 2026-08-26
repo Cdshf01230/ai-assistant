@@ -1,0 +1,281 @@
+{
+  "checkpoint": "depth-anything/Depth-Anything-V2-Metric-Indoor-Small-hf",
+  "metric": true,
+  "pct": 10,
+  "long_edge": 640,
+  "best_threshold": 12.0,
+  "best_threshold_center": 14.0,
+  "latency_median_ms": 10,
+  "frames": {
+    "clear_00.jpg": {
+      "free3": 8.540624618530273,
+      "freeC": 12.359375,
+      "col": 0,
+      "per_col": [
+        8.54,
+        12.36,
+        12.91
+      ]
+    },
+    "clear_01.jpg": {
+      "free3": 14.1953125,
+      "freeC": 19.546875,
+      "col": 2,
+      "per_col": [
+        19.03,
+        19.55,
+        14.2
+      ]
+    },
+    "clear_02.jpg": {
+      "free3": 6.277734279632568,
+      "freeC": 8.2421875,
+      "col": 2,
+      "per_col": [
+        8.44,
+        8.24,
+        6.28
+      ]
+    },
+    "clearpath_00.jpg": {
+      "free3": 19.734375,
+      "freeC": 19.8125,
+      "col": 0,
+      "per_col": [
+        19.73,
+        19.81,
+        19.73
+      ]
+    },
+    "clearpath_01.jpg": {
+      "free3": 2.29296875,
+      "freeC": 6.639843940734863,
+      "col": 2,
+      "per_col": [
+        6.35,
+        6.64,
+        2.29
+      ]
+    },
+    "crowd_00.jpg": {
+      "free3": 3.765625,
+      "freeC": 3.98828125,
+      "col": 2,
+      "per_col": [
+        3.98,
+        3.99,
+        3.77
+      ]
+    },
+    "crowd_01.jpg": {
+      "free3": 6.3828125,
+      "freeC": 10.779687881469727,
+      "col": 0,
+      "per_col": [
+        6.38,
+        10.78,
+        7.96
+      ]
+    },
+    "door_00.jpg": {
+      "free3": 11.4375,
+      "freeC": 12.1171875,
+      "col": 0,
+      "per_col": [
+        11.44,
+        12.12,
+        12.98
+      ]
+    },
+    "door_01.jpg": {
+      "free3": 4.5,
+      "freeC": 4.59765625,
+      "col": 2,
+      "per_col": [
+        4.81,
+        4.6,
+        4.5
+      ]
+    },
+    "lowlight_00.jpg": {
+      "free3": 3.87890625,
+      "freeC": 9.6796875,
+      "col": 0,
+      "per_col": [
+        3.88,
+        9.68,
+        9.02
+      ]
+    },
+    "lowlight_01.jpg": {
+      "free3": 6.05859375,
+      "freeC": 6.30859375,
+      "col": 2,
+      "per_col": [
+        6.49,
+        6.31,
+        6.06
+      ]
+    },
+    "pole_00.jpg": {
+      "free3": 3.857421875,
+      "freeC": 3.857421875,
+      "col": 1,
+      "per_col": [
+        4.67,
+        3.86,
+        4.95
+      ]
+    },
+    "street_00.jpg": {
+      "free3": 3.849804639816284,
+      "freeC": 3.849804639816284,
+      "col": 1,
+      "per_col": [
+        4.57,
+        3.85,
+        5.02
+      ]
+    },
+    "street_01.jpg": {
+      "free3": 14.8046875,
+      "freeC": 15.453125,
+      "col": 0,
+      "per_col": [
+        14.8,
+        15.45,
+        16.22
+      ]
+    },
+    "synth_person_front.jpg": {
+      "free3": 4.79296875,
+      "freeC": 4.79296875,
+      "col": 1,
+      "per_col": [
+        10.51,
+        4.79,
+        9.85
+      ]
+    },
+    "synth_pole_right.jpg": {
+      "free3": 4.95703125,
+      "freeC": 5.17578125,
+      "col": 0,
+      "per_col": [
+        4.96,
+        5.18,
+        5.31
+      ]
+    },
+    "synthclear_dark.jpg": {
+      "free3": 5.5390625,
+      "freeC": 5.555859565734863,
+      "col": 2,
+      "per_col": [
+        5.6,
+        5.56,
+        5.54
+      ]
+    },
+    "synthclear_grey.jpg": {
+      "free3": 5.73828125,
+      "freeC": 5.73828125,
+      "col": 1,
+      "per_col": [
+        5.79,
+        5.74,
+        5.75
+      ]
+    },
+    "synthclear_indoor.jpg": {
+      "free3": 3.193359375,
+      "freeC": 3.2109375,
+      "col": 2,
+      "per_col": [
+        3.2,
+        3.21,
+        3.19
+      ]
+    },
+    "synthclear_tiled.jpg": {
+      "free3": 9.140625,
+      "freeC": 9.140625,
+      "col": 1,
+      "per_col": [
+        9.43,
+        9.14,
+        9.57
+      ]
+    },
+    "synthclear_warm.jpg": {
+      "free3": 3.775390625,
+      "freeC": 3.80078125,
+      "col": 0,
+      "per_col": [
+        3.78,
+        3.8,
+        3.81
+      ]
+    },
+    "synthfar_person.jpg": {
+      "free3": 6.080468654632568,
+      "freeC": 6.080468654632568,
+      "col": 1,
+      "per_col": [
+        8.38,
+        6.08,
+        8.28
+      ]
+    },
+    "synthfar_pole.jpg": {
+      "free3": 5.78515625,
+      "freeC": 5.78515625,
+      "col": 1,
+      "per_col": [
+        7.21,
+        5.79,
+        7.09
+      ]
+    },
+    "synthnear_pole.jpg": {
+      "free3": 1.6806640625,
+      "freeC": 1.6806640625,
+      "col": 1,
+      "per_col": [
+        3.73,
+        1.68,
+        3.76
+      ]
+    },
+    "synthside_pole.jpg": {
+      "free3": 7.49609375,
+      "freeC": 7.5546875,
+      "col": 2,
+      "per_col": [
+        7.57,
+        7.55,
+        7.5
+      ]
+    },
+    "vehicle_00.jpg": {
+      "free3": 3.375,
+      "freeC": 4.08984375,
+      "col": 2,
+      "per_col": [
+        5.01,
+        4.09,
+        3.38
+      ]
+    },
+    "vehicle_01.jpg": {
+      "free3": 6.125,
+      "freeC": 6.125,
+      "col": 1,
+      "per_col": [
+        8.29,
+        6.12,
+        7.67
+      ]
+    }
+  }
+}

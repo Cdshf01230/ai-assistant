@@ -1,0 +1,3920 @@
+{
+ "_doc": "120 ảnh COCO val2017 nhãn từ GT bbox (logs/vlm_public_coco.json), hiệu chỉnh theo thẩm định tay 45 frame lỗi (logs/coco_adjudication.md): 24 cảnh báo \"báo thừa\" thực ra ĐÚNG, 5 ranh giới, 2 nhãn sai. ⚠️ Người thẩm định trùng người thiết kế hệ thống — chỉ dùng nội bộ.",
+ "config": {
+  "free_abs_threshold": 7.0,
+  "near_rank_threshold": 0.5,
+  "depth_emergency_threshold": 2.0,
+  "confirm_frames": 2,
+  "clear_frames": 3,
+  "depth_fail_policy": "trust_vlm_near",
+  "mismatch_risk_penalty": 0.8,
+  "narrate_min_interval_s": 10.0
+ },
+ "corrected_positives": 93,
+ "aggregate_expect": {
+  "min_recall_corrected": 0.9,
+  "min_specificity_corrected": 0.8,
+  "max_fp_allowed": 5
+ },
+ "cases": [
+  {
+   "id": "coco120/000000006818.jpg",
+   "image": "benchmarks/data/coco/val2017/000000006818.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "bbox_ok",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.805,
+     "near_rank": 0.2729,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_clear"
+   }
+  },
+  {
+   "id": "coco120/000000016228.jpg",
+   "image": "benchmarks/data/coco/val2017/000000016228.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "VEHICLE|FRONT_LEFT|NEAR|SLOW",
+    "vlm": {
+     "hazard": true,
+     "type": "vehicle",
+     "position": "front_left",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 5.438,
+     "near_rank": 0.1077,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000017627.jpg",
+   "image": "benchmarks/data/coco/val2017/000000017627.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": false,
+    "adjudication": "label_noise",
+    "types_gt": [
+     "VEHICLE"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "VEHICLE|FRONT_LEFT|NEAR|MOVE_LEFT",
+    "vlm": {
+     "hazard": true,
+     "type": "vehicle",
+     "position": "front_left",
+     "distance": "near",
+     "action": "move_left"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 8.602,
+     "near_rank": 0.1376,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "depth_clear"
+   }
+  },
+  {
+   "id": "coco120/000000025560.jpg",
+   "image": "benchmarks/data/coco/val2017/000000025560.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "OBJECT",
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.202,
+     "near_rank": 0.2272,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000029393.jpg",
+   "image": "benchmarks/data/coco/val2017/000000029393.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.326,
+     "near_rank": 0.3566,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000035197.jpg",
+   "image": "benchmarks/data/coco/val2017/000000035197.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.518,
+     "near_rank": 0.5793,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000037777.jpg",
+   "image": "benchmarks/data/coco/val2017/000000037777.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "FURNITURE"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 5.274,
+     "near_rank": 0.2221,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_clear"
+   }
+  },
+  {
+   "id": "coco120/000000039956.jpg",
+   "image": "benchmarks/data/coco/val2017/000000039956.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "FURNITURE"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|RIGHT|MID|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "right",
+     "distance": "mid",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 5.59,
+     "near_rank": 0.0536,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000041888.jpg",
+   "image": "benchmarks/data/coco/val2017/000000041888.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "borderline",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 3.455,
+     "near_rank": 0.1695,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000058636.jpg",
+   "image": "benchmarks/data/coco/val2017/000000058636.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "POLE|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "pole",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.493,
+     "near_rank": 0.8611,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000063154.jpg",
+   "image": "benchmarks/data/coco/val2017/000000063154.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|MID|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "mid",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 3.449,
+     "near_rank": 0.0661,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000066523.jpg",
+   "image": "benchmarks/data/coco/val2017/000000066523.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "FURNITURE"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "FURNITURE|LEFT|MID|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "furniture",
+     "position": "left",
+     "distance": "mid",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.271,
+     "near_rank": 0.0583,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000078915.jpg",
+   "image": "benchmarks/data/coco/val2017/000000078915.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.835,
+     "near_rank": 0.4576,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000080671.jpg",
+   "image": "benchmarks/data/coco/val2017/000000080671.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.945,
+     "near_rank": 0.0352,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000085329.jpg",
+   "image": "benchmarks/data/coco/val2017/000000085329.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": false,
+    "adjudication": "label_noise",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.182,
+     "near_rank": 0.097,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_clear"
+   }
+  },
+  {
+   "id": "coco120/000000087038.jpg",
+   "image": "benchmarks/data/coco/val2017/000000087038.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON",
+     "VEHICLE"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT_LEFT|NEAR|SLOW",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front_left",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 5.73,
+     "near_rank": 0.4174,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000095786.jpg",
+   "image": "benchmarks/data/coco/val2017/000000095786.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 0.621,
+     "near_rank": 0.2398,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000096493.jpg",
+   "image": "benchmarks/data/coco/val2017/000000096493.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "FURNITURE",
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.258,
+     "near_rank": 0.1271,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000104612.jpg",
+   "image": "benchmarks/data/coco/val2017/000000104612.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.619,
+     "near_rank": 0.1639,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000109798.jpg",
+   "image": "benchmarks/data/coco/val2017/000000109798.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 0.959,
+     "near_rank": 0.0843,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000122745.jpg",
+   "image": "benchmarks/data/coco/val2017/000000122745.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|STOP",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "stop"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 6.582,
+     "near_rank": 0.2737,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000125211.jpg",
+   "image": "benchmarks/data/coco/val2017/000000125211.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.782,
+     "near_rank": 0.5732,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000127182.jpg",
+   "image": "benchmarks/data/coco/val2017/000000127182.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "bbox_ok",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 3.744,
+     "near_rank": 0.0585,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_clear"
+   }
+  },
+  {
+   "id": "coco120/000000142092.jpg",
+   "image": "benchmarks/data/coco/val2017/000000142092.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.071,
+     "near_rank": 0.4202,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000143931.jpg",
+   "image": "benchmarks/data/coco/val2017/000000143931.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "VEHICLE"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "VEHICLE|LEFT|NEAR|SLOW",
+    "vlm": {
+     "hazard": true,
+     "type": "vehicle",
+     "position": "left",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.85,
+     "near_rank": 0.3052,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000153299.jpg",
+   "image": "benchmarks/data/coco/val2017/000000153299.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|FAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "far",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 3.375,
+     "near_rank": 0.0754,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000153343.jpg",
+   "image": "benchmarks/data/coco/val2017/000000153343.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 4.092,
+     "near_rank": 0.2607,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000166391.jpg",
+   "image": "benchmarks/data/coco/val2017/000000166391.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "bbox_ok",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "VEHICLE|FRONT_LEFT|NEAR|SLOW",
+    "vlm": {
+     "hazard": true,
+     "type": "vehicle",
+     "position": "front_left",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 18.234,
+     "near_rank": 0.0664,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "depth_clear"
+   }
+  },
+  {
+   "id": "coco120/000000168330.jpg",
+   "image": "benchmarks/data/coco/val2017/000000168330.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "borderline",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "POLE|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "pole",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 6.289,
+     "near_rank": 0.4535,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000173383.jpg",
+   "image": "benchmarks/data/coco/val2017/000000173383.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "FURNITURE"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.274,
+     "near_rank": 0.1386,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000174482.jpg",
+   "image": "benchmarks/data/coco/val2017/000000174482.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "VEHICLE"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.037,
+     "near_rank": 0.2325,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000180135.jpg",
+   "image": "benchmarks/data/coco/val2017/000000180135.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "OBJECT",
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.352,
+     "near_rank": 0.3541,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000180560.jpg",
+   "image": "benchmarks/data/coco/val2017/000000180560.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.891,
+     "near_rank": 0.3197,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000181666.jpg",
+   "image": "benchmarks/data/coco/val2017/000000181666.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|SLOW",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 8.539,
+     "near_rank": 0.3152,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "depth_clear"
+   }
+  },
+  {
+   "id": "coco120/000000184321.jpg",
+   "image": "benchmarks/data/coco/val2017/000000184321.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "bbox_ok",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "VEHICLE|FRONT|NEAR|STOP",
+    "vlm": {
+     "hazard": true,
+     "type": "vehicle",
+     "position": "front",
+     "distance": "near",
+     "action": "stop"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 11.805,
+     "near_rank": 0.2672,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "depth_clear"
+   }
+  },
+  {
+   "id": "coco120/000000184791.jpg",
+   "image": "benchmarks/data/coco/val2017/000000184791.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.273,
+     "near_rank": 0.0084,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000185250.jpg",
+   "image": "benchmarks/data/coco/val2017/000000185250.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 5.379,
+     "near_rank": 0.418,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000199551.jpg",
+   "image": "benchmarks/data/coco/val2017/000000199551.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "FURNITURE",
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|LEFT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "left",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.584,
+     "near_rank": 0.0482,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000206027.jpg",
+   "image": "benchmarks/data/coco/val2017/000000206027.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "FURNITURE"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 0.86,
+     "near_rank": 0.0292,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000213086.jpg",
+   "image": "benchmarks/data/coco/val2017/000000213086.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|LEFT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "left",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.199,
+     "near_rank": 0.1385,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000219578.jpg",
+   "image": "benchmarks/data/coco/val2017/000000219578.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "FURNITURE"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "FURNITURE|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "furniture",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.512,
+     "near_rank": 0.091,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000223130.jpg",
+   "image": "benchmarks/data/coco/val2017/000000223130.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "borderline",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 4.766,
+     "near_rank": 0.5124,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000226111.jpg",
+   "image": "benchmarks/data/coco/val2017/000000226111.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "POLE|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "pole",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.104,
+     "near_rank": 0.884,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000228144.jpg",
+   "image": "benchmarks/data/coco/val2017/000000228144.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "schema_error",
+    "types_gt": [
+     "FURNITURE"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "MIRROR|LEFT|MID|NONE",
+    "vlm": null,
+    "geo": {
+     "valid": true,
+     "free_min": 2.479,
+     "near_rank": 0.0276,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_invalid"
+   }
+  },
+  {
+   "id": "coco120/000000233771.jpg",
+   "image": "benchmarks/data/coco/val2017/000000233771.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON",
+     "VEHICLE"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 4.008,
+     "near_rank": 0.6645,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000236412.jpg",
+   "image": "benchmarks/data/coco/val2017/000000236412.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.078,
+     "near_rank": 0.0256,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000238866.jpg",
+   "image": "benchmarks/data/coco/val2017/000000238866.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.258,
+     "near_rank": 0.0536,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000239274.jpg",
+   "image": "benchmarks/data/coco/val2017/000000239274.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "borderline",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "VEHICLE|FRONT_LEFT|NEAR|SLOW",
+    "vlm": {
+     "hazard": true,
+     "type": "vehicle",
+     "position": "front_left",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 6.527,
+     "near_rank": 0.0933,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000239347.jpg",
+   "image": "benchmarks/data/coco/val2017/000000239347.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "FURNITURE",
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 0.963,
+     "near_rank": 0.0085,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000252219.jpg",
+   "image": "benchmarks/data/coco/val2017/000000252219.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 4.871,
+     "near_rank": 0.0687,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000263796.jpg",
+   "image": "benchmarks/data/coco/val2017/000000263796.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.514,
+     "near_rank": 0.1251,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000266409.jpg",
+   "image": "benchmarks/data/coco/val2017/000000266409.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 3.744,
+     "near_rank": 0.2305,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000270244.jpg",
+   "image": "benchmarks/data/coco/val2017/000000270244.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|SLOW",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 4.383,
+     "near_rank": 0.4249,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000286994.jpg",
+   "image": "benchmarks/data/coco/val2017/000000286994.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "bbox_ok",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 9.192,
+     "near_rank": 0.0079,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "depth_clear"
+   }
+  },
+  {
+   "id": "coco120/000000289393.jpg",
+   "image": "benchmarks/data/coco/val2017/000000289393.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "FRAME|LEFT|MID|NONE",
+    "vlm": null,
+    "geo": {
+     "valid": true,
+     "free_min": 1.21,
+     "near_rank": 0.164,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000296649.jpg",
+   "image": "benchmarks/data/coco/val2017/000000296649.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON",
+     "VEHICLE"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT_LEFT|NEAR|SLOW",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front_left",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 14.281,
+     "near_rank": 0.249,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "depth_clear"
+   }
+  },
+  {
+   "id": "coco120/000000297343.jpg",
+   "image": "benchmarks/data/coco/val2017/000000297343.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "schema_note",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "STOP|LEFT|NEAR|STOP",
+    "vlm": null,
+    "geo": {
+     "valid": true,
+     "free_min": 2.104,
+     "near_rank": 0.0792,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_invalid"
+   }
+  },
+  {
+   "id": "coco120/000000301867.jpg",
+   "image": "benchmarks/data/coco/val2017/000000301867.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.654,
+     "near_rank": 0.0595,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000303818.jpg",
+   "image": "benchmarks/data/coco/val2017/000000303818.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|STOP",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "stop"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 4.825,
+     "near_rank": 0.0433,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000308394.jpg",
+   "image": "benchmarks/data/coco/val2017/000000308394.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "OBJECT"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|LEFT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "left",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 3.25,
+     "near_rank": 0.0054,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000311295.jpg",
+   "image": "benchmarks/data/coco/val2017/000000311295.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "bbox_ok",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 9.281,
+     "near_rank": 0.1978,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_clear"
+   }
+  },
+  {
+   "id": "coco120/000000312421.jpg",
+   "image": "benchmarks/data/coco/val2017/000000312421.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "FURNITURE",
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 0.764,
+     "near_rank": 0.0827,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000314294.jpg",
+   "image": "benchmarks/data/coco/val2017/000000314294.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|FAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "far",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 4.273,
+     "near_rank": 0.1286,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000321214.jpg",
+   "image": "benchmarks/data/coco/val2017/000000321214.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 0.92,
+     "near_rank": 0.402,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000322864.jpg",
+   "image": "benchmarks/data/coco/val2017/000000322864.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "VEHICLE"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "POLE|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "pole",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.323,
+     "near_rank": 0.6106,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000329323.jpg",
+   "image": "benchmarks/data/coco/val2017/000000329323.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.926,
+     "near_rank": 0.1503,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000331352.jpg",
+   "image": "benchmarks/data/coco/val2017/000000331352.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "TOILET|FRONT|NEAR|NONE",
+    "vlm": null,
+    "geo": {
+     "valid": true,
+     "free_min": 1.415,
+     "near_rank": 0.0765,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000336587.jpg",
+   "image": "benchmarks/data/coco/val2017/000000336587.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "schema_note",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "STOP|FRONT|NEAR|STOP",
+    "vlm": null,
+    "geo": {
+     "valid": true,
+     "free_min": 2.498,
+     "near_rank": 0.6021,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_invalid"
+   }
+  },
+  {
+   "id": "coco120/000000342006.jpg",
+   "image": "benchmarks/data/coco/val2017/000000342006.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "bbox_ok",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 17.562,
+     "near_rank": 0.1191,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_clear"
+   }
+  },
+  {
+   "id": "coco120/000000347693.jpg",
+   "image": "benchmarks/data/coco/val2017/000000347693.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "FURNITURE"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT_LEFT|NEAR|MOVE_LEFT",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front_left",
+     "distance": "near",
+     "action": "move_left"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.758,
+     "near_rank": 0.3439,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000348881.jpg",
+   "image": "benchmarks/data/coco/val2017/000000348881.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "bbox_ok",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|RIGHT|MID|SLOW",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "right",
+     "distance": "mid",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 7.127,
+     "near_rank": 0.1376,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "depth_clear"
+   }
+  },
+  {
+   "id": "coco120/000000349860.jpg",
+   "image": "benchmarks/data/coco/val2017/000000349860.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "OBJECT"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 12.43,
+     "near_rank": 0.0981,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "depth_clear"
+   }
+  },
+  {
+   "id": "coco120/000000355257.jpg",
+   "image": "benchmarks/data/coco/val2017/000000355257.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "FURNITURE"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|RIGHT|MID|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "right",
+     "distance": "mid",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.489,
+     "near_rank": 0.6203,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000356427.jpg",
+   "image": "benchmarks/data/coco/val2017/000000356427.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 4.079,
+     "near_rank": 0.5051,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000360661.jpg",
+   "image": "benchmarks/data/coco/val2017/000000360661.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 5.062,
+     "near_rank": 0.0847,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_clear"
+   }
+  },
+  {
+   "id": "coco120/000000369370.jpg",
+   "image": "benchmarks/data/coco/val2017/000000369370.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 0.688,
+     "near_rank": 0.0168,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000370677.jpg",
+   "image": "benchmarks/data/coco/val2017/000000370677.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.086,
+     "near_rank": 0.1394,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000379453.jpg",
+   "image": "benchmarks/data/coco/val2017/000000379453.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "bbox_ok",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 7.922,
+     "near_rank": 0.0815,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_clear"
+   }
+  },
+  {
+   "id": "coco120/000000382088.jpg",
+   "image": "benchmarks/data/coco/val2017/000000382088.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.934,
+     "near_rank": 0.4772,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000386912.jpg",
+   "image": "benchmarks/data/coco/val2017/000000386912.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "FURNITURE",
+     "OBJECT",
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.617,
+     "near_rank": 0.1164,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000397133.jpg",
+   "image": "benchmarks/data/coco/val2017/000000397133.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "FURNITURE",
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|RIGHT|MID|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "right",
+     "distance": "mid",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 3.301,
+     "near_rank": 0.2255,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000400573.jpg",
+   "image": "benchmarks/data/coco/val2017/000000400573.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.535,
+     "near_rank": 0.1683,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000403385.jpg",
+   "image": "benchmarks/data/coco/val2017/000000403385.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "bbox_ok",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.725,
+     "near_rank": 0.2443,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_clear"
+   }
+  },
+  {
+   "id": "coco120/000000403817.jpg",
+   "image": "benchmarks/data/coco/val2017/000000403817.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.049,
+     "near_rank": 0.0287,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000418281.jpg",
+   "image": "benchmarks/data/coco/val2017/000000418281.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "bbox_ok",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT_LEFT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front_left",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 8.492,
+     "near_rank": 0.0172,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "depth_clear"
+   }
+  },
+  {
+   "id": "coco120/000000430961.jpg",
+   "image": "benchmarks/data/coco/val2017/000000430961.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 3.562,
+     "near_rank": 0.4262,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000438862.jpg",
+   "image": "benchmarks/data/coco/val2017/000000438862.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT_LEFT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front_left",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.631,
+     "near_rank": 0.4008,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000443303.jpg",
+   "image": "benchmarks/data/coco/val2017/000000443303.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.343,
+     "near_rank": 0.1673,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000448365.jpg",
+   "image": "benchmarks/data/coco/val2017/000000448365.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "OBJECT",
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 4.405,
+     "near_rank": 0.7514,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000456496.jpg",
+   "image": "benchmarks/data/coco/val2017/000000456496.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|LEFT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "left",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 3.98,
+     "near_rank": 0.0388,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000458054.jpg",
+   "image": "benchmarks/data/coco/val2017/000000458054.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.425,
+     "near_rank": 0.3658,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000460347.jpg",
+   "image": "benchmarks/data/coco/val2017/000000460347.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "schema_note",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "BUS|FRONT|NEAR|SLOW",
+    "vlm": null,
+    "geo": {
+     "valid": true,
+     "free_min": 4.73,
+     "near_rank": 0.0,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_invalid"
+   }
+  },
+  {
+   "id": "coco120/000000463730.jpg",
+   "image": "benchmarks/data/coco/val2017/000000463730.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON",
+     "VEHICLE"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT_LEFT|NEAR|SLOW",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front_left",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 6.434,
+     "near_rank": 0.2783,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000473237.jpg",
+   "image": "benchmarks/data/coco/val2017/000000473237.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.672,
+     "near_rank": 0.1127,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000474028.jpg",
+   "image": "benchmarks/data/coco/val2017/000000474028.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT_LEFT|NEAR|SLOW",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front_left",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 9.164,
+     "near_rank": 0.1323,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "depth_clear"
+   }
+  },
+  {
+   "id": "coco120/000000475779.jpg",
+   "image": "benchmarks/data/coco/val2017/000000475779.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|SLOW",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.094,
+     "near_rank": 0.1618,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000476258.jpg",
+   "image": "benchmarks/data/coco/val2017/000000476258.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "OBJECT",
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|SLOW",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 3.473,
+     "near_rank": 0.1998,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000480985.jpg",
+   "image": "benchmarks/data/coco/val2017/000000480985.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON",
+     "VEHICLE"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "VEHICLE|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "vehicle",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.678,
+     "near_rank": 0.5453,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000486438.jpg",
+   "image": "benchmarks/data/coco/val2017/000000486438.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.336,
+     "near_rank": 0.1087,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000487583.jpg",
+   "image": "benchmarks/data/coco/val2017/000000487583.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "FURNITURE|RIGHT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "furniture",
+     "position": "right",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.247,
+     "near_rank": 0.2724,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000491497.jpg",
+   "image": "benchmarks/data/coco/val2017/000000491497.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "FURNITURE"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 3.078,
+     "near_rank": 0.1025,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_clear"
+   }
+  },
+  {
+   "id": "coco120/000000500663.jpg",
+   "image": "benchmarks/data/coco/val2017/000000500663.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "bbox_ok",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 15.102,
+     "near_rank": 0.0487,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_clear"
+   }
+  },
+  {
+   "id": "coco120/000000502136.jpg",
+   "image": "benchmarks/data/coco/val2017/000000502136.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "OBJECT"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "DOOR|FRONT|NEAR|SLOW",
+    "vlm": {
+     "hazard": true,
+     "type": "door",
+     "position": "front",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 4.188,
+     "near_rank": 0.1976,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geo+escape"
+   }
+  },
+  {
+   "id": "coco120/000000502737.jpg",
+   "image": "benchmarks/data/coco/val2017/000000502737.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 0.788,
+     "near_rank": 0.4782,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000504711.jpg",
+   "image": "benchmarks/data/coco/val2017/000000504711.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.243,
+     "near_rank": 0.119,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000511321.jpg",
+   "image": "benchmarks/data/coco/val2017/000000511321.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "bbox_ok",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "VEHICLE|FRONT|NEAR|SLOW",
+    "vlm": {
+     "hazard": true,
+     "type": "vehicle",
+     "position": "front",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 14.461,
+     "near_rank": 0.0354,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "depth_clear"
+   }
+  },
+  {
+   "id": "coco120/000000514508.jpg",
+   "image": "benchmarks/data/coco/val2017/000000514508.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "OBJECT",
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "VEHICLE|LEFT|NEAR|SLOW",
+    "vlm": {
+     "hazard": true,
+     "type": "vehicle",
+     "position": "left",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.622,
+     "near_rank": 0.0798,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000515445.jpg",
+   "image": "benchmarks/data/coco/val2017/000000515445.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "bbox_ok",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|SLOW",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 10.938,
+     "near_rank": 0.0169,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "depth_clear"
+   }
+  },
+  {
+   "id": "coco120/000000515579.jpg",
+   "image": "benchmarks/data/coco/val2017/000000515579.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "borderline",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 3.551,
+     "near_rank": 0.3186,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000516316.jpg",
+   "image": "benchmarks/data/coco/val2017/000000516316.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "bbox_ok",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 6.299,
+     "near_rank": 0.1265,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_clear"
+   }
+  },
+  {
+   "id": "coco120/000000522713.jpg",
+   "image": "benchmarks/data/coco/val2017/000000522713.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "bbox_ok",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|RIGHT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "right",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 14.637,
+     "near_rank": 0.0697,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "depth_clear"
+   }
+  },
+  {
+   "id": "coco120/000000544519.jpg",
+   "image": "benchmarks/data/coco/val2017/000000544519.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.66,
+     "near_rank": 0.2202,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000550426.jpg",
+   "image": "benchmarks/data/coco/val2017/000000550426.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 0.642,
+     "near_rank": 0.8312,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000551215.jpg",
+   "image": "benchmarks/data/coco/val2017/000000551215.jpg",
+   "label": {
+    "hazard_bbox": true,
+    "hazard_corrected": true,
+    "adjudication": "bbox_ok",
+    "types_gt": [
+     "PERSON"
+    ]
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.732,
+     "near_rank": 0.1332,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000555705.jpg",
+   "image": "benchmarks/data/coco/val2017/000000555705.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "OBJECT|FRONT|NEAR|NONE",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.246,
+     "near_rank": 0.0393,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000562121.jpg",
+   "image": "benchmarks/data/coco/val2017/000000562121.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": false,
+    "adjudication": "bbox_ok",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 5.473,
+     "near_rank": 0.2191,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_clear"
+   }
+  },
+  {
+   "id": "coco120/000000565778.jpg",
+   "image": "benchmarks/data/coco/val2017/000000565778.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "VEHICLE|FRONT|NEAR|SLOW",
+    "vlm": {
+     "hazard": true,
+     "type": "vehicle",
+     "position": "front",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 6.719,
+     "near_rank": 0.3064,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000572517.jpg",
+   "image": "benchmarks/data/coco/val2017/000000572517.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "PERSON|FRONT_LEFT|NEAR|MOVE_LEFT",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front_left",
+     "distance": "near",
+     "action": "move_left"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.826,
+     "near_rank": 0.4055,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked"
+   }
+  },
+  {
+   "id": "coco120/000000577539.jpg",
+   "image": "benchmarks/data/coco/val2017/000000577539.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.263,
+     "near_rank": 0.5342,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  },
+  {
+   "id": "coco120/000000580294.jpg",
+   "image": "benchmarks/data/coco/val2017/000000580294.jpg",
+   "label": {
+    "hazard_bbox": false,
+    "hazard_corrected": true,
+    "adjudication": "warning_confirmed",
+    "types_gt": []
+   },
+   "inputs": {
+    "vlm_raw": "CLEAR|NONE|NONE|NONE",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 0.825,
+     "near_rank": 0.3855,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "must_warn": true,
+    "must_reason": "depth_emergency"
+   }
+  }
+ ]
+}

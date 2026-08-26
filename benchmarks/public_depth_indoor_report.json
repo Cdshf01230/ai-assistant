@@ -1,0 +1,16 @@
+{
+  "model": "depth-anything/Depth-Anything-V2-Metric-Indoor-Small-hf",
+  "limit": 50,
+  "diode": {
+    "samples": 50,
+    "abs_rel": 0.3970839528739452,
+    "rmse": 3.1085760617256164,
+    "delta1": 0.08933054879576977
+  },
+  "nyu": {
+    "samples": 50,
+    "abs_rel": 0.28369872316718103,
+    "rmse": 0.8594244253635407,
+    "delta1": 0.46720507812499995
+  }
+}

@@ -1,0 +1,1099 @@
+[
+ {
+  "file": "000000397133.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000397133.jpg",
+  "hazard": true,
+  "types": [
+   "FURNITURE",
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 427
+ },
+ {
+  "file": "000000037777.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000037777.jpg",
+  "hazard": true,
+  "types": [
+   "FURNITURE"
+  ],
+  "w": 352,
+  "h": 230
+ },
+ {
+  "file": "000000252219.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000252219.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 428
+ },
+ {
+  "file": "000000087038.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000087038.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON",
+   "VEHICLE"
+  ],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000174482.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000174482.jpg",
+  "hazard": true,
+  "types": [
+   "VEHICLE"
+  ],
+  "w": 640,
+  "h": 388
+ },
+ {
+  "file": "000000480985.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000480985.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON",
+   "VEHICLE"
+  ],
+  "w": 375,
+  "h": 500
+ },
+ {
+  "file": "000000296649.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000296649.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON",
+   "VEHICLE"
+  ],
+  "w": 640,
+  "h": 427
+ },
+ {
+  "file": "000000386912.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000386912.jpg",
+  "hazard": true,
+  "types": [
+   "FURNITURE",
+   "OBJECT",
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000502136.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000502136.jpg",
+  "hazard": true,
+  "types": [
+   "OBJECT"
+  ],
+  "w": 500,
+  "h": 423
+ },
+ {
+  "file": "000000491497.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000491497.jpg",
+  "hazard": true,
+  "types": [
+   "FURNITURE"
+  ],
+  "w": 375,
+  "h": 500
+ },
+ {
+  "file": "000000181666.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000181666.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 425
+ },
+ {
+  "file": "000000017627.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000017627.jpg",
+  "hazard": true,
+  "types": [
+   "VEHICLE"
+  ],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000143931.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000143931.jpg",
+  "hazard": true,
+  "types": [
+   "VEHICLE"
+  ],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000463730.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000463730.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON",
+   "VEHICLE"
+  ],
+  "w": 640,
+  "h": 427
+ },
+ {
+  "file": "000000322864.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000322864.jpg",
+  "hazard": true,
+  "types": [
+   "VEHICLE"
+  ],
+  "w": 427,
+  "h": 640
+ },
+ {
+  "file": "000000308394.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000308394.jpg",
+  "hazard": true,
+  "types": [
+   "OBJECT"
+  ],
+  "w": 640,
+  "h": 428
+ },
+ {
+  "file": "000000456496.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000456496.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 426
+ },
+ {
+  "file": "000000219578.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000219578.jpg",
+  "hazard": true,
+  "types": [
+   "FURNITURE"
+  ],
+  "w": 640,
+  "h": 427
+ },
+ {
+  "file": "000000025560.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000025560.jpg",
+  "hazard": true,
+  "types": [
+   "OBJECT",
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000085329.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000085329.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 449
+ },
+ {
+  "file": "000000329323.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000329323.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 425,
+  "h": 640
+ },
+ {
+  "file": "000000233771.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000233771.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON",
+   "VEHICLE"
+  ],
+  "w": 640,
+  "h": 640
+ },
+ {
+  "file": "000000301867.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000301867.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000312421.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000312421.jpg",
+  "hazard": true,
+  "types": [
+   "FURNITURE",
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 427
+ },
+ {
+  "file": "000000185250.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000185250.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 399,
+  "h": 640
+ },
+ {
+  "file": "000000356427.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000356427.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 427
+ },
+ {
+  "file": "000000360661.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000360661.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000016228.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000016228.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 440
+ },
+ {
+  "file": "000000266409.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000266409.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000430961.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000430961.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 450,
+  "h": 319
+ },
+ {
+  "file": "000000080671.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000080671.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 427
+ },
+ {
+  "file": "000000476258.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000476258.jpg",
+  "hazard": true,
+  "types": [
+   "OBJECT",
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 367
+ },
+ {
+  "file": "000000448365.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000448365.jpg",
+  "hazard": true,
+  "types": [
+   "OBJECT",
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 428
+ },
+ {
+  "file": "000000035197.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000035197.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 429,
+  "h": 640
+ },
+ {
+  "file": "000000349860.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000349860.jpg",
+  "hazard": true,
+  "types": [
+   "OBJECT"
+  ],
+  "w": 640,
+  "h": 426
+ },
+ {
+  "file": "000000180135.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000180135.jpg",
+  "hazard": true,
+  "types": [
+   "OBJECT",
+   "PERSON"
+  ],
+  "w": 333,
+  "h": 500
+ },
+ {
+  "file": "000000486438.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000486438.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 427
+ },
+ {
+  "file": "000000400573.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000400573.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 480,
+  "h": 640
+ },
+ {
+  "file": "000000370677.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000370677.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 500,
+  "h": 332
+ },
+ {
+  "file": "000000502737.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000502737.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 480,
+  "h": 640
+ },
+ {
+  "file": "000000173383.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000173383.jpg",
+  "hazard": true,
+  "types": [
+   "FURNITURE"
+  ],
+  "w": 640,
+  "h": 425
+ },
+ {
+  "file": "000000438862.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000438862.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 427
+ },
+ {
+  "file": "000000180560.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000180560.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 426
+ },
+ {
+  "file": "000000347693.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000347693.jpg",
+  "hazard": true,
+  "types": [
+   "FURNITURE"
+  ],
+  "w": 640,
+  "h": 427
+ },
+ {
+  "file": "000000039956.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000039956.jpg",
+  "hazard": true,
+  "types": [
+   "FURNITURE"
+  ],
+  "w": 640,
+  "h": 427
+ },
+ {
+  "file": "000000321214.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000321214.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000474028.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000474028.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 427
+ },
+ {
+  "file": "000000066523.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000066523.jpg",
+  "hazard": true,
+  "types": [
+   "FURNITURE"
+  ],
+  "w": 480,
+  "h": 640
+ },
+ {
+  "file": "000000355257.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000355257.jpg",
+  "hazard": true,
+  "types": [
+   "FURNITURE"
+  ],
+  "w": 640,
+  "h": 427
+ },
+ {
+  "file": "000000063154.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000063154.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 426
+ },
+ {
+  "file": "000000199551.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000199551.jpg",
+  "hazard": true,
+  "types": [
+   "FURNITURE",
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 428
+ },
+ {
+  "file": "000000239347.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000239347.jpg",
+  "hazard": true,
+  "types": [
+   "FURNITURE",
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000514508.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000514508.jpg",
+  "hazard": true,
+  "types": [
+   "OBJECT",
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000473237.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000473237.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 426
+ },
+ {
+  "file": "000000228144.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000228144.jpg",
+  "hazard": true,
+  "types": [
+   "FURNITURE"
+  ],
+  "w": 640,
+  "h": 426
+ },
+ {
+  "file": "000000206027.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000206027.jpg",
+  "hazard": true,
+  "types": [
+   "FURNITURE"
+  ],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000078915.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000078915.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 481,
+  "h": 640
+ },
+ {
+  "file": "000000551215.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000551215.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 480,
+  "h": 640
+ },
+ {
+  "file": "000000544519.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000544519.jpg",
+  "hazard": true,
+  "types": [
+   "PERSON"
+  ],
+  "w": 640,
+  "h": 427
+ },
+ {
+  "file": "000000096493.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000096493.jpg",
+  "hazard": true,
+  "types": [
+   "FURNITURE",
+   "PERSON"
+  ],
+  "w": 426,
+  "h": 640
+ },
+ {
+  "file": "000000403385.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000403385.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 511
+ },
+ {
+  "file": "000000006818.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000006818.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 427,
+  "h": 640
+ },
+ {
+  "file": "000000458054.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000458054.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 426
+ },
+ {
+  "file": "000000331352.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000331352.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 351,
+  "h": 500
+ },
+ {
+  "file": "000000184791.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000184791.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 500
+ },
+ {
+  "file": "000000348881.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000348881.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 462
+ },
+ {
+  "file": "000000289393.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000289393.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000522713.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000522713.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000303818.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000303818.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 480,
+  "h": 640
+ },
+ {
+  "file": "000000460347.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000460347.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 427,
+  "h": 640
+ },
+ {
+  "file": "000000226111.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000226111.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 480,
+  "h": 640
+ },
+ {
+  "file": "000000153299.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000153299.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 461,
+  "h": 500
+ },
+ {
+  "file": "000000058636.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000058636.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 634,
+  "h": 640
+ },
+ {
+  "file": "000000041888.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000041888.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000184321.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000184321.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000565778.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000565778.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 400
+ },
+ {
+  "file": "000000297343.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000297343.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 432
+ },
+ {
+  "file": "000000336587.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000336587.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000122745.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000122745.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 480,
+  "h": 640
+ },
+ {
+  "file": "000000555705.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000555705.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 371
+ },
+ {
+  "file": "000000443303.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000443303.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 500,
+  "h": 375
+ },
+ {
+  "file": "000000500663.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000500663.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000418281.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000418281.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 427
+ },
+ {
+  "file": "000000403817.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000403817.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 500,
+  "h": 375
+ },
+ {
+  "file": "000000239274.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000239274.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 581,
+  "h": 640
+ },
+ {
+  "file": "000000286994.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000286994.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000511321.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000511321.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 427,
+  "h": 640
+ },
+ {
+  "file": "000000314294.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000314294.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 360
+ },
+ {
+  "file": "000000475779.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000475779.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000572517.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000572517.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 424
+ },
+ {
+  "file": "000000270244.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000270244.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 428
+ },
+ {
+  "file": "000000516316.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000516316.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000125211.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000125211.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000562121.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000562121.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 454
+ },
+ {
+  "file": "000000382088.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000382088.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 426
+ },
+ {
+  "file": "000000577539.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000577539.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 500,
+  "h": 334
+ },
+ {
+  "file": "000000104612.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000104612.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000109798.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000109798.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 500,
+  "h": 333
+ },
+ {
+  "file": "000000238866.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000238866.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 439
+ },
+ {
+  "file": "000000369370.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000369370.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000515579.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000515579.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 500,
+  "h": 332
+ },
+ {
+  "file": "000000515445.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000515445.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000142092.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000142092.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000168330.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000168330.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 390
+ },
+ {
+  "file": "000000342006.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000342006.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 480,
+  "h": 640
+ },
+ {
+  "file": "000000236412.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000236412.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000153343.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000153343.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 480
+ },
+ {
+  "file": "000000095786.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000095786.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 500,
+  "h": 334
+ },
+ {
+  "file": "000000213086.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000213086.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 375,
+  "h": 500
+ },
+ {
+  "file": "000000550426.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000550426.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 416,
+  "h": 640
+ },
+ {
+  "file": "000000580294.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000580294.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 443
+ },
+ {
+  "file": "000000127182.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000127182.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 427,
+  "h": 640
+ },
+ {
+  "file": "000000263796.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000263796.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 480,
+  "h": 640
+ },
+ {
+  "file": "000000487583.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000487583.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 426,
+  "h": 640
+ },
+ {
+  "file": "000000504711.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000504711.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 483
+ },
+ {
+  "file": "000000379453.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000379453.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 442,
+  "h": 442
+ },
+ {
+  "file": "000000311295.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000311295.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 427
+ },
+ {
+  "file": "000000029393.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000029393.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 500,
+  "h": 375
+ },
+ {
+  "file": "000000166391.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000166391.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 640,
+  "h": 427
+ },
+ {
+  "file": "000000223130.jpg",
+  "url": "https://images.cocodataset.org/val2017/000000223130.jpg",
+  "hazard": false,
+  "types": [],
+  "w": 425,
+  "h": 640
+ }
+]

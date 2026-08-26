@@ -1,0 +1,77 @@
+{
+  "mode": "inventory",
+  "started_utc": "2026-08-24 08:10:01 UTC",
+  "datasets": {
+    "diode": {
+      "status": "ok",
+      "path": "/home/ubuntu/ai-assistant/benchmarks/data/diode",
+      "size_bytes": 9173067334,
+      "depth_arrays": 1542,
+      "rgb_images": 771
+    },
+    "nyu_depth_v2": {
+      "path": "/home/ubuntu/ai-assistant/benchmarks/data/nyu/nyu_depth_v2_labeled.mat",
+      "size_bytes": 2972037809,
+      "status": "ok",
+      "keys": [
+        "#refs#",
+        "#subsystem#",
+        "accelData",
+        "depths",
+        "images",
+        "instances",
+        "labels",
+        "names",
+        "namesToIds",
+        "rawDepthFilenames",
+        "rawDepths",
+        "rawRgbFilenames",
+        "sceneTypes",
+        "scenes"
+      ],
+      "missing_keys": [],
+      "images_shape": [
+        1449,
+        3,
+        640,
+        480
+      ],
+      "depths_shape": [
+        1449,
+        640,
+        480
+      ]
+    },
+    "sun_rgbd": {
+      "status": "ok",
+      "path": "/home/ubuntu/ai-assistant/benchmarks/data/sunrgbd/extracted",
+      "size_bytes": 7174366246,
+      "files": 285925
+    },
+    "coco": {
+      "status": "ok",
+      "path": "/home/ubuntu/ai-assistant/benchmarks/data/coco",
+      "size_bytes": 1087323831,
+      "annotation_files": [
+        "annotations/captions_train2017.json",
+        "annotations/captions_val2017.json",
+        "annotations/instances_train2017.json",
+        "annotations/instances_val2017.json",
+        "annotations/person_keypoints_train2017.json",
+        "annotations/person_keypoints_val2017.json"
+      ]
+    },
+    "fleurs_vi": {
+      "status": "ok",
+      "path": "/home/ubuntu/ai-assistant/benchmarks/data/fleurs/hf",
+      "size_bytes": 3061201006,
+      "cached_files": 9,
+      "validation_rows": 361
+    },
+    "ai2thor": {
+      "status": "ok",
+      "package": "ai2thor"
+    }
+  },
+  "commands": []
+}

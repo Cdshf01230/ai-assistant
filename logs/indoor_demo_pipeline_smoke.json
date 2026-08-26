@@ -1,0 +1,176 @@
+{
+  "profile": {
+    "name": "indoor",
+    "vlm_model": "Qwen/Qwen3-VL-4B-Instruct",
+    "depth_model": "depth-anything/Depth-Anything-V2-Metric-Indoor-Large-hf",
+    "long_edge": 640,
+    "depth_mode": "relative_free_space_rank",
+    "confirm_frames": 2,
+    "clear_frames": 3
+  },
+  "vram": {
+    "allocated_gib": 8.892,
+    "reserved_gib": 8.896,
+    "peak_reserved_gib": 8.896
+  },
+  "frames": [
+    {
+      "frame": "clear_00.jpg",
+      "vlm_raw": "OBJECT|WHERE|DISTANCE|ACTION\nWALL|FRONT_LEFT|",
+      "vlm": null,
+      "depth": {
+        "valid": true,
+        "near_score": 0.34101029606127153,
+        "free_rank": 0.6589897039387285,
+        "free_per_col": [
+          8.092187881469727,
+          12.2265625,
+          12.279687881469727
+        ]
+      },
+      "decision": {
+        "warn": false,
+        "action": "NONE",
+        "type": null,
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": false,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 0
+      }
+    },
+    {
+      "frame": "clear_01.jpg",
+      "vlm_raw": "PERSON|FRONT_LEFT|NEAR|SLOW",
+      "vlm": {
+        "hazard": true,
+        "type": "person",
+        "position": "front_left",
+        "distance": "near",
+        "action": "slow"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.38858267716535433,
+        "free_rank": 0.6114173228346457,
+        "free_per_col": [
+          16.543750762939453,
+          19.84375,
+          12.1328125
+        ]
+      },
+      "decision": {
+        "warn": false,
+        "action": "NONE",
+        "type": "person",
+        "position": "front_left",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": true,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 1
+      }
+    },
+    {
+      "frame": "clear_02.jpg",
+      "vlm_raw": "PERSON|FRONT|NEAR|STOP",
+      "vlm": {
+        "hazard": true,
+        "type": "person",
+        "position": "front",
+        "distance": "near",
+        "action": "stop"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.3119691119691119,
+        "free_rank": 0.6880308880308881,
+        "free_per_col": [
+          10.1171875,
+          10.092968940734863,
+          6.9609375
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "stop",
+        "type": "person",
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": true,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 2
+      }
+    },
+    {
+      "frame": "clearpath_00.jpg",
+      "vlm_raw": "OBJECT|WHERE|DISTANCE|ACTION\nNONE|FRONT|FAR",
+      "vlm": null,
+      "depth": {
+        "valid": true,
+        "near_score": 0.007824726134585291,
+        "free_rank": 0.9921752738654147,
+        "free_per_col": [
+          19.90625,
+          19.96875,
+          19.8125
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "STOP",
+        "type": null,
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": false,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 0
+      }
+    },
+    {
+      "frame": "clearpath_01.jpg",
+      "vlm_raw": "OBJECT|FRONT|NEAR|STOP",
+      "vlm": {
+        "hazard": true,
+        "type": "object",
+        "position": "front",
+        "distance": "near",
+        "action": "stop"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.43632235840854894,
+        "free_rank": 0.5636776415914511,
+        "free_per_col": [
+          6.549609184265137,
+          7.401171684265137,
+          4.171875
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "stop",
+        "type": "object",
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": true,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 1
+      }
+    }
+  ]
+}

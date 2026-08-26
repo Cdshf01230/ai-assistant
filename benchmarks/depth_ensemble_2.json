@@ -1,0 +1,44 @@
+{
+  "models": [
+    "depth-anything/Depth-Anything-V2-Metric-Indoor-Small-hf",
+    "depth-anything/Depth-Anything-V2-Metric-Indoor-Base-hf"
+  ],
+  "limit": 30,
+  "metrics": "per-image median-scale aligned",
+  "results": {
+    "indoors": {
+      "depth-anything/Depth-Anything-V2-Metric-Indoor-Small-hf": {
+        "abs_rel": 0.06724351613471906,
+        "rmse": 0.5621454631288846,
+        "delta1": 0.9494714117507491
+      },
+      "depth-anything/Depth-Anything-V2-Metric-Indoor-Base-hf": {
+        "abs_rel": 0.058275760834415755,
+        "rmse": 0.4811591669917107,
+        "delta1": 0.9614509276753578
+      },
+      "ensemble_2": {
+        "abs_rel": 0.05971237942576409,
+        "rmse": 0.4949321448802948,
+        "delta1": 0.958183944997151
+      }
+    },
+    "outdoor": {
+      "depth-anything/Depth-Anything-V2-Metric-Indoor-Small-hf": {
+        "abs_rel": 0.21802725071708362,
+        "rmse": 3.5313960830370585,
+        "delta1": 0.8075401451316085
+      },
+      "depth-anything/Depth-Anything-V2-Metric-Indoor-Base-hf": {
+        "abs_rel": 0.19420329108834267,
+        "rmse": 3.329030454158783,
+        "delta1": 0.8541773644180537
+      },
+      "ensemble_2": {
+        "abs_rel": 0.20370576133330662,
+        "rmse": 3.3490023692448934,
+        "delta1": 0.8421965896955704
+      }
+    }
+  }
+}

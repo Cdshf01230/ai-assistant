@@ -1,0 +1,388 @@
+{
+  "model": "Qwen/Qwen3-VL-4B-Instruct",
+  "long_edge": 640,
+  "results": {
+    "pipe_v4": [
+      {
+        "frame": "clear_00.jpg",
+        "truth_hazard": false,
+        "said_hazard": false,
+        "output": "clear|none|none",
+        "ms": 612
+      },
+      {
+        "frame": "clear_01.jpg",
+        "truth_hazard": false,
+        "said_hazard": false,
+        "output": "clear|front|move_left",
+        "ms": 727
+      },
+      {
+        "frame": "clear_02.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "person|front|slow",
+        "ms": 680
+      },
+      {
+        "frame": "clearpath_00.jpg",
+        "truth_hazard": false,
+        "said_hazard": false,
+        "output": "clear|none|none",
+        "ms": 572
+      },
+      {
+        "frame": "clearpath_01.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "object|front|stop",
+        "ms": 626
+      },
+      {
+        "frame": "crowd_00.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "object|front|stop",
+        "ms": 660
+      },
+      {
+        "frame": "crowd_01.jpg",
+        "truth_hazard": true,
+        "said_hazard": false,
+        "output": "clear|none|none",
+        "ms": 571
+      },
+      {
+        "frame": "door_00.jpg",
+        "truth_hazard": true,
+        "said_hazard": false,
+        "output": "clear|none|none",
+        "ms": 606
+      },
+      {
+        "frame": "door_01.jpg",
+        "truth_hazard": true,
+        "said_hazard": false,
+        "output": "clear|none|none",
+        "ms": 616
+      },
+      {
+        "frame": "lowlight_00.jpg",
+        "truth_hazard": true,
+        "said_hazard": false,
+        "output": "clear|none|none",
+        "ms": 572
+      },
+      {
+        "frame": "lowlight_01.jpg",
+        "truth_hazard": true,
+        "said_hazard": false,
+        "output": "clear|none|none",
+        "ms": 603
+      },
+      {
+        "frame": "pole_00.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "vehicle|front|stop",
+        "ms": 765
+      },
+      {
+        "frame": "street_00.jpg",
+        "truth_hazard": true,
+        "said_hazard": false,
+        "output": "clear|none|none",
+        "ms": 573
+      },
+      {
+        "frame": "street_01.jpg",
+        "truth_hazard": false,
+        "said_hazard": true,
+        "output": "vehicle|front|stop",
+        "ms": 762
+      },
+      {
+        "frame": "synth_person_front.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "person|front|stop",
+        "ms": 601
+      },
+      {
+        "frame": "synth_pole_right.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "pole|front_right|move_left",
+        "ms": 761
+      },
+      {
+        "frame": "synthclear_dark.jpg",
+        "truth_hazard": false,
+        "said_hazard": false,
+        "output": "clear|none|none",
+        "ms": 550
+      },
+      {
+        "frame": "synthclear_grey.jpg",
+        "truth_hazard": false,
+        "said_hazard": false,
+        "output": "clear|none|none",
+        "ms": 548
+      },
+      {
+        "frame": "synthclear_indoor.jpg",
+        "truth_hazard": false,
+        "said_hazard": false,
+        "output": "clear|none|none",
+        "ms": 551
+      },
+      {
+        "frame": "synthclear_tiled.jpg",
+        "truth_hazard": false,
+        "said_hazard": false,
+        "output": "clear|none|none",
+        "ms": 546
+      },
+      {
+        "frame": "synthclear_warm.jpg",
+        "truth_hazard": false,
+        "said_hazard": false,
+        "output": "clear|none|none",
+        "ms": 548
+      },
+      {
+        "frame": "synthfar_person.jpg",
+        "truth_hazard": false,
+        "said_hazard": true,
+        "output": "object|front|slow",
+        "ms": 657
+      },
+      {
+        "frame": "synthfar_pole.jpg",
+        "truth_hazard": false,
+        "said_hazard": true,
+        "output": "pole|front|stop",
+        "ms": 660
+      },
+      {
+        "frame": "synthnear_pole.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "pole|front|stop",
+        "ms": 656
+      },
+      {
+        "frame": "synthside_pole.jpg",
+        "truth_hazard": false,
+        "said_hazard": true,
+        "output": "pole|front_left|move_left",
+        "ms": 763
+      },
+      {
+        "frame": "vehicle_00.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "object|front|stop",
+        "ms": 622
+      },
+      {
+        "frame": "vehicle_01.jpg",
+        "truth_hazard": true,
+        "said_hazard": false,
+        "output": "clear|none|none",
+        "ms": 549
+      }
+    ],
+    "pipe_v6": [
+      {
+        "frame": "clear_00.jpg",
+        "truth_hazard": false,
+        "said_hazard": true,
+        "output": "object|front_left|near|move_left",
+        "ms": 994
+      },
+      {
+        "frame": "clear_01.jpg",
+        "truth_hazard": false,
+        "said_hazard": false,
+        "output": "vehicle|front_right|mid|slow",
+        "ms": 1048
+      },
+      {
+        "frame": "clear_02.jpg",
+        "truth_hazard": true,
+        "said_hazard": false,
+        "output": "person|front|mid|slow",
+        "ms": 901
+      },
+      {
+        "frame": "clearpath_00.jpg",
+        "truth_hazard": false,
+        "said_hazard": false,
+        "output": "clear|none|none|none",
+        "ms": 736
+      },
+      {
+        "frame": "clearpath_01.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "object|front|near|stop",
+        "ms": 821
+      },
+      {
+        "frame": "crowd_00.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "person|left|near|none",
+        "ms": 829
+      },
+      {
+        "frame": "crowd_01.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "person|front|near|slow",
+        "ms": 880
+      },
+      {
+        "frame": "door_00.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "door|front|near|slow",
+        "ms": 985
+      },
+      {
+        "frame": "door_01.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "door|front|near|move_left",
+        "ms": 984
+      },
+      {
+        "frame": "lowlight_00.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "person|front_left|near|move_left",
+        "ms": 933
+      },
+      {
+        "frame": "lowlight_01.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "person|front|near|slow",
+        "ms": 935
+      },
+      {
+        "frame": "pole_00.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "pole|left|near|none",
+        "ms": 887
+      },
+      {
+        "frame": "street_00.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "person|front_left|near|slow",
+        "ms": 929
+      },
+      {
+        "frame": "street_01.jpg",
+        "truth_hazard": false,
+        "said_hazard": false,
+        "output": "clear|none|none|none",
+        "ms": 771
+      },
+      {
+        "frame": "synth_person_front.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "person|front|near|slow",
+        "ms": 845
+      },
+      {
+        "frame": "synth_pole_right.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "pole|right|near|move_left",
+        "ms": 843
+      },
+      {
+        "frame": "synthclear_dark.jpg",
+        "truth_hazard": false,
+        "said_hazard": false,
+        "output": "clear|none|none|none",
+        "ms": 687
+      },
+      {
+        "frame": "synthclear_grey.jpg",
+        "truth_hazard": false,
+        "said_hazard": false,
+        "output": "clear|none|none|none",
+        "ms": 687
+      },
+      {
+        "frame": "synthclear_indoor.jpg",
+        "truth_hazard": false,
+        "said_hazard": false,
+        "output": "clear|none|none|none",
+        "ms": 683
+      },
+      {
+        "frame": "synthclear_tiled.jpg",
+        "truth_hazard": false,
+        "said_hazard": false,
+        "output": "clear|none|none|none",
+        "ms": 683
+      },
+      {
+        "frame": "synthclear_warm.jpg",
+        "truth_hazard": false,
+        "said_hazard": false,
+        "output": "clear|none|none|none",
+        "ms": 693
+      },
+      {
+        "frame": "synthfar_person.jpg",
+        "truth_hazard": false,
+        "said_hazard": false,
+        "output": "object|front|mid|none",
+        "ms": 746
+      },
+      {
+        "frame": "synthfar_pole.jpg",
+        "truth_hazard": false,
+        "said_hazard": true,
+        "output": "pole|front|near|move_left",
+        "ms": 899
+      },
+      {
+        "frame": "synthnear_pole.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "pole|front|near|move_left",
+        "ms": 897
+      },
+      {
+        "frame": "synthside_pole.jpg",
+        "truth_hazard": false,
+        "said_hazard": true,
+        "output": "pole|left|near|move_right",
+        "ms": 841
+      },
+      {
+        "frame": "vehicle_00.jpg",
+        "truth_hazard": true,
+        "said_hazard": false,
+        "output": "object|left|mid|move_left",
+        "ms": 771
+      },
+      {
+        "frame": "vehicle_01.jpg",
+        "truth_hazard": true,
+        "said_hazard": true,
+        "output": "object|front_left|near|move_left",
+        "ms": 898
+      }
+    ]
+  }
+}

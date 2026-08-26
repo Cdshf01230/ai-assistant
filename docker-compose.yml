@@ -1,0 +1,28 @@
+name: ai-assistant
+
+services:
+  api:
+    build: .
+    image: ai-assistant:latest
+    container_name: ai-assistant
+    restart: unless-stopped
+    # TLS demo cho điện thoại: camera/mic chỉ chạy trên secure context
+    ports:
+      - "8443:8443"
+    environment:
+      TLS: "1"
+      HOST: 0.0.0.0
+      PORT: "8443"
+    volumes:
+      # weights ngoài image — không bake 19 GB vào layer
+      - ./models/hf:/home/ubuntu/ai-assistant/models/hf
+      - ./.env:/home/ubuntu/ai-assistant/.env:ro
+      - ./certs:/home/ubuntu/ai-assistant/certs
+      - ./logs:/home/ubuntu/ai-assistant/logs
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

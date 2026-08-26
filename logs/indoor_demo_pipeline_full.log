@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[ERROR] `min_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /home/ubuntu/ai-assistant/.venv/lib/python3.14/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+[ERROR] `max_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /home/ubuntu/ai-assistant/.venv/lib/python3.14/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+Loading weights:   0%|          | 0/713 [00:00<?, ?it/s]Loading weights:   0%|          | 1/713 [00:09<1:52:30,  9.48s/it]Loading weights:  44%|████▎     | 311/713 [00:09<00:08, 44.86it/s]Loading weights:  53%|█████▎    | 375/713 [00:12<00:08, 39.08it/s]Loading weights:  58%|█████▊    | 411/713 [00:12<00:06, 44.66it/s]Loading weights:  74%|███████▍  | 526/713 [00:12<00:02, 74.06it/s]Loading weights:  92%|█████████▏| 654/713 [00:12<00:00, 118.25it/s]Loading weights: 100%|██████████| 713/713 [00:12<00:00, 56.43it/s] 
+Loading weights:   0%|          | 0/503 [00:00<?, ?it/s]Loading weights:  25%|██▍       | 125/503 [00:00<00:00, 412.67it/s]Loading weights:  33%|███▎      | 167/503 [00:00<00:02, 147.82it/s]Loading weights:  37%|███▋      | 188/503 [00:01<00:02, 125.37it/s]Loading weights: 100%|██████████| 503/503 [00:01<00:00, 382.16it/s]
+{
+  "profile": {
+    "name": "indoor",
+    "vlm_model": "Qwen/Qwen3-VL-4B-Instruct",
+    "depth_model": "depth-anything/Depth-Anything-V2-Metric-Indoor-Large-hf",
+    "long_edge": 640,
+    "depth_mode": "relative_free_space_rank",
+    "confirm_frames": 2,
+    "clear_frames": 3
+  },
+  "vram": {
+    "allocated_gib": 8.892,
+    "reserved_gib": 8.896,
+    "peak_reserved_gib": 8.896
+  },
+  "frames": 27,
+  "warnings": 21
+}

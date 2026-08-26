@@ -1,0 +1,204 @@
+{
+  "_readme": [
+    "Nhãn ground-truth cho bộ frame test, do người xem từng ảnh và gán tay.",
+    "Định nghĩa 'hazard': có vật thể trong lối đi bộ, cách khoảng <= 3 bước,",
+    "đủ để cần phát cảnh báo bằng giọng nói NGAY. Vật ở xa / lệch hẳn sang bên",
+    "/ đã đi qua thì KHÔNG tính là hazard.",
+    "types và positions là TẬP các đáp án chấp nhận được — nhiều frame thật sự",
+    "có nhiều cách gọi đúng (ví dụ xe máy đỗ chắn đường vừa là 'vehicle' vừa là",
+    "'object'), nên chấm điểm theo tập thay vì một nhãn duy nhất.",
+    "excluded=true: frame không phải góc nhìn người đi bộ, loại khỏi phần chấm điểm.",
+    "CẢNH BÁO: bộ này chỉ ~23 frame dùng được. Đủ để phát hiện lỗi thô kiểu 'model",
+    "luôn trả cùng một đáp án' và để đo thô recall/specificity, nhưng KHÔNG phải số",
+    "đo accuracy đáng tin. §8 vẫn yêu cầu 100-500 frame thật, camera điện thoại, góc",
+    "nhìn người đi bộ, có nhãn."
+  ],
+  "frames": {
+    "clear_00.jpg": {
+      "hazard": false,
+      "types": ["clear"],
+      "positions": ["none"],
+      "hard": true,
+      "note": "ÂM KHÓ. Đứng trên lòng đường, đường trống dài phía trước. Có thùng rác + cột ở sát rìa TRÁI ngoài tầm bước chân, và xe đỗ ở xa bên phải — theo định nghĩa thì không phải hazard. Frame này chính là phép thử §16."
+    },
+    "clear_01.jpg": {
+      "hazard": false,
+      "types": ["clear"],
+      "positions": ["none"],
+      "note": "ÂM. Lòng đường trống hẳn. Người đạp xe ở xa bên trái, xe đỗ ở xa, sạp quả ở lề xa bên phải. Không có gì trong 3 bước."
+    },
+    "clear_02.jpg": {
+      "hazard": true,
+      "types": ["person", "object"],
+      "positions": ["front", "front_left"],
+      "note": "DƯƠNG dù query là 'empty sidewalk'. Đêm: một người ĐANG NẰM trên lối đi phía trước ~3 bước, đống túi rác chắn bên trái, ghế nhựa bên phải. Ca khó và đúng nghĩa nguy hiểm."
+    },
+    "clearpath_00.jpg": {
+      "hazard": false,
+      "types": ["clear"],
+      "positions": ["none"],
+      "note": "ÂM. Sân đá rộng trước lâu đài, trống hoàn toàn. Ghế băng ở xa hai bên bãi cỏ, không trong lối đi."
+    },
+    "clearpath_01.jpg": {
+      "hazard": true,
+      "types": ["object", "pole", "step"],
+      "positions": ["front", "front_right"],
+      "note": "DƯƠNG dù query là 'empty footpath'. Cầu gỗ hỏng: tấm ván chéo chắn ngang lối đi ~2 bước, trụ gỗ to bên phải, bậc thang phía trước."
+    },
+    "clearpath_02.jpg": {
+      "hazard": null,
+      "excluded": true,
+      "note": "Đúng bức clearpath_01 nhưng đen trắng. Loại khỏi chấm điểm để không đếm trùng một cảnh. Giữ file lại để thử độ bền với ảnh grayscale khi nào cần."
+    },
+    "crowd_00.jpg": {
+      "hazard": true,
+      "types": ["object", "person", "furniture"],
+      "positions": ["front", "front_right", "front_left"],
+      "note": "Chợ đông. Chậu nhựa cam ngay giữa lối đi ~2 bước; người đi cắt ngang bên phải; sạp hàng hai bên."
+    },
+    "crowd_01.jpg": {
+      "hazard": true,
+      "types": ["vehicle", "object", "person"],
+      "positions": ["right", "front_right", "front"],
+      "note": "Phố đêm. Dàn xe máy đỗ kín nửa phải khung hình, tràn vào lối đi; người đi phía trước."
+    },
+    "door_00.jpg": {
+      "hazard": true,
+      "types": ["step", "door"],
+      "positions": ["front", "front_left", "front_right"],
+      "note": "Sảnh toà nhà. Bậc thang thấp trải ngang ngay phía trước ~3 bước, cửa kính phía sau. Đúng case 'bậc thang' của §8."
+    },
+    "door_01.jpg": {
+      "hazard": true,
+      "types": ["door", "wall", "person"],
+      "positions": ["front"],
+      "note": "Cửa kính trong suốt ngay trước mặt ~1-2 bước. Case nguy hiểm kinh điển: kính không nhìn thấy."
+    },
+    "lowlight_00.jpg": {
+      "hazard": true,
+      "types": ["vehicle", "furniture", "object"],
+      "positions": ["front_left", "left", "front"],
+      "note": "Đêm. Xe đẩy hàng + xe máy ngay trước mặt lệch trái ~1-2 bước. Người ở xa bên phải KHÔNG phải hazard."
+    },
+    "lowlight_01.jpg": {
+      "hazard": true,
+      "types": ["person", "furniture", "wall"],
+      "positions": ["front"],
+      "note": "Quầy hàng ăn chắn ngay phía trước ~2 bước, hai người đang đứng xếp hàng chắn đường."
+    },
+    "pole_00.jpg": {
+      "hazard": true,
+      "types": ["pole"],
+      "positions": ["front", "front_right"],
+      "note": "Cột điện đứng GIỮA lối đi bộ ~2 bước, xe máy đỗ chắn bên phải. Hazard rõ ràng nhất trong bộ."
+    },
+    "stairs_00.jpg": {
+      "hazard": null,
+      "excluded": true,
+      "note": "Sân vườn, không phải lối đi bộ rõ ràng. Trụ đá bên trái và gốc cây không nằm trong path. Loại khỏi chấm điểm."
+    },
+    "stairs_01.jpg": {
+      "hazard": null,
+      "excluded": true,
+      "note": "Ảnh chụp từ trên cao một dàn nhạc trong nhà ga. Không phải góc nhìn người đi bộ. Loại khỏi chấm điểm."
+    },
+    "street_00.jpg": {
+      "hazard": true,
+      "types": ["vehicle", "person"],
+      "positions": ["front", "front_left", "front_right"],
+      "note": "Người đạp xe đang cắt ngang ngay trước mặt ~2-3 bước; một người đi bộ bên phải; cột bên trái."
+    },
+    "street_01.jpg": {
+      "hazard": false,
+      "types": ["clear"],
+      "positions": ["none"],
+      "note": "Hầm đường bộ. Lối đi bên phải trống hoàn toàn; xe chạy trên lòng đường và ở xa. Ground truth ÂM."
+    },
+    "synth_clear.jpg": {
+      "hazard": null,
+      "excluded": true,
+      "note": "Trùng khít synthclear_grey.jpg (cùng bộ màu, cùng hình học). Loại để không đếm trùng."
+    },
+    "synthclear_grey.jpg": {
+      "hazard": false,
+      "types": ["clear"],
+      "positions": ["none"],
+      "note": "ÂM synthetic: lối đi trống, tông xám."
+    },
+    "synthclear_warm.jpg": {
+      "hazard": false,
+      "types": ["clear"],
+      "positions": ["none"],
+      "note": "ÂM synthetic: lối đi trống, tông nắng ấm. Đổi màu để kiểm tra model không chỉ phản ứng với một bộ màu."
+    },
+    "synthclear_dark.jpg": {
+      "hazard": false,
+      "types": ["clear"],
+      "positions": ["none"],
+      "note": "ÂM synthetic: lối đi trống, ban đêm, có vạch kẻ giữa. Kiểm tra ánh sáng yếu không tự sinh ra cảnh báo."
+    },
+    "synthclear_tiled.jpg": {
+      "hazard": false,
+      "types": ["clear"],
+      "positions": ["none"],
+      "note": "ÂM synthetic: lối đi trống, có vạch kẻ dọc. Kiểm tra model không nhầm vạch kẻ thành vật cản."
+    },
+    "synthclear_indoor.jpg": {
+      "hazard": false,
+      "types": ["clear"],
+      "positions": ["none"],
+      "note": "ÂM synthetic: hành lang trong nhà, trống, tông sáng đều."
+    },
+    "synthfar_pole.jpg": {
+      "hazard": false,
+      "types": ["clear"],
+      "positions": ["none"],
+      "hard": true,
+      "note": "ÂM KHÓ synthetic: đúng cây cột của synthnear_pole nhưng ở tận đường chân trời. §16: vật xa thì CHƯA cảnh báo. Cặp với synthnear_pole để đo xem model có suy luận khoảng cách hay chỉ phát hiện vật thể."
+    },
+    "synthfar_person.jpg": {
+      "hazard": false,
+      "types": ["clear"],
+      "positions": ["none"],
+      "hard": true,
+      "note": "ÂM KHÓ synthetic: người nhỏ, ở xa gần đường chân trời, chưa đáng cảnh báo."
+    },
+    "synthside_pole.jpg": {
+      "hazard": false,
+      "types": ["clear"],
+      "positions": ["none"],
+      "hard": true,
+      "note": "ÂM KHÓ synthetic: cột to nhưng nằm HẲN ngoài lối đi phía trái. §16: lệch sang bên thì không cảnh báo."
+    },
+    "synthnear_pole.jpg": {
+      "hazard": true,
+      "types": ["pole", "object", "wall"],
+      "positions": ["front", "front_left", "front_right"],
+      "note": "DƯƠNG đối chứng synthetic: đúng cây cột đó, ngay trước mặt, trong lối đi. Nếu model trả CLEAR ở đây thì recall của nó vô giá trị."
+    },
+    "synth_person_front.jpg": {
+      "hazard": true,
+      "types": ["person"],
+      "positions": ["front"],
+      "note": "Synthetic: hình người ngay giữa lối đi."
+    },
+    "synth_pole_right.jpg": {
+      "hazard": true,
+      "types": ["pole", "object"],
+      "positions": ["right", "front_right"],
+      "note": "Synthetic: cột chữ nhật bên phải lối đi."
+    },
+    "vehicle_00.jpg": {
+      "hazard": true,
+      "types": ["vehicle"],
+      "positions": ["right", "front_right"],
+      "note": "Hàng xe máy đỗ dọc lề phải, ghi-đông chìa vào lối đi. Bên trái còn trống nên action đúng là move_left."
+    },
+    "vehicle_01.jpg": {
+      "hazard": true,
+      "types": ["vehicle", "pole"],
+      "positions": ["front", "front_right", "front_left"],
+      "note": "Xe máy đỗ chắn lối đi phía trước; cột đèn ngay giữa-trái ~2 bước."
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "model": "depth-anything/Depth-Anything-V2-Metric-Outdoor-Small-hf",
+  "limit_per_split": 100,
+  "diode": {
+    "indoors": {
+      "samples": 100,
+      "abs_rel": 0.8757217011600733,
+      "rmse": 4.310246124863625,
+      "delta1": 0.2397567818452689,
+      "aligned_abs_rel": 0.12259492982178927,
+      "aligned_rmse": 0.9948885174095631,
+      "aligned_delta1": 0.8507775725745265
+    },
+    "outdoor": {
+      "samples": 100,
+      "abs_rel": 0.9741450929641724,
+      "rmse": 8.13206514596939,
+      "delta1": 0.3366447744458536,
+      "aligned_abs_rel": 0.663963478654623,
+      "aligned_rmse": 6.8224461090564725,
+      "aligned_delta1": 0.6309282350010432
+    }
+  },
+  "nyu": {
+    "samples": 100,
+    "abs_rel": 2.286858333349228,
+    "rmse": 6.044207314252853,
+    "delta1": 0.008314290364583332,
+    "aligned_abs_rel": 0.18250208381563426,
+    "aligned_rmse": 0.7278798611462116,
+    "aligned_delta1": 0.7417874674479167
+  }
+}

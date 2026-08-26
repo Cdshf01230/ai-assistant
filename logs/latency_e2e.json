@@ -1,0 +1,13 @@
+{
+  "vision_rtt_median_ms": 953,
+  "vision_rtt_p95_ms": 1060,
+  "vision_server_median_ms": 929,
+  "overhead_median_ms": 31,
+  "stt_median_ms": 485,
+  "tts_cached_median_ms": 4,
+  "tts_dynamic_median_ms": 1515,
+  "describe_median_ms": 11154,
+  "budget_band_vision_only": "demo được",
+  "warn_chain_estimate_client_play_ms": 1053,
+  "note": "Chưa gồm T_camera và latency phát audio trên thiết bị thật."
+}

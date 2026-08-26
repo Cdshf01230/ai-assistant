@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>Trợ lý thị giác — demo trong nhà</title>
+<style>
+  :root { --bg:#0b0f14; --card:#151c26; --fg:#e8edf2; --dim:#8b98a5; --ok:#39d98a; --warn:#ffb020; --bad:#ff5d5d; }
+  * { box-sizing:border-box; margin:0; padding:0; font-family:system-ui,-apple-system,sans-serif; }
+  body { background:var(--bg); color:var(--fg); height:100vh; display:flex; flex-direction:column; }
+  header { padding:10px 14px; display:flex; justify-content:space-between; align-items:center; background:var(--card); }
+  header h1 { font-size:15px; font-weight:600; }
+  #conn { font-size:12px; padding:3px 10px; border-radius:12px; background:#333; }
+  #conn.ok { background:#123c29; color:var(--ok); } #conn.bad { background:#43191b; color:var(--bad); }
+  #stage { position:relative; flex:1; overflow:hidden; background:#000; }
+  video { width:100%; height:100%; object-fit:cover; }
+  #banner { position:absolute; top:0; left:0; right:0; text-align:center; padding:8px;
+            font-size:20px; font-weight:700; color:#fff; background:rgba(255,60,60,.85); display:none; }
+  #hud { position:absolute; bottom:8px; left:8px; right:8px; font-size:11px; color:var(--dim);
+         font-family:monospace; text-shadow:0 1px 2px #000; pointer-events:none; }
+  footer { background:var(--card); padding:12px 14px calc(12px + env(safe-area-inset-bottom)); display:flex; gap:12px; }
+  button { flex:1; min-height:64px; border:none; border-radius:14px; font-size:16px; font-weight:600; color:var(--fg); background:#223042; }
+  button:disabled { opacity:.4; }
+  #micBtn.rec { background:#5c1d24; animation:pulse 1s infinite; }
+  @keyframes pulse { 50% { opacity:.6; } }
+  #log { position:absolute; top:44px; right:8px; max-width:70%; font-size:12px; background:rgba(21,28,38,.85);
+         border-radius:10px; padding:8px 10px; display:none; white-space:pre-wrap; }
+</style>
+</head>
+<body>
+<header>
+  <h1>👁 Trợ lý thị giác <span style="color:var(--dim);font-weight:400">indoor demo</span></h1>
+  <span id="conn">ĐANG CHỜ</span>
+</header>
+<div id="stage">
+  <video id="cam" autoplay playsinline muted></video>
+  <div id="banner"></div><div id="log"></div>
+  <div id="hud">— chưa có dữ liệu —</div>
+</div>
+<footer>
+  <button id="startBtn">▶ Bắt đầu</button>
+  <button id="micBtn" disabled>🎙 Giữ để nói</button>
+</footer>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const params = new URLSearchParams(location.search);
+// Mặc định cùng host/port với trang (https). Có thể ghi đè ?api=wss://host:port
+const API_BASE = params.get('api') || location.origin.replace(/^http/, 'ws');
+const HTTP = API_BASE.replace(/^ws/, 'http');
+const FRAME_MS = parseInt(params.get('fps') || '1000', 10);   // ~1 FPS (§14)
+const LONG_EDGE = 640, JPEG_Q = 0.80;                          // §13
+
+let ws = null, busy = false, running = false, lastFrameAt = 0;
+const audioCache = {};   // message_code -> HTMLAudioElement
+let micStream = null, mediaRec = null, chunks = [];
+
+/* ---------- audio ---------- */
+async function preloadAlerts() {
+  try {
+    const r = await fetch(HTTP + '/v1/alerts');
+    const { phrases } = await r.json();
+    for (const code of Object.keys(phrases)) {
+      const a = new Audio(`${HTTP}/audio/${code}.wav`);
+      a.preload = 'auto'; audioCache[code] = a;
+    }
+    hud(`đã nạp ${Object.keys(phrases).length} câu cảnh báo`);
+  } catch (e) { console.warn('preload alerts fail', e); }
+}
+function playCode(code) {
+  const a = audioCache[code];
+  if (!a) return false;
+  a.currentTime = 0; a.play().catch(() => {}); return true;
+}
+function playB64(b64) {
+  if (!b64) return;
+  const a = new Audio('data:audio/wav;base64,' + b64);
+  a.play().catch(() => {});
+}
+/* iOS/Android cần một cú chạm để mở khoá âm lượng */
+function unlockAudio() {
+  const a = new Audio(); a.muted = true;
+  a.play().then(() => a.pause()).catch(() => {});
+}
+
+/* ---------- camera + WS vision ---------- */
+async function startCamera() {
+  const stream = await navigator.mediaDevices.getUserMedia({
+    video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 720 } },
+    audio: false });
+  $('cam').srcObject = stream;
+}
+function grabJpeg(canvas) {
+  const v = $('cam');
+  const s = Math.min(1, LONG_EDGE / Math.max(v.videoWidth, v.videoHeight));
+  canvas.width = Math.round(v.videoWidth * s); canvas.height = Math.round(v.videoHeight * s);
+  canvas.getContext('2d').drawImage(v, 0, 0, canvas.width, canvas.height);
+  return canvas.toDataURL('image/jpeg', JPEG_Q).split(',')[1];
+}
+function wsConnect() {
+  setConn('ĐANG KẾT NỐI', false);
+  ws = new WebSocket(API_BASE + '/v1/vision');
+  ws.onopen = () => setConn('ĐÃ KẾT NỐI', true);
+  ws.onclose = () => { setConn('MẤT KẾT NỐI', false); if (running) setTimeout(wsConnect, 1500); };
+  ws.onerror = () => ws.close();
+  ws.onmessage = onVision;
+}
+function onVision(ev) {
+  busy = false;
+  let m; try { m = JSON.parse(ev.data); } catch { return; }
+  if (!m.ok) { hud('lỗi: ' + (m.error || '?')); return; }
+  const d = m.decision || {}, g = m.geometry || {};
+  hud(`vlm=${(m.vlm_raw||'').trim()} | free=${g.free_min}m rank=${g.near_rank} | risk=${d.streaks ? '' : ''}${JSON.stringify(d.streaks)} ${m.latency_ms}ms`);
+
+  if (d.alert && d.message_code) {
+    showBanner(textOf(d.message_code), 2600);
+    if (!playCode(d.message_code)) ttsFallback(textOf(d.message_code));
+  }
+  if (d.narrate) narrateNow();
+}
+const PHRASES = {};
+fetch(HTTP + '/v1/alerts').then(r => r.json()).then(x => Object.assign(PHRASES, x.phrases)).catch(() => {});
+const textOf = code => PHRASES[code] || 'Cảnh báo!';
+function ttsFallback(text) {
+  fetch(HTTP + '/v1/tts', { method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ text }) })
+    .then(r => r.json()).then(x => playB64(x.audio_base64)).catch(() => {});
+}
+async function narrateNow() {
+  try {
+    const img = grabJpeg(document.createElement('canvas'));
+    const r = await fetch(HTTP + '/v1/describe', { method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ image_base64: img,
+        question: 'Mô tả ngắn gọn môi trường xung quanh và vật dụng gần nhất theo cách dẫn đường cho người khiếm thị.' }) });
+    const x = await r.json();
+    if (x.text) { showLog('🧭 ' + x.text); }
+    playB64(x.audio_base64);
+  } catch (e) { console.warn('narrate fail', e); }
+}
+
+/* ---------- push-to-talk -> WAV 16k ---------- */
+$('micBtn').addEventListener('pointerdown', recStart);
+$('micBtn').addEventListener('pointerup', recStop);
+$('micBtn').addEventListener('pointercancel', recStop);
+async function recStart() {
+  if (!running) return;
+  micStream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation:true, noiseSuppression:true } });
+  mediaRec = new MediaRecorder(micStream);
+  chunks = [];
+  mediaRec.ondataavailable = e => chunks.push(e.data);
+  mediaRec.start(); $('micBtn').classList.add('rec');
+}
+async function recStop() {
+  if (!mediaRec || mediaRec.state === 'inactive') return;
+  $('micBtn').classList.remove('rec');
+  const done = new Promise(res => { mediaRec.onstop = res; });
+  mediaRec.stop(); await done;
+  micStream.getTracks().forEach(t => t.stop());
+  const buf = await new Blob(chunks).arrayBuffer();
+  const wav = await encodeWav16k(buf);
+  const fd = new FormData(); fd.append('audio', new Blob([wav], { type:'audio/wav' }), 'cmd.wav');
+  showLog('⏳ đang nhận lệnh…');
+  try {
+    const x = await (await fetch(HTTP + '/v1/stt', { method:'POST', body: fd })).json();
+    showLog(`🗣 "${x.text}"  (tin cậy ${(x.confidence*100).toFixed(0)}%)` + (x.repeat ? '\n❓ không chắc — xin nói lại' : ''));
+    if (x.repeat && x.audio_base64) playB64(x.audio_base64);
+  } catch (e) { showLog('lỗi STT: ' + e); }
+}
+async function encodeWav16k(abuf) {
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const decoded = await ctx.decodeAudioData(abuf.slice(0));
+  const src = decoded.getChannelData(0);
+  const ratio = decoded.sampleRate / 16000, n = Math.floor(src.length / ratio);
+  const pcm = new Int16Array(n);
+  for (let i = 0; i < n; i++) pcm[i] = Math.max(-32768, Math.min(32767, Math.round(src[Math.floor(i*ratio)] * 32767)));
+  ctx.close();
+  const out = new ArrayBuffer(44 + n*2), v = new DataView(out);
+  const wstr = (o, s) => { for (let i = 0; i < s.length; i++) v.setUint8(o+i, s.charCodeAt(i)); };
+  wstr(0,'RIFF'); v.setUint32(4, 36+n*2, true); wstr(8,'WAVEfmt '); v.setUint32(16,16,true);
+  v.setUint16(20,1,true); v.setUint16(22,1,true); v.setUint32(24,16000,true);
+  v.setUint32(28,32000,true); v.setUint16(32,2,true); v.setUint16(34,16,true);
+  wstr(36,'data'); v.setUint32(40,n*2,true);
+  new Int16Array(out, 44).set(pcm);
+  return out;
+}
+
+/* ---------- UI helpers ---------- */
+function setConn(t, ok) { const el = $('conn'); el.textContent = t; el.className = ok ? 'ok' : 'bad'; }
+function hud(t) { $('hud').textContent = t; }
+let logTimer;
+function showLog(t) { const el = $('log'); el.style.display='block'; el.textContent = t;
+  clearTimeout(logTimer); logTimer = setTimeout(() => el.style.display='none', 6000); }
+function showBanner(t, ms) { const b = $('banner'); b.textContent = '⚠️ ' + t; b.style.display='block';
+  setTimeout(() => b.style.display='none', ms); }
+
+/* ---------- main loop ---------- */
+$('startBtn').addEventListener('click', async () => {
+  if (running) return;
+  unlockAudio();
+  try { await startCamera(); } catch (e) { alert('Không mở được camera: ' + e.message + '\n(Phải dùng HTTPS)'); return; }
+  running = true; $('micBtn').disabled = false; $('startBtn').textContent = '● ĐANG CHẠY';
+  preloadAlerts(); wsConnect();
+  setInterval(async () => {
+    if (!running || !ws || ws.readyState !== 1 || busy) return;
+    const now = Date.now();
+    if (now - lastFrameAt < FRAME_MS - 50) return;
+    busy = true; lastFrameAt = now;
+    try { ws.send(JSON.stringify({ image_base64: grabJpeg(document.createElement('canvas')) })); }
+    catch (e) { busy = false; }
+  }, Math.max(FRAME_MS, 200));
+});
+</script>
+</body>
+</html>

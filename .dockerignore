@@ -1,0 +1,12 @@
+# Context nhỏ — weights/data lớn đều mount từ host, KHÔNG vào image
+.venv/
+models/
+benchmarks/data/
+logs/
+certs/
+.env
+__pycache__/
+**/__pycache__
+*.pyc
+.git/
+plan_v4_study/

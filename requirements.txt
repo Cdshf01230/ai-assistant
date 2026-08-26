@@ -1,0 +1,33 @@
+# MVP Trợ lý Thị giác AI — model stack
+# Target: AWS g4dn.xlarge/2xlarge, 1x NVIDIA T4 (sm_75, fp16 only — KHÔNG có bf16)
+# Python 3.14
+
+# --- Core inference (GPU: VLM) ---
+torch
+torchvision
+transformers>=5.0.0
+accelerate
+safetensors
+pillow
+
+# --- Model download (huggingface_hub 1.x: hf-xet thay cho hf_transfer) ---
+huggingface_hub
+
+# --- STT (CPU: PhoWhisper) ---
+librosa
+soundfile
+numpy
+
+# --- TTS (CPU/ONNX: VieNeu-TTS v3 Turbo, torch-free path) ---
+# Kéo theo: sea-g2p, onnxruntime, soxr, kaldi-native-fbank, perth, gradio
+vieneu>=3.3.0
+
+# --- Serving ---
+fastapi
+uvicorn[standard]
+websockets
+python-multipart
+python-dotenv
+
+# --- Describe (API ngoài, kênh thuyết minh) ---
+google-genai

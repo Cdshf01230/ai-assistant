@@ -1,0 +1,1140 @@
+{
+ "_doc": "27 frame nhãn tay (assets/frames/ground_truth.json). Đầu vào VLM = output thật pipe_v6 (logs/eval_vlm_qwen3vl4b.json), geometry = dump checkpoint Indoor-Large đang dùng (logs/depth_indoor_large.json). Số đo gốc: recall 100%, specificity 75%, 3 âm khó bị báo thừa.",
+ "source_checkpoint": "depth-anything/Depth-Anything-V2-Metric-Indoor-Large-hf",
+ "prompt_tag": "pipe_v6",
+ "config": {
+  "free_abs_threshold": 7.0,
+  "near_rank_threshold": 0.5,
+  "depth_emergency_threshold": 2.0,
+  "confirm_frames": 2,
+  "clear_frames": 3,
+  "depth_fail_policy": "trust_vlm_near",
+  "mismatch_risk_penalty": 0.8,
+  "narrate_min_interval_s": 10.0
+ },
+ "aggregate_expect": {
+  "min_recall": 1.0,
+  "min_specificity": 0.75,
+  "max_false_positives": 3
+ },
+ "cases": [
+  {
+   "id": "core27/clear_00.jpg",
+   "image": "assets/frames/clear_00.jpg",
+   "label": {
+    "hazard": false,
+    "hard": true,
+    "types": [
+     "clear"
+    ],
+    "positions": [
+     "none"
+    ],
+    "note": "ÂM KHÓ. Đứng trên lòng đường, đường trống dài phía trước. Có thùng rác + cột ở sát rìa TRÁI ngoài tầm bước chân, và xe đỗ ở xa bên phải — theo định nghĩa thì không phải hazard. Frame này chính là phép thử §16."
+   },
+   "inputs": {
+    "vlm_raw": "object|front_left|near|move_left",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front_left",
+     "distance": "near",
+     "action": "move_left"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 8.0141,
+     "near_rank": 0.3393,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "depth_clear",
+    "risk": 0.1,
+    "mismatch": false,
+    "must_warn": null,
+    "may_warn": true
+   }
+  },
+  {
+   "id": "core27/clear_01.jpg",
+   "image": "assets/frames/clear_01.jpg",
+   "label": {
+    "hazard": false,
+    "hard": false,
+    "types": [
+     "clear"
+    ],
+    "positions": [
+     "none"
+    ],
+    "note": "ÂM. Lòng đường trống hẳn. Người đạp xe ở xa bên trái, xe đỗ ở xa, sạp quả ở lề xa bên phải. Không có gì trong 3 bước."
+   },
+   "inputs": {
+    "vlm_raw": "vehicle|front_right|mid|slow",
+    "vlm": {
+     "hazard": true,
+     "type": "vehicle",
+     "position": "front_right",
+     "distance": "mid",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 11.875,
+     "near_rank": 0.4024,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "depth_clear",
+    "risk": 0.1,
+    "mismatch": false,
+    "must_warn": null,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/clear_02.jpg",
+   "image": "assets/frames/clear_02.jpg",
+   "label": {
+    "hazard": true,
+    "hard": false,
+    "types": [
+     "person",
+     "object"
+    ],
+    "positions": [
+     "front",
+     "front_left"
+    ],
+    "note": "DƯƠNG dù query là 'empty sidewalk'. Đêm: một người ĐANG NẰM trên lối đi phía trước ~3 bước, đống túi rác chắn bên trái, ghế nhựa bên phải. Ca khó và đúng nghĩa nguy hiểm."
+   },
+   "inputs": {
+    "vlm_raw": "person|front|mid|slow",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "mid",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 6.8598,
+     "near_rank": 0.3242,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked",
+    "risk": 0.28,
+    "mismatch": true,
+    "must_warn": true,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/clearpath_00.jpg",
+   "image": "assets/frames/clearpath_00.jpg",
+   "label": {
+    "hazard": false,
+    "hard": false,
+    "types": [
+     "clear"
+    ],
+    "positions": [
+     "none"
+    ],
+    "note": "ÂM. Sân đá rộng trước lâu đài, trống hoàn toàn. Ghế băng ở xa hai bên bãi cỏ, không trong lối đi."
+   },
+   "inputs": {
+    "vlm_raw": "clear|none|none|none",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 19.8125,
+     "near_rank": 0.0079,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_clear",
+    "risk": null,
+    "mismatch": false,
+    "must_warn": null,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/clearpath_01.jpg",
+   "image": "assets/frames/clearpath_01.jpg",
+   "label": {
+    "hazard": true,
+    "hard": false,
+    "types": [
+     "object",
+     "pole",
+     "step"
+    ],
+    "positions": [
+     "front",
+     "front_right"
+    ],
+    "note": "DƯƠNG dù query là 'empty footpath'. Cầu gỗ hỏng: tấm ván chéo chắn ngang lối đi ~2 bước, trụ gỗ to bên phải, bậc thang phía trước."
+   },
+   "inputs": {
+    "vlm_raw": "object|front|near|stop",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "near",
+     "action": "stop"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 4.1055,
+     "near_rank": 0.4429,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked",
+    "risk": 0.28,
+    "mismatch": true,
+    "must_warn": true,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/crowd_00.jpg",
+   "image": "assets/frames/crowd_00.jpg",
+   "label": {
+    "hazard": true,
+    "hard": false,
+    "types": [
+     "object",
+     "person",
+     "furniture"
+    ],
+    "positions": [
+     "front",
+     "front_right",
+     "front_left"
+    ],
+    "note": "Chợ đông. Chậu nhựa cam ngay giữa lối đi ~2 bước; người đi cắt ngang bên phải; sạp hàng hai bên."
+   },
+   "inputs": {
+    "vlm_raw": "person|left|near|none",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "left",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 3.2988,
+     "near_rank": 0.1627,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked",
+    "risk": 0.28,
+    "mismatch": true,
+    "must_warn": true,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/crowd_01.jpg",
+   "image": "assets/frames/crowd_01.jpg",
+   "label": {
+    "hazard": true,
+    "hard": false,
+    "types": [
+     "vehicle",
+     "object",
+     "person"
+    ],
+    "positions": [
+     "right",
+     "front_right",
+     "front"
+    ],
+    "note": "Phố đêm. Dàn xe máy đỗ kín nửa phải khung hình, tràn vào lối đi; người đi phía trước."
+   },
+   "inputs": {
+    "vlm_raw": "person|front|near|slow",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 6.7031,
+     "near_rank": 0.4047,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked",
+    "risk": 0.28,
+    "mismatch": true,
+    "must_warn": true,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/door_00.jpg",
+   "image": "assets/frames/door_00.jpg",
+   "label": {
+    "hazard": true,
+    "hard": false,
+    "types": [
+     "step",
+     "door"
+    ],
+    "positions": [
+     "front",
+     "front_left",
+     "front_right"
+    ],
+    "note": "Sảnh toà nhà. Bậc thang thấp trải ngang ngay phía trước ~3 bước, cửa kính phía sau. Đúng case 'bậc thang' của §8."
+   },
+   "inputs": {
+    "vlm_raw": "door|front|near|slow",
+    "vlm": {
+     "hazard": true,
+     "type": "door",
+     "position": "front",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 14.5469,
+     "near_rank": 0.1048,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "escape_blind_type",
+    "risk": 0.6,
+    "mismatch": true,
+    "must_warn": true,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/door_01.jpg",
+   "image": "assets/frames/door_01.jpg",
+   "label": {
+    "hazard": true,
+    "hard": false,
+    "types": [
+     "door",
+     "wall",
+     "person"
+    ],
+    "positions": [
+     "front"
+    ],
+    "note": "Cửa kính trong suốt ngay trước mặt ~1-2 bước. Case nguy hiểm kinh điển: kính không nhìn thấy."
+   },
+   "inputs": {
+    "vlm_raw": "door|front|near|move_left",
+    "vlm": {
+     "hazard": true,
+     "type": "door",
+     "position": "front",
+     "distance": "near",
+     "action": "move_left"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 4.3555,
+     "near_rank": 0.0693,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geo+escape",
+    "risk": 0.6,
+    "mismatch": true,
+    "must_warn": true,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/lowlight_00.jpg",
+   "image": "assets/frames/lowlight_00.jpg",
+   "label": {
+    "hazard": true,
+    "hard": false,
+    "types": [
+     "vehicle",
+     "furniture",
+     "object"
+    ],
+    "positions": [
+     "front_left",
+     "left",
+     "front"
+    ],
+    "note": "Đêm. Xe đẩy hàng + xe máy ngay trước mặt lệch trái ~1-2 bước. Người ở xa bên phải KHÔNG phải hazard."
+   },
+   "inputs": {
+    "vlm_raw": "person|front_left|near|move_left",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front_left",
+     "distance": "near",
+     "action": "move_left"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 3.625,
+     "near_rank": 0.6111,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked",
+    "risk": 0.35,
+    "mismatch": false,
+    "must_warn": true,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/lowlight_01.jpg",
+   "image": "assets/frames/lowlight_01.jpg",
+   "label": {
+    "hazard": true,
+    "hard": false,
+    "types": [
+     "person",
+     "furniture",
+     "wall"
+    ],
+    "positions": [
+     "front"
+    ],
+    "note": "Quầy hàng ăn chắn ngay phía trước ~2 bước, hai người đang đứng xếp hàng chắn đường."
+   },
+   "inputs": {
+    "vlm_raw": "person|front|near|slow",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 4.9297,
+     "near_rank": 0.1244,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked",
+    "risk": 0.28,
+    "mismatch": true,
+    "must_warn": true,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/pole_00.jpg",
+   "image": "assets/frames/pole_00.jpg",
+   "label": {
+    "hazard": true,
+    "hard": false,
+    "types": [
+     "pole"
+    ],
+    "positions": [
+     "front",
+     "front_right"
+    ],
+    "note": "Cột điện đứng GIỮA lối đi bộ ~2 bước, xe máy đỗ chắn bên phải. Hazard rõ ràng nhất trong bộ."
+   },
+   "inputs": {
+    "vlm_raw": "pole|left|near|none",
+    "vlm": {
+     "hazard": true,
+     "type": "pole",
+     "position": "left",
+     "distance": "near",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 3.4512,
+     "near_rank": 0.1307,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked",
+    "risk": 0.28,
+    "mismatch": true,
+    "must_warn": true,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/street_00.jpg",
+   "image": "assets/frames/street_00.jpg",
+   "label": {
+    "hazard": true,
+    "hard": false,
+    "types": [
+     "vehicle",
+     "person"
+    ],
+    "positions": [
+     "front",
+     "front_left",
+     "front_right"
+    ],
+    "note": "Người đạp xe đang cắt ngang ngay trước mặt ~2-3 bước; một người đi bộ bên phải; cột bên trái."
+   },
+   "inputs": {
+    "vlm_raw": "person|front_left|near|slow",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front_left",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 3.7793,
+     "near_rank": 0.1602,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked",
+    "risk": 0.35,
+    "mismatch": false,
+    "must_warn": true,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/street_01.jpg",
+   "image": "assets/frames/street_01.jpg",
+   "label": {
+    "hazard": false,
+    "hard": false,
+    "types": [
+     "clear"
+    ],
+    "positions": [
+     "none"
+    ],
+    "note": "Hầm đường bộ. Lối đi bên phải trống hoàn toàn; xe chạy trên lòng đường và ở xa. Ground truth ÂM."
+   },
+   "inputs": {
+    "vlm_raw": "clear|none|none|none",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 14.625,
+     "near_rank": 0.0546,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_clear",
+    "risk": null,
+    "mismatch": false,
+    "must_warn": null,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/synth_person_front.jpg",
+   "image": "assets/frames/synth_person_front.jpg",
+   "label": {
+    "hazard": true,
+    "hard": false,
+    "types": [
+     "person"
+    ],
+    "positions": [
+     "front"
+    ],
+    "note": "Synthetic: hình người ngay giữa lối đi."
+   },
+   "inputs": {
+    "vlm_raw": "person|front|near|slow",
+    "vlm": {
+     "hazard": true,
+     "type": "person",
+     "position": "front",
+     "distance": "near",
+     "action": "slow"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.3516,
+     "near_rank": 0.6752,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked",
+    "risk": 0.35,
+    "mismatch": false,
+    "must_warn": true,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/synth_pole_right.jpg",
+   "image": "assets/frames/synth_pole_right.jpg",
+   "label": {
+    "hazard": true,
+    "hard": false,
+    "types": [
+     "pole",
+     "object"
+    ],
+    "positions": [
+     "right",
+     "front_right"
+    ],
+    "note": "Synthetic: cột chữ nhật bên phải lối đi."
+   },
+   "inputs": {
+    "vlm_raw": "pole|right|near|move_left",
+    "vlm": {
+     "hazard": true,
+     "type": "pole",
+     "position": "right",
+     "distance": "near",
+     "action": "move_left"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 4.9219,
+     "near_rank": 0.0215,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked",
+    "risk": 0.28,
+    "mismatch": true,
+    "must_warn": true,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/synthclear_dark.jpg",
+   "image": "assets/frames/synthclear_dark.jpg",
+   "label": {
+    "hazard": false,
+    "hard": false,
+    "types": [
+     "clear"
+    ],
+    "positions": [
+     "none"
+    ],
+    "note": "ÂM synthetic: lối đi trống, ban đêm, có vạch kẻ giữa. Kiểm tra ánh sáng yếu không tự sinh ra cảnh báo."
+   },
+   "inputs": {
+    "vlm_raw": "clear|none|none|none",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 7.3047,
+     "near_rank": 0.0102,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_clear",
+    "risk": null,
+    "mismatch": false,
+    "must_warn": null,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/synthclear_grey.jpg",
+   "image": "assets/frames/synthclear_grey.jpg",
+   "label": {
+    "hazard": false,
+    "hard": false,
+    "types": [
+     "clear"
+    ],
+    "positions": [
+     "none"
+    ],
+    "note": "ÂM synthetic: lối đi trống, tông xám."
+   },
+   "inputs": {
+    "vlm_raw": "clear|none|none|none",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 3.1572,
+     "near_rank": 0.0195,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_clear",
+    "risk": null,
+    "mismatch": false,
+    "must_warn": null,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/synthclear_indoor.jpg",
+   "image": "assets/frames/synthclear_indoor.jpg",
+   "label": {
+    "hazard": false,
+    "hard": false,
+    "types": [
+     "clear"
+    ],
+    "positions": [
+     "none"
+    ],
+    "note": "ÂM synthetic: hành lang trong nhà, trống, tông sáng đều."
+   },
+   "inputs": {
+    "vlm_raw": "clear|none|none|none",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 2.3926,
+     "near_rank": 0.0154,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_clear",
+    "risk": null,
+    "mismatch": false,
+    "must_warn": null,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/synthclear_tiled.jpg",
+   "image": "assets/frames/synthclear_tiled.jpg",
+   "label": {
+    "hazard": false,
+    "hard": false,
+    "types": [
+     "clear"
+    ],
+    "positions": [
+     "none"
+    ],
+    "note": "ÂM synthetic: lối đi trống, có vạch kẻ dọc. Kiểm tra model không nhầm vạch kẻ thành vật cản."
+   },
+   "inputs": {
+    "vlm_raw": "clear|none|none|none",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 7.6758,
+     "near_rank": 0.0159,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_clear",
+    "risk": null,
+    "mismatch": false,
+    "must_warn": null,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/synthclear_warm.jpg",
+   "image": "assets/frames/synthclear_warm.jpg",
+   "label": {
+    "hazard": false,
+    "hard": false,
+    "types": [
+     "clear"
+    ],
+    "positions": [
+     "none"
+    ],
+    "note": "ÂM synthetic: lối đi trống, tông nắng ấm. Đổi màu để kiểm tra model không chỉ phản ứng với một bộ màu."
+   },
+   "inputs": {
+    "vlm_raw": "clear|none|none|none",
+    "vlm": {
+     "hazard": false,
+     "type": "clear",
+     "position": "none",
+     "distance": "none",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 3.375,
+     "near_rank": 0.0132,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": false,
+    "reason": "vlm_clear",
+    "risk": null,
+    "mismatch": false,
+    "must_warn": null,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/synthfar_person.jpg",
+   "image": "assets/frames/synthfar_person.jpg",
+   "label": {
+    "hazard": false,
+    "hard": true,
+    "types": [
+     "clear"
+    ],
+    "positions": [
+     "none"
+    ],
+    "note": "ÂM KHÓ synthetic: người nhỏ, ở xa gần đường chân trời, chưa đáng cảnh báo."
+   },
+   "inputs": {
+    "vlm_raw": "object|front|mid|none",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front",
+     "distance": "mid",
+     "action": "none"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 5.6719,
+     "near_rank": 0.2527,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked",
+    "risk": 0.35,
+    "mismatch": false,
+    "must_warn": null,
+    "may_warn": true
+   }
+  },
+  {
+   "id": "core27/synthfar_pole.jpg",
+   "image": "assets/frames/synthfar_pole.jpg",
+   "label": {
+    "hazard": false,
+    "hard": true,
+    "types": [
+     "clear"
+    ],
+    "positions": [
+     "none"
+    ],
+    "note": "ÂM KHÓ synthetic: đúng cây cột của synthnear_pole nhưng ở tận đường chân trời. §16: vật xa thì CHƯA cảnh báo. Cặp với synthnear_pole để đo xem model có suy luận khoảng cách hay chỉ phát hiện vật thể."
+   },
+   "inputs": {
+    "vlm_raw": "pole|front|near|move_left",
+    "vlm": {
+     "hazard": true,
+     "type": "pole",
+     "position": "front",
+     "distance": "near",
+     "action": "move_left"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 5.8008,
+     "near_rank": 0.1251,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked",
+    "risk": 0.35,
+    "mismatch": false,
+    "must_warn": null,
+    "may_warn": true
+   }
+  },
+  {
+   "id": "core27/synthnear_pole.jpg",
+   "image": "assets/frames/synthnear_pole.jpg",
+   "label": {
+    "hazard": true,
+    "hard": false,
+    "types": [
+     "pole",
+     "object",
+     "wall"
+    ],
+    "positions": [
+     "front",
+     "front_left",
+     "front_right"
+    ],
+    "note": "DƯƠNG đối chứng synthetic: đúng cây cột đó, ngay trước mặt, trong lối đi. Nếu model trả CLEAR ở đây thì recall của nó vô giá trị."
+   },
+   "inputs": {
+    "vlm_raw": "pole|front|near|move_left",
+    "vlm": {
+     "hazard": true,
+     "type": "pole",
+     "position": "front",
+     "distance": "near",
+     "action": "move_left"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 1.2236,
+     "near_rank": 0.7596,
+     "col": 1,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "depth_emergency",
+    "risk": 0.95,
+    "mismatch": false,
+    "must_warn": true,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/synthside_pole.jpg",
+   "image": "assets/frames/synthside_pole.jpg",
+   "label": {
+    "hazard": false,
+    "hard": true,
+    "types": [
+     "clear"
+    ],
+    "positions": [
+     "none"
+    ],
+    "note": "ÂM KHÓ synthetic: cột to nhưng nằm HẲN ngoài lối đi phía trái. §16: lệch sang bên thì không cảnh báo."
+   },
+   "inputs": {
+    "vlm_raw": "pole|left|near|move_right",
+    "vlm": {
+     "hazard": true,
+     "type": "pole",
+     "position": "left",
+     "distance": "near",
+     "action": "move_right"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 4.8262,
+     "near_rank": 0.023,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked",
+    "risk": 0.35,
+    "mismatch": false,
+    "must_warn": null,
+    "may_warn": true
+   }
+  },
+  {
+   "id": "core27/vehicle_00.jpg",
+   "image": "assets/frames/vehicle_00.jpg",
+   "label": {
+    "hazard": true,
+    "hard": false,
+    "types": [
+     "vehicle"
+    ],
+    "positions": [
+     "right",
+     "front_right"
+    ],
+    "note": "Hàng xe máy đỗ dọc lề phải, ghi-đông chìa vào lối đi. Bên trái còn trống nên action đúng là move_left."
+   },
+   "inputs": {
+    "vlm_raw": "object|left|mid|move_left",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "left",
+     "distance": "mid",
+     "action": "move_left"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 3.793,
+     "near_rank": 0.3053,
+     "col": 2,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked",
+    "risk": 0.28,
+    "mismatch": true,
+    "must_warn": true,
+    "may_warn": false
+   }
+  },
+  {
+   "id": "core27/vehicle_01.jpg",
+   "image": "assets/frames/vehicle_01.jpg",
+   "label": {
+    "hazard": true,
+    "hard": false,
+    "types": [
+     "vehicle",
+     "pole"
+    ],
+    "positions": [
+     "front",
+     "front_right",
+     "front_left"
+    ],
+    "note": "Xe máy đỗ chắn lối đi phía trước; cột đèn ngay giữa-trái ~2 bước."
+   },
+   "inputs": {
+    "vlm_raw": "object|front_left|near|move_left",
+    "vlm": {
+     "hazard": true,
+     "type": "object",
+     "position": "front_left",
+     "distance": "near",
+     "action": "move_left"
+    },
+    "geo": {
+     "valid": true,
+     "free_min": 6.8945,
+     "near_rank": 0.3651,
+     "col": 0,
+     "coverage": 1.0
+    }
+   },
+   "expect": {
+    "frame_positive": true,
+    "reason": "geometry_blocked",
+    "risk": 0.35,
+    "mismatch": false,
+    "must_warn": true,
+    "may_warn": false
+   }
+  }
+ ]
+}

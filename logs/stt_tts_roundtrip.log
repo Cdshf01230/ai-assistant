@@ -1,0 +1,47 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Model : vinai/PhoWhisper-small
+Device: cuda | dtype=float16 | threads=2
+Loading weights:   0%|          | 0/480 [00:00<?, ?it/s]Loading weights:   0%|          | 2/480 [00:02<10:34,  1.33s/it]Loading weights:  48%|████▊     | 231/480 [00:02<00:02, 107.01it/s]Loading weights:  58%|█████▊    | 277/480 [00:03<00:01, 111.67it/s]Loading weights:  64%|██████▍   | 308/480 [00:03<00:01, 97.46it/s] Loading weights:  69%|██████▉   | 330/480 [00:04<00:01, 96.93it/s]Loading weights:  72%|███████▏  | 347/480 [00:04<00:01, 79.18it/s]Loading weights:  76%|███████▌  | 363/480 [00:04<00:01, 80.34it/s]Loading weights:  78%|███████▊  | 376/480 [00:04<00:01, 81.73it/s]Loading weights:  81%|████████▏ | 391/480 [00:05<00:01, 75.53it/s]Loading weights:  85%|████████▍ | 406/480 [00:05<00:01, 73.24it/s]Loading weights:  88%|████████▊ | 421/480 [00:05<00:00, 78.00it/s]Loading weights:  91%|█████████ | 436/480 [00:05<00:00, 76.97it/s]Loading weights:  94%|█████████▍| 451/480 [00:05<00:00, 73.96it/s]Loading weights:  97%|█████████▋| 466/480 [00:06<00:00, 74.54it/s]Loading weights: 100%|██████████| 480/480 [00:06<00:00, 78.80it/s]
+[transformers] Both `max_new_tokens` (=64) and `max_length`(=448) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] A custom logits processor of type <class 'transformers.generation.logits_process.SuppressTokensLogitsProcessor'> has been passed to `.generate()`, but it was also created in `.generate()`, given its parameterization. The custom <class 'transformers.generation.logits_process.SuppressTokensLogitsProcessor'> will take precedence. Please check the docstring of <class 'transformers.generation.logits_process.SuppressTokensLogitsProcessor'> to see related `.generate()` flags.
+[transformers] A custom logits processor of type <class 'transformers.generation.logits_process.SuppressTokensAtBeginLogitsProcessor'> has been passed to `.generate()`, but it was also created in `.generate()`, given its parameterization. The custom <class 'transformers.generation.logits_process.SuppressTokensAtBeginLogitsProcessor'> will take precedence. Please check the docstring of <class 'transformers.generation.logits_process.SuppressTokensAtBeginLogitsProcessor'> to see related `.generate()` flags.
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer WhisperTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+[transformers] Both `max_new_tokens` (=64) and `max_length`(=448) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=64) and `max_length`(=448) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=64) and `max_length`(=448) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=64) and `max_length`(=448) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=64) and `max_length`(=448) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=64) and `max_length`(=448) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=64) and `max_length`(=448) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=64) and `max_length`(=448) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+Load  : 7.8s
+
+  command_00.wav      1.4s audio |    639 ms | RTF 0.47 | NAVIGATE(dest='vincom')
+    -> 'đưa tôi đến vincom.'
+       ref='đưa tôi đến vincom'  WER=0%
+  command_01.wav      1.3s audio |    131 ms | RTF 0.10 | DESCRIBE
+    -> 'xung quanh nó dị.'
+       ref='xung quanh có gì'  WER=50%
+  command_02.wav      1.0s audio |    164 ms | RTF 0.16 | READ_TEXT
+    -> 'đọc biển phía trước.'
+       ref='đọc biển phía trước'  WER=0%
+  command_03.wav      1.0s audio |    121 ms | RTF 0.12 | UNKNOWN
+    -> 'dựng dẫn đường.'
+       ref='dừng dẫn đường'  WER=33%
+  critical_00.wav     0.8s audio |     95 ms | RTF 0.12 | UNKNOWN
+    -> 'diễn lại.'
+  critical_01.wav     0.7s audio |    102 ms | RTF 0.14 | UNKNOWN
+    -> 'rẻ tái.'
+  critical_02.wav     1.7s audio |    174 ms | RTF 0.10 | UNKNOWN
+    -> 'có vật cản phía trước bên phải.'
+  dynamic_00.wav      2.5s audio |    268 ms | RTF 0.11 | UNKNOWN
+    -> 'khoảng ba mươi mét nữa rẽ phải vào đường nguyễn trãi.'
+  dynamic_01.wav      3.1s audio |    304 ms | RTF 0.10 | UNKNOWN
+    -> 'đang dẫn đường tới vincom bà triệu còn khoảng bốn trăm mét.'
+
+--- Kết luận STT ---
+  latency median 164 ms | max 639 ms
+  WER trung bình trên 4 command: 21%
+  (lưu ý: audio là TTS-synth, sạch hơn thực tế — cần thu ngoài đường để đánh giá thật)
+  ngưỡng confidence đề xuất: 0.6 -> dưới mức này phát REPEAT_PLEASE.wav
+  => GPU 164 ms. Tốn thêm ~0.5 GiB VRAM (T4 còn dư ~10 GiB sau VLM) và STT chỉ chạy lúc push-to-talk nên không cản VLM. Nên chọn đường này.

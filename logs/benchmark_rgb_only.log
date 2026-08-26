@@ -1,0 +1,51 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[ERROR] `min_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /home/ubuntu/ai-assistant/.venv/lib/python3.14/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+[ERROR] `max_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /home/ubuntu/ai-assistant/.venv/lib/python3.14/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+Loading weights:   0%|          | 0/713 [00:00<?, ?it/s]Loading weights:   0%|          | 1/713 [00:01<12:18,  1.04s/it]Loading weights:  10%|▉         | 69/713 [00:01<00:08, 79.14it/s]Loading weights:  14%|█▎        | 98/713 [00:01<00:06, 96.76it/s]Loading weights:  17%|█▋        | 121/713 [00:01<00:05, 99.90it/s]Loading weights:  19%|█▉        | 139/713 [00:01<00:05, 99.23it/s]Loading weights:  22%|██▏       | 154/713 [00:01<00:05, 107.34it/s]Loading weights:  24%|██▎       | 169/713 [00:02<00:05, 98.03it/s] Loading weights:  26%|██▌       | 182/713 [00:02<00:05, 98.26it/s]Loading weights:  28%|██▊       | 201/713 [00:02<00:04, 103.74it/s]Loading weights:  30%|██▉       | 213/713 [00:02<00:04, 100.55it/s]Loading weights:  33%|███▎      | 234/713 [00:02<00:04, 106.69it/s]Loading weights:  35%|███▍      | 246/713 [00:02<00:04, 107.87it/s]Loading weights:  37%|███▋      | 267/713 [00:02<00:04, 108.52it/s]Loading weights:  39%|███▉      | 280/713 [00:03<00:03, 112.72it/s]Loading weights:  41%|████      | 292/713 [00:03<00:03, 109.35it/s]Loading weights:  43%|████▎     | 304/713 [00:03<00:03, 103.83it/s]Loading weights:  45%|████▌     | 322/713 [00:03<00:03, 111.67it/s]Loading weights:  47%|████▋     | 334/713 [00:03<00:03, 110.04it/s]Loading weights:  50%|████▉     | 355/713 [00:03<00:03, 106.57it/s]Loading weights:  52%|█████▏    | 368/713 [00:03<00:03, 106.58it/s]Loading weights:  54%|█████▍    | 388/713 [00:04<00:02, 117.59it/s]Loading weights:  69%|██████▊   | 490/713 [00:04<00:00, 326.30it/s]Loading weights:  87%|████████▋ | 618/713 [00:04<00:00, 560.07it/s]Loading weights:  98%|█████████▊| 698/713 [00:04<00:00, 617.90it/s]Loading weights: 100%|██████████| 713/713 [00:04<00:00, 163.00it/s]
+Model : Qwen/Qwen3-VL-4B-Instruct | fp16 | 640px
+Frames: 27 dùng được (15 có vật cản / 12 trống)
+Prompt: pipe_v6 | repeat=1
+
+--- pipe_v6 ---
+  recall 87% (13/15)  specificity 75% (9/12)  balanced 81%
+  specificity trên 4 frame ÂM KHÓ (vật ở xa / lệch bên, §16): 25% (1/4)
+  type 85%  position 85%  | 822 ms  10.3 tok  sai schema 0
+  cùng-1-cây-cột: gần=pole|front|near|move_left xa=pole|front|near|move_left lệch-bên=pole|left|near|move_right
+                  -> KHÔNG phân biệt được xa/gần (cả hai đều near)
+    CLR clear_00.jpg               object|front_left|near|move_left   BÁO THỪA
+    CLR clear_01.jpg               vehicle|front_right|mid|slow       ok
+    HAZ clear_02.jpg               person|front|mid|slow              BỎ SÓT
+    CLR clearpath_00.jpg           clear|none|none|none               ok
+    HAZ clearpath_01.jpg           object|front|near|stop             ok
+    HAZ crowd_00.jpg               person|left|near|none              ok
+    HAZ crowd_01.jpg               person|front|near|slow             ok
+    HAZ door_00.jpg                door|front|near|slow               ok
+    HAZ door_01.jpg                door|front|near|move_left          ok
+    HAZ lowlight_00.jpg            person|front_left|near|move_left   ok
+    HAZ lowlight_01.jpg            person|front|near|slow             ok
+    HAZ pole_00.jpg                pole|left|near|none                ok
+    HAZ street_00.jpg              person|front_left|near|slow        ok
+    CLR street_01.jpg              clear|none|none|none               ok
+    HAZ synth_person_front.jpg     person|front|near|slow             ok
+    HAZ synth_pole_right.jpg       pole|right|near|move_left          ok
+    CLR synthclear_dark.jpg        clear|none|none|none               ok
+    CLR synthclear_grey.jpg        clear|none|none|none               ok
+    CLR synthclear_indoor.jpg      clear|none|none|none               ok
+    CLR synthclear_tiled.jpg       clear|none|none|none               ok
+    CLR synthclear_warm.jpg        clear|none|none|none               ok
+    CLR synthfar_person.jpg        object|front|mid|none              ok
+    CLR synthfar_pole.jpg          pole|front|near|move_left          BÁO THỪA
+    HAZ synthnear_pole.jpg         pole|front|near|move_left          ok
+    CLR synthside_pole.jpg         pole|left|near|move_right          BÁO THỪA
+    HAZ vehicle_00.jpg             object|left|mid|move_left          BỎ SÓT
+    HAZ vehicle_01.jpg             object|front_left|near|move_left   ok
+
+=== Tổng hợp (sắp theo balanced accuracy) ===
+prompt      recall  specif  sp.khó  balanc   type    pos      ms    tok
+pipe_v6       87%    75%    25%    81%   85%   85%    822   10.3
+
+Tốt nhất: pipe_v6 — balanced 81%, recall 87%, specificity 75% (âm khó 25%), 822 ms
+  CẢNH BÁO: recall 87% nghĩa là cứ 10 vật cản thì bỏ sót 1. Với thiết bị dẫn đường thì KHÔNG dùng được một mình — §16 cần thêm detector/depth, hoặc đổi model lớn hơn.
+  CẢNH BÁO: specificity trên frame âm khó chỉ 25% — model báo cả vật ở xa và vật lệch hẳn sang bên. Đúng nguy cơ 'overload thông tin' mà §30 lo. Decision Engine (§14/§16) phải tự lọc theo khoảng cách, không tin được VLM ở khoản này.
+
+LƯU Ý: chỉ 12 frame ground-truth âm nên specificity có bước nhảy 8%. §8 vẫn cần 100-500 frame thật có nhãn.

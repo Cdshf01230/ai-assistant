@@ -1,0 +1,18 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/287 [00:00<?, ?it/s]Loading weights: 100%|██████████| 287/287 [00:00<00:00, 3855.53it/s]
+{
+  "model": "depth-anything/Depth-Anything-V2-Metric-Outdoor-Small-hf",
+  "limit": 50,
+  "diode": {
+    "samples": 50,
+    "abs_rel": 0.5597029669582844,
+    "rmse": 3.6966011345386507,
+    "delta1": 0.33707970128759784
+  },
+  "nyu": {
+    "samples": 50,
+    "abs_rel": 1.9093395686149597,
+    "rmse": 5.07694053888321,
+    "delta1": 0.010245052083333333
+  }
+}

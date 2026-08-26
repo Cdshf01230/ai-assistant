@@ -1,0 +1,98 @@
+{
+  "dataset": "VizWiz-VQA validation",
+  "model": "Qwen/Qwen3-VL-4B-Instruct",
+  "samples": 10,
+  "answerability_accuracy": 0.8,
+  "results": [
+    {
+      "image": "VizWiz_val_00000000.jpg",
+      "question": "Ok. There is another picture I hope it is a better one.",
+      "ground_truth_answerable": false,
+      "prediction_answerable": true,
+      "ground_truth": "unanswerable",
+      "prediction": "ANSWERABLE\nA computer screen displaying an error message about a device being attached",
+      "latency_ms": 2924
+    },
+    {
+      "image": "VizWiz_val_00000001.jpg",
+      "question": "Can you tell me what this medicine is please?",
+      "ground_truth_answerable": true,
+      "prediction_answerable": true,
+      "ground_truth": "other",
+      "prediction": "ANSWERABLE\nNight Time",
+      "latency_ms": 442
+    },
+    {
+      "image": "VizWiz_val_00000002.jpg",
+      "question": "What is the title of this book? ",
+      "ground_truth_answerable": true,
+      "prediction_answerable": true,
+      "ground_truth": "other",
+      "prediction": "ANSWERABLE\nDog Years",
+      "latency_ms": 575
+    },
+    {
+      "image": "VizWiz_val_00000003.jpg",
+      "question": "Which one is the blue one?",
+      "ground_truth_answerable": true,
+      "prediction_answerable": true,
+      "ground_truth": "other",
+      "prediction": "right",
+      "latency_ms": 313
+    },
+    {
+      "image": "VizWiz_val_00000004.jpg",
+      "question": "What does the arrow say?",
+      "ground_truth_answerable": false,
+      "prediction_answerable": false,
+      "ground_truth": "unanswerable",
+      "prediction": "UNANSWERABLE",
+      "latency_ms": 471
+    },
+    {
+      "image": "VizWiz_val_00000005.jpg",
+      "question": "What the screen says? Thank you.",
+      "ground_truth_answerable": true,
+      "prediction_answerable": true,
+      "ground_truth": "other",
+      "prediction": "ANSWERABLE\nWindows 7 Home Premium",
+      "latency_ms": 731
+    },
+    {
+      "image": "VizWiz_val_00000006.jpg",
+      "question": "What is seen on the laptop screen? What is seen on the laptop screen?",
+      "ground_truth_answerable": false,
+      "prediction_answerable": false,
+      "ground_truth": "unanswerable",
+      "prediction": "UNANSWERABLE",
+      "latency_ms": 501
+    },
+    {
+      "image": "VizWiz_val_00000007.jpg",
+      "question": "Okay I think I got it this time. Can you read the model and serial number for me? Thanks.",
+      "ground_truth_answerable": false,
+      "prediction_answerable": false,
+      "ground_truth": "unanswerable",
+      "prediction": "UNANSWERABLE",
+      "latency_ms": 503
+    },
+    {
+      "image": "VizWiz_val_00000008.jpg",
+      "question": "Is this shampoo or conditioner?",
+      "ground_truth_answerable": false,
+      "prediction_answerable": true,
+      "ground_truth": "unanswerable",
+      "prediction": "shampoo",
+      "latency_ms": 367
+    },
+    {
+      "image": "VizWiz_val_00000009.jpg",
+      "question": "Can you describe for me what's going on outside the window? Just curious.",
+      "ground_truth_answerable": true,
+      "prediction_answerable": true,
+      "ground_truth": "other",
+      "prediction": "ANSWERABLE\nA brick building with windows and some greenery outside.",
+      "latency_ms": 1084
+    }
+  ]
+}

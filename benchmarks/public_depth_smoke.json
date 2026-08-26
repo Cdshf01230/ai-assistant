@@ -1,0 +1,16 @@
+{
+  "model": "depth-anything/Depth-Anything-V2-Metric-Outdoor-Small-hf",
+  "limit": 10,
+  "diode": {
+    "samples": 10,
+    "abs_rel": 0.4961959086358547,
+    "rmse": 3.4583376049995422,
+    "delta1": 0.3904478901572829
+  },
+  "nyu": {
+    "samples": 10,
+    "abs_rel": 1.7059524655342102,
+    "rmse": 4.726005327701569,
+    "delta1": 0.010491210937499999
+  }
+}

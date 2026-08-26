@@ -1,0 +1,62 @@
+VLM   : Qwen/Qwen3-VL-4B-Instruct / pipe_v6
+Depth : depth-anything/Depth-Anything-V2-Metric-Outdoor-Small-hf | free3 | p10 | 10 ms
+Frames: 27 khớp cả hai dump
+
+--- Quét ngưỡng ghép (free3) ---
+    ngưỡng  D recall  D spec  D khó  E recall  E spec  E khó
+     8.00      33%    100%   100%      40%    100%   100%
+    10.00      47%     92%    75%      53%     92%    75%
+    12.00      73%     92%    75%      80%     92%    75%
+    14.00      73%     92%    75%      80%     92%    75%
+    15.00      87%     92%    75%      93%     92%    75%
+    16.00      87%     92%    75%      93%     92%    75%
+    18.00      87%     92%    75%      93%     92%    75%
+    19.00      93%     92%    75%     100%     92%    75%
+    19.50      93%     83%    50%     100%     83%    50%
+    20.00     100%     83%    50%     100%     83%    50%
+    21.00     100%     83%    50%     100%     83%    50%
+    22.00     100%     83%    50%     100%     83%    50%
+    24.00     100%     83%    50%     100%     83%    50%
+    26.00     100%     67%     0%     100%     67%     0%
+  quy tắc chọn: E giữ recall 100% ở ngưỡng thấp nhất
+  => ngưỡng 19.00m (recall 100%, specificity 92%, âm khó 75%)
+  dư địa tới vật cản ngưỡng-phải-bắt xa nhất (18.80): +0.20 = 1.1%   <- QUÁ SÁT, ngưỡng đang bị ghim bởi 1 frame
+
+Ngưỡng dùng: free3 < 19.00m
+
+chiến lược          recall  specif  sp.khó   balanc   type  hướng
+A. VLM near+mid      100%    58%     0%     79%   80%   80%
+B. VLM chỉ near       87%    75%    25%     81%   85%   85%
+C. chỉ depth          93%    50%    75%     72%    0%   71%
+D. VLM AND depth      93%    92%    75%     92%   79%   79%
+E. D + cửa thoát     100%    92%    75%     96%   80%   80%
+
+A. VLM near+mid
+   bỏ sót  (0): —
+   báo thừa(5): clear_00.jpg (âm khó), clear_01.jpg, synthfar_pole.jpg (âm khó), synthfar_person.jpg (âm khó), synthside_pole.jpg (âm khó)
+B. VLM chỉ near
+   bỏ sót  (2): clear_02.jpg, vehicle_00.jpg
+   báo thừa(3): clear_00.jpg (âm khó), synthfar_pole.jpg (âm khó), synthside_pole.jpg (âm khó)
+C. chỉ depth
+   bỏ sót  (1): door_00.jpg
+   báo thừa(6): street_01.jpg, synthclear_grey.jpg, synthclear_warm.jpg, synthclear_dark.jpg, synthclear_indoor.jpg, synthside_pole.jpg (âm khó)
+D. VLM AND depth
+   bỏ sót  (1): door_00.jpg
+   báo thừa(1): synthside_pole.jpg (âm khó)
+E. D + cửa thoát
+   bỏ sót  (0): —
+   báo thừa(1): synthside_pole.jpg (âm khó)
+
+=== Kết luận ===
+                  recall  specif  sp.khó  balanc
+  A baseline       100%    58%     0%    79%
+  D AND thuần       93%    92%    75%    92%
+  E đề xuất        100%    92%    75%    96%
+  âm khó: 0% -> 75%   <- đây là chỗ VLM đơn độc bằng 0
+  => Recall giữ nguyên 100%, specificity 58% -> 92%, âm khó 0% -> 75%.
+     Không đổi gì lấy gì: depth cấp đúng tín hiệu VLM đang thiếu.
+  Cửa thoát cho door/hole/step cứu được 1 frame mà AND thuần bỏ sót, giá: không mất specificity.
+
+LƯU Ý: 12 frame âm — specificity vẫn nhảy từng bước lớn. §8 vẫn cần 100-500 frame thật.
+LƯU Ý: ngưỡng trên KHÔNG phải mét thật (checkpoint VKITTI, camera gắn xe) — chỉ
+       dùng được thứ tự, và phải hiệu chuẩn lại cho từng máy.

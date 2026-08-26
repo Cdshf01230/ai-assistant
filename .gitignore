@@ -1,0 +1,21 @@
+# Môi trường / secret
+.venv/
+.env
+certs/
+
+# Weights — tải lại bằng scripts/01_download_models.py (~12 GB)
+models/
+
+# Dataset eval thô — chỉ giữ 120 ảnh COCO có nhãn dùng trong golden test.
+# Toàn bộ còn lại là dataset công khai, tải lại bằng script trong benchmarks/.
+benchmarks/data/*
+!benchmarks/data/coco
+benchmarks/data/coco/*
+!benchmarks/data/coco/val2017
+
+# Log runtime (kết quả eval JSON/MD vẫn được track — golden builder cần)
+logs/api_server.log
+
+# Cache python
+__pycache__/
+*.pyc

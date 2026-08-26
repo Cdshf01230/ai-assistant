@@ -1,0 +1,441 @@
+{
+  "checkpoint": "depth-anything/Depth-Anything-V2-Metric-Indoor-Large-hf",
+  "metric": true,
+  "pct": 10,
+  "long_edge": 640,
+  "latency_median_ms": 40.92956500062428,
+  "frames": {
+    "clear_00.jpg": {
+      "free3": 8.014062881469727,
+      "freeC": 12.0390625,
+      "col": 0,
+      "per_col": [
+        8.01,
+        12.04,
+        12.13
+      ],
+      "per_col_ratio": [
+        0.66,
+        0.992,
+        1.0
+      ],
+      "extent": 12.13
+    },
+    "clear_01.jpg": {
+      "free3": 11.875,
+      "freeC": 19.870311737060547,
+      "col": 2,
+      "per_col": [
+        16.15,
+        19.87,
+        11.88
+      ],
+      "per_col_ratio": [
+        0.813,
+        1.0,
+        0.598
+      ],
+      "extent": 19.87
+    },
+    "clear_02.jpg": {
+      "free3": 6.859765529632568,
+      "freeC": 9.803906440734863,
+      "col": 2,
+      "per_col": [
+        10.15,
+        9.8,
+        6.86
+      ],
+      "per_col_ratio": [
+        1.0,
+        0.966,
+        0.676
+      ],
+      "extent": 10.15
+    },
+    "clearpath_00.jpg": {
+      "free3": 19.8125,
+      "freeC": 19.96875,
+      "col": 2,
+      "per_col": [
+        19.89,
+        19.97,
+        19.81
+      ],
+      "per_col_ratio": [
+        0.996,
+        1.0,
+        0.992
+      ],
+      "extent": 19.97
+    },
+    "clearpath_01.jpg": {
+      "free3": 4.10546875,
+      "freeC": 7.370312690734863,
+      "col": 2,
+      "per_col": [
+        6.87,
+        7.37,
+        4.11
+      ],
+      "per_col_ratio": [
+        0.932,
+        1.0,
+        0.558
+      ],
+      "extent": 7.37
+    },
+    "crowd_00.jpg": {
+      "free3": 3.298828125,
+      "freeC": 3.794921875,
+      "col": 2,
+      "per_col": [
+        3.94,
+        3.79,
+        3.3
+      ],
+      "per_col_ratio": [
+        1.0,
+        0.962,
+        0.838
+      ],
+      "extent": 3.94
+    },
+    "crowd_01.jpg": {
+      "free3": 6.703125,
+      "freeC": 10.505468368530273,
+      "col": 0,
+      "per_col": [
+        6.7,
+        10.51,
+        11.26
+      ],
+      "per_col_ratio": [
+        0.595,
+        0.933,
+        1.0
+      ],
+      "extent": 11.26
+    },
+    "door_00.jpg": {
+      "free3": 14.546875,
+      "freeC": 15.3046875,
+      "col": 0,
+      "per_col": [
+        14.55,
+        15.3,
+        16.25
+      ],
+      "per_col_ratio": [
+        0.895,
+        0.942,
+        1.0
+      ],
+      "extent": 16.25
+    },
+    "door_01.jpg": {
+      "free3": 4.35546875,
+      "freeC": 4.46875,
+      "col": 2,
+      "per_col": [
+        4.68,
+        4.47,
+        4.36
+      ],
+      "per_col_ratio": [
+        1.001,
+        0.956,
+        0.932
+      ],
+      "extent": 4.68
+    },
+    "lowlight_00.jpg": {
+      "free3": 3.625,
+      "freeC": 9.3203125,
+      "col": 0,
+      "per_col": [
+        3.62,
+        9.32,
+        9.2
+      ],
+      "per_col_ratio": [
+        0.388,
+        1.0,
+        0.987
+      ],
+      "extent": 9.32
+    },
+    "lowlight_01.jpg": {
+      "free3": 4.9296875,
+      "freeC": 5.62890625,
+      "col": 2,
+      "per_col": [
+        4.96,
+        5.63,
+        4.93
+      ],
+      "per_col_ratio": [
+        0.881,
+        1.0,
+        0.876
+      ],
+      "extent": 5.63
+    },
+    "pole_00.jpg": {
+      "free3": 3.451171875,
+      "freeC": 3.966796875,
+      "col": 2,
+      "per_col": [
+        3.91,
+        3.97,
+        3.45
+      ],
+      "per_col_ratio": [
+        0.986,
+        1.001,
+        0.87
+      ],
+      "extent": 3.97
+    },
+    "street_00.jpg": {
+      "free3": 3.779296875,
+      "freeC": 3.779296875,
+      "col": 1,
+      "per_col": [
+        4.17,
+        3.78,
+        4.5
+      ],
+      "per_col_ratio": [
+        0.927,
+        0.841,
+        1.001
+      ],
+      "extent": 4.5
+    },
+    "street_01.jpg": {
+      "free3": 14.625,
+      "freeC": 14.7890625,
+      "col": 0,
+      "per_col": [
+        14.62,
+        14.79,
+        15.47
+      ],
+      "per_col_ratio": [
+        0.945,
+        0.956,
+        1.0
+      ],
+      "extent": 15.47
+    },
+    "synth_person_front.jpg": {
+      "free3": 2.3515625,
+      "freeC": 2.3515625,
+      "col": 1,
+      "per_col": [
+        7.12,
+        2.35,
+        7.24
+      ],
+      "per_col_ratio": [
+        0.983,
+        0.324,
+        0.999
+      ],
+      "extent": 7.24
+    },
+    "synth_pole_right.jpg": {
+      "free3": 4.921875,
+      "freeC": 5.02734375,
+      "col": 0,
+      "per_col": [
+        4.92,
+        5.03,
+        4.98
+      ],
+      "per_col_ratio": [
+        0.979,
+        1.001,
+        0.991
+      ],
+      "extent": 5.03
+    },
+    "synthclear_dark.jpg": {
+      "free3": 7.3046875,
+      "freeC": 7.37890625,
+      "col": 2,
+      "per_col": [
+        7.33,
+        7.38,
+        7.3
+      ],
+      "per_col_ratio": [
+        0.993,
+        1.0,
+        0.989
+      ],
+      "extent": 7.38
+    },
+    "synthclear_grey.jpg": {
+      "free3": 3.1572265625,
+      "freeC": 3.21484375,
+      "col": 0,
+      "per_col": [
+        3.16,
+        3.21,
+        3.22
+      ],
+      "per_col_ratio": [
+        0.982,
+        0.997,
+        1.0
+      ],
+      "extent": 3.22
+    },
+    "synthclear_indoor.jpg": {
+      "free3": 2.392578125,
+      "freeC": 2.431640625,
+      "col": 0,
+      "per_col": [
+        2.39,
+        2.43,
+        2.43
+      ],
+      "per_col_ratio": [
+        0.983,
+        0.999,
+        0.999
+      ],
+      "extent": 2.43
+    },
+    "synthclear_tiled.jpg": {
+      "free3": 7.67578125,
+      "freeC": 7.796875,
+      "col": 2,
+      "per_col": [
+        7.7,
+        7.8,
+        7.68
+      ],
+      "per_col_ratio": [
+        0.988,
+        1.0,
+        0.985
+      ],
+      "extent": 7.8
+    },
+    "synthclear_warm.jpg": {
+      "free3": 3.375,
+      "freeC": 3.421875,
+      "col": 0,
+      "per_col": [
+        3.38,
+        3.42,
+        3.42
+      ],
+      "per_col_ratio": [
+        0.987,
+        0.999,
+        0.999
+      ],
+      "extent": 3.42
+    },
+    "synthfar_person.jpg": {
+      "free3": 5.671875,
+      "freeC": 5.671875,
+      "col": 1,
+      "per_col": [
+        7.56,
+        5.67,
+        7.59
+      ],
+      "per_col_ratio": [
+        0.996,
+        0.747,
+        1.0
+      ],
+      "extent": 7.59
+    },
+    "synthfar_pole.jpg": {
+      "free3": 5.80078125,
+      "freeC": 5.80078125,
+      "col": 1,
+      "per_col": [
+        6.53,
+        5.8,
+        6.63
+      ],
+      "per_col_ratio": [
+        0.984,
+        0.874,
+        1.0
+      ],
+      "extent": 6.63
+    },
+    "synthnear_pole.jpg": {
+      "free3": 1.2236328125,
+      "freeC": 1.2236328125,
+      "col": 1,
+      "per_col": [
+        5.04,
+        1.22,
+        5.09
+      ],
+      "per_col_ratio": [
+        0.991,
+        0.24,
+        1.001
+      ],
+      "extent": 5.09
+    },
+    "synthside_pole.jpg": {
+      "free3": 4.826171875,
+      "freeC": 4.942578315734863,
+      "col": 0,
+      "per_col": [
+        4.83,
+        4.94,
+        4.87
+      ],
+      "per_col_ratio": [
+        0.977,
+        0.999,
+        0.985
+      ],
+      "extent": 4.94
+    },
+    "vehicle_00.jpg": {
+      "free3": 3.79296875,
+      "freeC": 4.58203125,
+      "col": 2,
+      "per_col": [
+        5.46,
+        4.58,
+        3.79
+      ],
+      "per_col_ratio": [
+        0.999,
+        0.838,
+        0.694
+      ],
+      "extent": 5.46
+    },
+    "vehicle_01.jpg": {
+      "free3": 6.89453125,
+      "freeC": 7.0390625,
+      "col": 0,
+      "per_col": [
+        6.89,
+        7.04,
+        10.86
+      ],
+      "per_col_ratio": [
+        0.634,
+        0.648,
+        1.0
+      ],
+      "extent": 10.86
+    }
+  }
+}

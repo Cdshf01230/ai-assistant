@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Sinh 16 câu cảnh báo -> /home/ubuntu/ai-assistant/assets/audio
+  STOP                    0.7s      68 KB  Dừng lại.
+  TURN_LEFT               0.8s      75 KB  Rẽ trái.
+  TURN_RIGHT              0.8s      75 KB  Rẽ phải.
+  OBSTACLE_FRONT          1.1s     105 KB  Có vật cản phía trước.
+  OBSTACLE_FRONT_LEFT     1.8s     165 KB  Có vật cản phía trước bên trái.
+  OBSTACLE_FRONT_RIGHT    2.0s     188 KB  Có vật cản phía trước bên phải.
+  MOVE_LEFT               1.4s     128 KB  Đi lệch sang trái.
+  MOVE_RIGHT              1.2s     113 KB  Đi lệch sang phải.
+  SLOW_DOWN               1.1s     105 KB  Đi chậm lại.
+  STEP_AHEAD              1.2s     113 KB  Có bậc thang phía trước.
+  VEHICLE_AHEAD           1.1s     105 KB  Có xe phía trước.
+  PERSON_AHEAD            1.0s      98 KB  Có người phía trước.
+  PATH_CLEAR              1.0s      90 KB  Đường thông thoáng.
+  ARRIVED                 0.9s      83 KB  Đã đến nơi.
+  REPEAT_PLEASE           1.0s      90 KB  Xin nói lại.
+  GPS_LOST                1.4s     128 KB  Mất tín hiệu định vị.
+
+Xong trong 10.8s | tổng 1726 KB
+Manifest: /home/ubuntu/ai-assistant/assets/audio/manifest.json
+
+Frontend nên preload toàn bộ file này khi mở app để phát tức thì.

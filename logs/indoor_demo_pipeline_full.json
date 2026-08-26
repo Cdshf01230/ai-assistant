@@ -1,0 +1,918 @@
+{
+  "profile": {
+    "name": "indoor",
+    "vlm_model": "Qwen/Qwen3-VL-4B-Instruct",
+    "depth_model": "depth-anything/Depth-Anything-V2-Metric-Indoor-Large-hf",
+    "long_edge": 640,
+    "depth_mode": "relative_free_space_rank",
+    "confirm_frames": 2,
+    "clear_frames": 3
+  },
+  "vram": {
+    "allocated_gib": 8.892,
+    "reserved_gib": 8.896,
+    "peak_reserved_gib": 8.896
+  },
+  "frames": [
+    {
+      "frame": "clear_00.jpg",
+      "vlm_raw": "OBJECT|WHERE|DISTANCE|ACTION\nWALL|FRONT_LEFT|",
+      "vlm": null,
+      "depth": {
+        "valid": true,
+        "near_score": 0.34101029606127153,
+        "free_rank": 0.6589897039387285,
+        "free_per_col": [
+          8.092187881469727,
+          12.2265625,
+          12.279687881469727
+        ]
+      },
+      "decision": {
+        "warn": false,
+        "action": "NONE",
+        "type": null,
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": false,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 0
+      }
+    },
+    {
+      "frame": "clear_01.jpg",
+      "vlm_raw": "PERSON|FRONT_LEFT|NEAR|SLOW",
+      "vlm": {
+        "hazard": true,
+        "type": "person",
+        "position": "front_left",
+        "distance": "near",
+        "action": "slow"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.38858267716535433,
+        "free_rank": 0.6114173228346457,
+        "free_per_col": [
+          16.543750762939453,
+          19.84375,
+          12.1328125
+        ]
+      },
+      "decision": {
+        "warn": false,
+        "action": "NONE",
+        "type": "person",
+        "position": "front_left",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": true,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 1
+      }
+    },
+    {
+      "frame": "clear_02.jpg",
+      "vlm_raw": "PERSON|FRONT|NEAR|STOP",
+      "vlm": {
+        "hazard": true,
+        "type": "person",
+        "position": "front",
+        "distance": "near",
+        "action": "stop"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.3119691119691119,
+        "free_rank": 0.6880308880308881,
+        "free_per_col": [
+          10.1171875,
+          10.092968940734863,
+          6.9609375
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "stop",
+        "type": "person",
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": true,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 2
+      }
+    },
+    {
+      "frame": "clearpath_00.jpg",
+      "vlm_raw": "OBJECT|WHERE|DISTANCE|ACTION\nNONE|FRONT|FAR",
+      "vlm": null,
+      "depth": {
+        "valid": true,
+        "near_score": 0.007824726134585291,
+        "free_rank": 0.9921752738654147,
+        "free_per_col": [
+          19.90625,
+          19.96875,
+          19.8125
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "STOP",
+        "type": null,
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": false,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 0
+      }
+    },
+    {
+      "frame": "clearpath_01.jpg",
+      "vlm_raw": "OBJECT|FRONT|NEAR|STOP",
+      "vlm": {
+        "hazard": true,
+        "type": "object",
+        "position": "front",
+        "distance": "near",
+        "action": "stop"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.43632235840854894,
+        "free_rank": 0.5636776415914511,
+        "free_per_col": [
+          6.549609184265137,
+          7.401171684265137,
+          4.171875
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "stop",
+        "type": "object",
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": true,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 1
+      }
+    },
+    {
+      "frame": "clearpath_02.jpg",
+      "vlm_raw": "OBJECT|FRONT|NEAR|STOP",
+      "vlm": {
+        "hazard": true,
+        "type": "object",
+        "position": "front",
+        "distance": "near",
+        "action": "stop"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.44880285277636267,
+        "free_rank": 0.5511971472236373,
+        "free_per_col": [
+          7.090234279632568,
+          7.66796875,
+          4.2265625
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "stop",
+        "type": "object",
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": true,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 2
+      }
+    },
+    {
+      "frame": "crowd_00.jpg",
+      "vlm_raw": "PERSON|FRONT_RIGHT|NEAR|MOVE_LEFT",
+      "vlm": {
+        "hazard": true,
+        "type": "person",
+        "position": "front_right",
+        "distance": "near",
+        "action": "move_left"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.16493827160493824,
+        "free_rank": 0.8350617283950618,
+        "free_per_col": [
+          3.955078125,
+          3.818359375,
+          3.302734375
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "move_left",
+        "type": "person",
+        "position": "front_right",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": true,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 3
+      }
+    },
+    {
+      "frame": "crowd_01.jpg",
+      "vlm_raw": "PERSON|FRONT|NEAR|MOVE_LEFT",
+      "vlm": {
+        "hazard": true,
+        "type": "person",
+        "position": "front",
+        "distance": "near",
+        "action": "move_left"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.397242952195454,
+        "free_rank": 0.602757047804546,
+        "free_per_col": [
+          6.6953125,
+          10.6015625,
+          11.107812881469727
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "move_left",
+        "type": "person",
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": true,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 4
+      }
+    },
+    {
+      "frame": "door_00.jpg",
+      "vlm_raw": "DOOR|FRONT|NEAR|NONE",
+      "vlm": {
+        "hazard": true,
+        "type": "door",
+        "position": "front",
+        "distance": "near",
+        "action": "none"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.1050863723608445,
+        "free_rank": 0.8949136276391555,
+        "free_per_col": [
+          14.5703125,
+          15.359375,
+          16.28125
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "SLOW",
+        "type": "door",
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": true,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 5
+      }
+    },
+    {
+      "frame": "door_01.jpg",
+      "vlm_raw": "OBJECT|WHERE|DISTANCE|ACTION\nPERSON|FRONT|NEAR",
+      "vlm": null,
+      "depth": {
+        "valid": true,
+        "near_score": 0.08395677472984209,
+        "free_rank": 0.9160432252701579,
+        "free_per_col": [
+          4.69921875,
+          4.4609375,
+          4.3046875
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "STOP",
+        "type": null,
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": false,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 0
+      }
+    },
+    {
+      "frame": "lowlight_00.jpg",
+      "vlm_raw": "PERSON|FRONT_LEFT|NEAR|MOVE_LEFT",
+      "vlm": {
+        "hazard": true,
+        "type": "person",
+        "position": "front_left",
+        "distance": "near",
+        "action": "move_left"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.6087562446784656,
+        "free_rank": 0.39124375532153444,
+        "free_per_col": [
+          3.674023389816284,
+          9.390625,
+          9.2890625
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "move_left",
+        "type": "person",
+        "position": "front_left",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": true,
+          "depth_valid": true,
+          "depth_hazard": true
+        },
+        "streak": 1
+      }
+    },
+    {
+      "frame": "lowlight_01.jpg",
+      "vlm_raw": "PERSON|FRONT|NEAR|NONE",
+      "vlm": {
+        "hazard": true,
+        "type": "person",
+        "position": "front",
+        "distance": "near",
+        "action": "none"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.10196702311165184,
+        "free_rank": 0.8980329768883482,
+        "free_per_col": [
+          5.046875,
+          5.619921684265137,
+          5.057031154632568
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "SLOW",
+        "type": "person",
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": true,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 2
+      }
+    },
+    {
+      "frame": "pole_00.jpg",
+      "vlm_raw": "POLE|FRONT|NEAR|NONE",
+      "vlm": {
+        "hazard": true,
+        "type": "pole",
+        "position": "front",
+        "distance": "near",
+        "action": "none"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.1305825242718447,
+        "free_rank": 0.8694174757281553,
+        "free_per_col": [
+          3.9986329078674316,
+          4.0234375,
+          3.498046875
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "SLOW",
+        "type": "pole",
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": true,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 3
+      }
+    },
+    {
+      "frame": "stairs_00.jpg",
+      "vlm_raw": "POLE|FRONT_LEFT|NEAR|NONE",
+      "vlm": {
+        "hazard": true,
+        "type": "pole",
+        "position": "front_left",
+        "distance": "near",
+        "action": "none"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.40131000350112433,
+        "free_rank": 0.5986899964988757,
+        "free_per_col": [
+          4.534375190734863,
+          7.573828220367432,
+          6.992578029632568
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "SLOW",
+        "type": "pole",
+        "position": "front_left",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": true,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 4
+      }
+    },
+    {
+      "frame": "stairs_01.jpg",
+      "vlm_raw": "PERSON|FRONT|NEAR|SLOW",
+      "vlm": {
+        "hazard": true,
+        "type": "person",
+        "position": "front",
+        "distance": "near",
+        "action": "slow"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.06225374310480691,
+        "free_rank": 0.9377462568951931,
+        "free_per_col": [
+          18.59375,
+          19.40625,
+          19.828125
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "slow",
+        "type": "person",
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": true,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 5
+      }
+    },
+    {
+      "frame": "street_00.jpg",
+      "vlm_raw": "PERSON|FRONT_LEFT|NEAR|SLOW",
+      "vlm": {
+        "hazard": true,
+        "type": "person",
+        "position": "front_left",
+        "distance": "near",
+        "action": "slow"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.1557659208261618,
+        "free_rank": 0.8442340791738382,
+        "free_per_col": [
+          4.2109375,
+          3.83203125,
+          4.5390625
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "slow",
+        "type": "person",
+        "position": "front_left",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": true,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 6
+      }
+    },
+    {
+      "frame": "street_01.jpg",
+      "vlm_raw": "CLEAR|FRONT|FAR|NONE",
+      "vlm": {
+        "hazard": false,
+        "type": "clear",
+        "position": "front",
+        "distance": "far",
+        "action": "none"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.0630489724040787,
+        "free_rank": 0.9369510275959213,
+        "free_per_col": [
+          15.0,
+          15.2421875,
+          16.009374618530273
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "STOP",
+        "type": "clear",
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": false,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 0
+      }
+    },
+    {
+      "frame": "synth_clear.jpg",
+      "vlm_raw": "CLEAR|FRONT|NONE|NONE",
+      "vlm": {
+        "hazard": false,
+        "type": "clear",
+        "position": "front",
+        "distance": "none",
+        "action": "none"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.018496420047732665,
+        "free_rank": 0.9815035799522673,
+        "free_per_col": [
+          3.212890625,
+          3.2623047828674316,
+          3.2734375
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "STOP",
+        "type": "clear",
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": false,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 0
+      }
+    },
+    {
+      "frame": "synth_person_front.jpg",
+      "vlm_raw": "PERSON|FRONT|NEAR|STOP",
+      "vlm": {
+        "hazard": true,
+        "type": "person",
+        "position": "front",
+        "distance": "near",
+        "action": "stop"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.6779935275080906,
+        "free_rank": 0.3220064724919094,
+        "free_per_col": [
+          7.0859375,
+          2.33203125,
+          7.2421875
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "stop",
+        "type": "person",
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": true,
+          "depth_valid": true,
+          "depth_hazard": true
+        },
+        "streak": 1
+      }
+    },
+    {
+      "frame": "synth_pole_right.jpg",
+      "vlm_raw": "POLE|FRONT_RIGHT|NEAR|NONE",
+      "vlm": {
+        "hazard": true,
+        "type": "pole",
+        "position": "front_right",
+        "distance": "near",
+        "action": "none"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.021704814522494065,
+        "free_rank": 0.9782951854775059,
+        "free_per_col": [
+          4.841796875,
+          4.94921875,
+          4.90625
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "SLOW",
+        "type": "pole",
+        "position": "front_right",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": true,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 2
+      }
+    },
+    {
+      "frame": "synthclear_dark.jpg",
+      "vlm_raw": "CLEAR|FRONT|NEAR|NONE",
+      "vlm": {
+        "hazard": false,
+        "type": "clear",
+        "position": "front",
+        "distance": "near",
+        "action": "none"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.012098895318253589,
+        "free_rank": 0.9879011046817464,
+        "free_per_col": [
+          7.36328125,
+          7.42578125,
+          7.3359375
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "STOP",
+        "type": "clear",
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": false,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 0
+      }
+    },
+    {
+      "frame": "synthclear_grey.jpg",
+      "vlm_raw": "CLEAR|FRONT|NONE|NONE",
+      "vlm": {
+        "hazard": false,
+        "type": "clear",
+        "position": "front",
+        "distance": "none",
+        "action": "none"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.018496420047732665,
+        "free_rank": 0.9815035799522673,
+        "free_per_col": [
+          3.212890625,
+          3.2623047828674316,
+          3.2734375
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "STOP",
+        "type": "clear",
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": false,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 0
+      }
+    },
+    {
+      "frame": "synthclear_indoor.jpg",
+      "vlm_raw": "CLEAR|FRONT|NONE|NONE",
+      "vlm": {
+        "hazard": false,
+        "type": "clear",
+        "position": "front",
+        "distance": "none",
+        "action": "none"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.017670682730923648,
+        "free_rank": 0.9823293172690764,
+        "free_per_col": [
+          2.388671875,
+          2.431640625,
+          2.423828125
+        ]
+      },
+      "decision": {
+        "warn": false,
+        "action": "NONE",
+        "type": "clear",
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": false,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 0
+      }
+    },
+    {
+      "frame": "synthclear_tiled.jpg",
+      "vlm_raw": "CLEAR|FRONT|NEAR|NONE",
+      "vlm": {
+        "hazard": false,
+        "type": "clear",
+        "position": "front",
+        "distance": "near",
+        "action": "none"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.015174506828528056,
+        "free_rank": 0.9848254931714719,
+        "free_per_col": [
+          7.615234375,
+          7.72265625,
+          7.60546875
+        ]
+      },
+      "decision": {
+        "warn": false,
+        "action": "NONE",
+        "type": "clear",
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": false,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 0
+      }
+    },
+    {
+      "frame": "synthclear_warm.jpg",
+      "vlm_raw": "CLEAR|FRONT|NONE|NONE",
+      "vlm": {
+        "hazard": false,
+        "type": "clear",
+        "position": "front",
+        "distance": "none",
+        "action": "none"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.01465614430665163,
+        "free_rank": 0.9853438556933484,
+        "free_per_col": [
+          3.4140625,
+          3.46484375,
+          3.462890625
+        ]
+      },
+      "decision": {
+        "warn": false,
+        "action": "NONE",
+        "type": "clear",
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": false,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 0
+      }
+    },
+    {
+      "frame": "synthfar_person.jpg",
+      "vlm_raw": "OBJECT|FRONT|NEAR|NONE",
+      "vlm": {
+        "hazard": true,
+        "type": "object",
+        "position": "front",
+        "distance": "near",
+        "action": "none"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.25609639730798195,
+        "free_rank": 0.743903602692018,
+        "free_per_col": [
+          8.0546875,
+          6.029687404632568,
+          8.10546875
+        ]
+      },
+      "decision": {
+        "warn": false,
+        "action": "NONE",
+        "type": "object",
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": true,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 1
+      }
+    },
+    {
+      "frame": "synthfar_pole.jpg",
+      "vlm_raw": "POLE|FRONT|MID|STOP",
+      "vlm": {
+        "hazard": true,
+        "type": "pole",
+        "position": "front",
+        "distance": "mid",
+        "action": "stop"
+      },
+      "depth": {
+        "valid": true,
+        "near_score": 0.11780028943560061,
+        "free_rank": 0.8821997105643994,
+        "free_per_col": [
+          6.611328125,
+          5.953125,
+          6.748046875
+        ]
+      },
+      "decision": {
+        "warn": true,
+        "action": "stop",
+        "type": "pole",
+        "position": "front",
+        "fallback": null,
+        "evidence": {
+          "vlm_hazard": true,
+          "depth_valid": true,
+          "depth_hazard": false
+        },
+        "streak": 2
+      }
+    }
+  ]
+}

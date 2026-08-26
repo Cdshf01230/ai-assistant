@@ -1,0 +1,102 @@
+{
+  "sample_rate": 48000,
+  "voice": "Phạm Tuyên",
+  "alerts": {
+    "STOP": {
+      "file": "STOP.wav",
+      "text": "Dừng lại.",
+      "duration_s": 0.72,
+      "bytes": 69164
+    },
+    "TURN_LEFT": {
+      "file": "TURN_LEFT.wav",
+      "text": "Rẽ trái.",
+      "duration_s": 0.8,
+      "bytes": 76844
+    },
+    "TURN_RIGHT": {
+      "file": "TURN_RIGHT.wav",
+      "text": "Rẽ phải.",
+      "duration_s": 0.8,
+      "bytes": 76844
+    },
+    "OBSTACLE_FRONT": {
+      "file": "OBSTACLE_FRONT.wav",
+      "text": "Có vật cản phía trước.",
+      "duration_s": 1.12,
+      "bytes": 107564
+    },
+    "OBSTACLE_FRONT_LEFT": {
+      "file": "OBSTACLE_FRONT_LEFT.wav",
+      "text": "Có vật cản phía trước bên trái.",
+      "duration_s": 1.76,
+      "bytes": 169004
+    },
+    "OBSTACLE_FRONT_RIGHT": {
+      "file": "OBSTACLE_FRONT_RIGHT.wav",
+      "text": "Có vật cản phía trước bên phải.",
+      "duration_s": 2.0,
+      "bytes": 192044
+    },
+    "MOVE_LEFT": {
+      "file": "MOVE_LEFT.wav",
+      "text": "Đi lệch sang trái.",
+      "duration_s": 1.36,
+      "bytes": 130604
+    },
+    "MOVE_RIGHT": {
+      "file": "MOVE_RIGHT.wav",
+      "text": "Đi lệch sang phải.",
+      "duration_s": 1.2,
+      "bytes": 115244
+    },
+    "SLOW_DOWN": {
+      "file": "SLOW_DOWN.wav",
+      "text": "Đi chậm lại.",
+      "duration_s": 1.12,
+      "bytes": 107564
+    },
+    "STEP_AHEAD": {
+      "file": "STEP_AHEAD.wav",
+      "text": "Có bậc thang phía trước.",
+      "duration_s": 1.2,
+      "bytes": 115244
+    },
+    "VEHICLE_AHEAD": {
+      "file": "VEHICLE_AHEAD.wav",
+      "text": "Có xe phía trước.",
+      "duration_s": 1.12,
+      "bytes": 107564
+    },
+    "PERSON_AHEAD": {
+      "file": "PERSON_AHEAD.wav",
+      "text": "Có người phía trước.",
+      "duration_s": 1.04,
+      "bytes": 99884
+    },
+    "PATH_CLEAR": {
+      "file": "PATH_CLEAR.wav",
+      "text": "Đường thông thoáng.",
+      "duration_s": 0.96,
+      "bytes": 92204
+    },
+    "ARRIVED": {
+      "file": "ARRIVED.wav",
+      "text": "Đã đến nơi.",
+      "duration_s": 0.88,
+      "bytes": 84524
+    },
+    "REPEAT_PLEASE": {
+      "file": "REPEAT_PLEASE.wav",
+      "text": "Xin nói lại.",
+      "duration_s": 0.96,
+      "bytes": 92204
+    },
+    "GPS_LOST": {
+      "file": "GPS_LOST.wav",
+      "text": "Mất tín hiệu định vị.",
+      "duration_s": 1.36,
+      "bytes": 130604
+    }
+  }
+}

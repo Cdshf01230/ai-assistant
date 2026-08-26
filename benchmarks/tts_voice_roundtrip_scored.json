@@ -1,0 +1,771 @@
+{
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "voices": [
+    "Minh Đức",
+    "Phạm Tuyên",
+    "Thái Sơn",
+    "Xuân Vĩnh",
+    "Thanh Bình",
+    "Trúc Ly",
+    "Ngọc Linh",
+    "Đoan Trang",
+    "Mai Anh",
+    "Thục Đoan",
+    "Minh Triết",
+    "Thùy Dung",
+    "Quang Sơn",
+    "Ngọc Trân",
+    "Mỹ Duyên",
+    "Quỳnh Anh",
+    "Đức Trí",
+    "Kim Thanh",
+    "Ngọc Huyền",
+    "Adam"
+  ],
+  "samples": 80,
+  "rows": [
+    {
+      "voice": "Minh Đức",
+      "reference": "Dừng lại.",
+      "latency_ms": 620,
+      "wav": "/tmp/tts_Minh Đức_0.wav",
+      "prediction": "dừng lại.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Minh Đức",
+      "reference": "Rẽ trái.",
+      "latency_ms": 623,
+      "wav": "/tmp/tts_Minh Đức_1.wav",
+      "prediction": "dễ trái.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Minh Đức",
+      "reference": "Có vật cản phía trước bên phải.",
+      "latency_ms": 1052,
+      "wav": "/tmp/tts_Minh Đức_2.wav",
+      "prediction": "có vật cản phía trước bên phải.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Minh Đức",
+      "reference": "Đưa tôi đến Vincom.",
+      "latency_ms": 813,
+      "wav": "/tmp/tts_Minh Đức_3.wav",
+      "prediction": "đưa tôi đến vinh cồm.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Phạm Tuyên",
+      "reference": "Dừng lại.",
+      "latency_ms": 607,
+      "wav": "/tmp/tts_Phạm Tuyên_4.wav",
+      "prediction": "dừng lại.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Phạm Tuyên",
+      "reference": "Rẽ trái.",
+      "latency_ms": 549,
+      "wav": "/tmp/tts_Phạm Tuyên_5.wav",
+      "prediction": "rẽ trái.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Phạm Tuyên",
+      "reference": "Có vật cản phía trước bên phải.",
+      "latency_ms": 895,
+      "wav": "/tmp/tts_Phạm Tuyên_6.wav",
+      "prediction": "có vật cản phía trước bên phải.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Phạm Tuyên",
+      "reference": "Đưa tôi đến Vincom.",
+      "latency_ms": 685,
+      "wav": "/tmp/tts_Phạm Tuyên_7.wav",
+      "prediction": "đưa tôi đến vincom.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Thái Sơn",
+      "reference": "Dừng lại.",
+      "latency_ms": 480,
+      "wav": "/tmp/tts_Thái Sơn_8.wav",
+      "prediction": "dừng lại.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Thái Sơn",
+      "reference": "Rẽ trái.",
+      "latency_ms": 355,
+      "wav": "/tmp/tts_Thái Sơn_9.wav",
+      "prediction": "ngá trái.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Thái Sơn",
+      "reference": "Có vật cản phía trước bên phải.",
+      "latency_ms": 975,
+      "wav": "/tmp/tts_Thái Sơn_10.wav",
+      "prediction": "có vật cản phía trước bên phải.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Thái Sơn",
+      "reference": "Đưa tôi đến Vincom.",
+      "latency_ms": 784,
+      "wav": "/tmp/tts_Thái Sơn_11.wav",
+      "prediction": "đưa tôi đến viện cồm.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Xuân Vĩnh",
+      "reference": "Dừng lại.",
+      "latency_ms": 583,
+      "wav": "/tmp/tts_Xuân Vĩnh_12.wav",
+      "prediction": "dính lại.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Xuân Vĩnh",
+      "reference": "Rẽ trái.",
+      "latency_ms": 613,
+      "wav": "/tmp/tts_Xuân Vĩnh_13.wav",
+      "prediction": "rệ trải.",
+      "wer": 1.0
+    },
+    {
+      "voice": "Xuân Vĩnh",
+      "reference": "Có vật cản phía trước bên phải.",
+      "latency_ms": 1066,
+      "wav": "/tmp/tts_Xuân Vĩnh_14.wav",
+      "prediction": "cộ vật càng phiệp thượng bến phái.",
+      "wer": 0.8571428571428571
+    },
+    {
+      "voice": "Xuân Vĩnh",
+      "reference": "Đưa tôi đến Vincom.",
+      "latency_ms": 827,
+      "wav": "/tmp/tts_Xuân Vĩnh_15.wav",
+      "prediction": "đưa tôi đến vincoln.",
+      "wer": 0.25
+    },
+    {
+      "voice": "Thanh Bình",
+      "reference": "Dừng lại.",
+      "latency_ms": 1137,
+      "wav": "/tmp/tts_Thanh Bình_16.wav",
+      "prediction": "dừng lại dừng lại chết về phây kỳ.",
+      "wer": 3.0
+    },
+    {
+      "voice": "Thanh Bình",
+      "reference": "Rẽ trái.",
+      "latency_ms": 570,
+      "wav": "/tmp/tts_Thanh Bình_17.wav",
+      "prediction": "rẽ trái.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Thanh Bình",
+      "reference": "Có vật cản phía trước bên phải.",
+      "latency_ms": 894,
+      "wav": "/tmp/tts_Thanh Bình_18.wav",
+      "prediction": "có vật cản phía trước bên phải.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Thanh Bình",
+      "reference": "Đưa tôi đến Vincom.",
+      "latency_ms": 661,
+      "wav": "/tmp/tts_Thanh Bình_19.wav",
+      "prediction": "đưa tôi đến vình khòm.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Trúc Ly",
+      "reference": "Dừng lại.",
+      "latency_ms": 1249,
+      "wav": "/tmp/tts_Trúc Ly_20.wav",
+      "prediction": "dừng lại à súng bò vồng.",
+      "wer": 2.0
+    },
+    {
+      "voice": "Trúc Ly",
+      "reference": "Rẽ trái.",
+      "latency_ms": 749,
+      "wav": "/tmp/tts_Trúc Ly_21.wav",
+      "prediction": "dễ trái.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Trúc Ly",
+      "reference": "Có vật cản phía trước bên phải.",
+      "latency_ms": 1063,
+      "wav": "/tmp/tts_Trúc Ly_22.wav",
+      "prediction": "có vật cản phía trước bên phải.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Trúc Ly",
+      "reference": "Đưa tôi đến Vincom.",
+      "latency_ms": 893,
+      "wav": "/tmp/tts_Trúc Ly_23.wav",
+      "prediction": "đưa tôi đến vinh com.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Ngọc Linh",
+      "reference": "Dừng lại.",
+      "latency_ms": 453,
+      "wav": "/tmp/tts_Ngọc Linh_24.wav",
+      "prediction": "sừng lại.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Ngọc Linh",
+      "reference": "Rẽ trái.",
+      "latency_ms": 514,
+      "wav": "/tmp/tts_Ngọc Linh_25.wav",
+      "prediction": "dễ cháy.",
+      "wer": 1.0
+    },
+    {
+      "voice": "Ngọc Linh",
+      "reference": "Có vật cản phía trước bên phải.",
+      "latency_ms": 1013,
+      "wav": "/tmp/tts_Ngọc Linh_26.wav",
+      "prediction": "có vật cản phía trước bên phải.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Ngọc Linh",
+      "reference": "Đưa tôi đến Vincom.",
+      "latency_ms": 778,
+      "wav": "/tmp/tts_Ngọc Linh_27.wav",
+      "prediction": "unk nhu tôi đến vincom.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Đoan Trang",
+      "reference": "Dừng lại.",
+      "latency_ms": 440,
+      "wav": "/tmp/tts_Đoan Trang_28.wav",
+      "prediction": "dừng lại.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Đoan Trang",
+      "reference": "Rẽ trái.",
+      "latency_ms": 540,
+      "wav": "/tmp/tts_Đoan Trang_29.wav",
+      "prediction": "rẽ trái.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Đoan Trang",
+      "reference": "Có vật cản phía trước bên phải.",
+      "latency_ms": 881,
+      "wav": "/tmp/tts_Đoan Trang_30.wav",
+      "prediction": "có vật cản phía trước bên phải.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Đoan Trang",
+      "reference": "Đưa tôi đến Vincom.",
+      "latency_ms": 790,
+      "wav": "/tmp/tts_Đoan Trang_31.wav",
+      "prediction": "đưa tôi đến vincom.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Mai Anh",
+      "reference": "Dừng lại.",
+      "latency_ms": 361,
+      "wav": "/tmp/tts_Mai Anh_32.wav",
+      "prediction": "dừng lại.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Mai Anh",
+      "reference": "Rẽ trái.",
+      "latency_ms": 457,
+      "wav": "/tmp/tts_Mai Anh_33.wav",
+      "prediction": "dạy trái.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Mai Anh",
+      "reference": "Có vật cản phía trước bên phải.",
+      "latency_ms": 976,
+      "wav": "/tmp/tts_Mai Anh_34.wav",
+      "prediction": "có vật cản phía trước bên phải.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Mai Anh",
+      "reference": "Đưa tôi đến Vincom.",
+      "latency_ms": 801,
+      "wav": "/tmp/tts_Mai Anh_35.wav",
+      "prediction": "đưa tôi đến vinhkhoam.",
+      "wer": 0.25
+    },
+    {
+      "voice": "Thục Đoan",
+      "reference": "Dừng lại.",
+      "latency_ms": 507,
+      "wav": "/tmp/tts_Thục Đoan_36.wav",
+      "prediction": "dừng lại.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Thục Đoan",
+      "reference": "Rẽ trái.",
+      "latency_ms": 352,
+      "wav": "/tmp/tts_Thục Đoan_37.wav",
+      "prediction": "kệ trái.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Thục Đoan",
+      "reference": "Có vật cản phía trước bên phải.",
+      "latency_ms": 1024,
+      "wav": "/tmp/tts_Thục Đoan_38.wav",
+      "prediction": "có vật cạn phía trước bên phải.",
+      "wer": 0.14285714285714285
+    },
+    {
+      "voice": "Thục Đoan",
+      "reference": "Đưa tôi đến Vincom.",
+      "latency_ms": 806,
+      "wav": "/tmp/tts_Thục Đoan_39.wav",
+      "prediction": "đưa tôi đến việt con.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Minh Triết",
+      "reference": "Dừng lại.",
+      "latency_ms": 361,
+      "wav": "/tmp/tts_Minh Triết_40.wav",
+      "prediction": "chương này.",
+      "wer": 1.0
+    },
+    {
+      "voice": "Minh Triết",
+      "reference": "Rẽ trái.",
+      "latency_ms": 2184,
+      "wav": "/tmp/tts_Minh Triết_41.wav",
+      "prediction": "lại thái chi phí nam chinh phục công việc thường phụ nguyễn thị ngành trò nhẹ hào.",
+      "wer": 8.5
+    },
+    {
+      "voice": "Minh Triết",
+      "reference": "Có vật cản phía trước bên phải.",
+      "latency_ms": 819,
+      "wav": "/tmp/tts_Minh Triết_42.wav",
+      "prediction": "có vực cạn phía trước bên phải.",
+      "wer": 0.2857142857142857
+    },
+    {
+      "voice": "Minh Triết",
+      "reference": "Đưa tôi đến Vincom.",
+      "latency_ms": 756,
+      "wav": "/tmp/tts_Minh Triết_43.wav",
+      "prediction": "đưa tôi đến chinh công.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Thùy Dung",
+      "reference": "Dừng lại.",
+      "latency_ms": 409,
+      "wav": "/tmp/tts_Thùy Dung_44.wav",
+      "prediction": "điều này.",
+      "wer": 1.0
+    },
+    {
+      "voice": "Thùy Dung",
+      "reference": "Rẽ trái.",
+      "latency_ms": 2176,
+      "wav": "/tmp/tts_Thùy Dung_45.wav",
+      "prediction": "giá trái tái dinh thể thiện và phần mở trước mùa hè chính chủ góp tái đem gốc từ đẩy vịc đạo.",
+      "wer": 10.5
+    },
+    {
+      "voice": "Thùy Dung",
+      "reference": "Có vật cản phía trước bên phải.",
+      "latency_ms": 855,
+      "wav": "/tmp/tts_Thùy Dung_46.wav",
+      "prediction": "tốt bật cạn tuy trước bên phải.",
+      "wer": 0.5714285714285714
+    },
+    {
+      "voice": "Thùy Dung",
+      "reference": "Đưa tôi đến Vincom.",
+      "latency_ms": 680,
+      "wav": "/tmp/tts_Thùy Dung_47.wav",
+      "prediction": "lừa thầu đến phiên gom.",
+      "wer": 1.0
+    },
+    {
+      "voice": "Quang Sơn",
+      "reference": "Dừng lại.",
+      "latency_ms": 596,
+      "wav": "/tmp/tts_Quang Sơn_48.wav",
+      "prediction": "dừng lại.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Quang Sơn",
+      "reference": "Rẽ trái.",
+      "latency_ms": 1055,
+      "wav": "/tmp/tts_Quang Sơn_49.wav",
+      "prediction": "rể trại cháy.",
+      "wer": 1.5
+    },
+    {
+      "voice": "Quang Sơn",
+      "reference": "Có vật cản phía trước bên phải.",
+      "latency_ms": 1261,
+      "wav": "/tmp/tts_Quang Sơn_50.wav",
+      "prediction": "có vật cảng phía trước bên phải.",
+      "wer": 0.14285714285714285
+    },
+    {
+      "voice": "Quang Sơn",
+      "reference": "Đưa tôi đến Vincom.",
+      "latency_ms": 1201,
+      "wav": "/tmp/tts_Quang Sơn_51.wav",
+      "prediction": "đưa tôi đến vincom.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Ngọc Trân",
+      "reference": "Dừng lại.",
+      "latency_ms": 491,
+      "wav": "/tmp/tts_Ngọc Trân_52.wav",
+      "prediction": "nhưng lại.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Ngọc Trân",
+      "reference": "Rẽ trái.",
+      "latency_ms": 558,
+      "wav": "/tmp/tts_Ngọc Trân_53.wav",
+      "prediction": "rè trải.",
+      "wer": 1.0
+    },
+    {
+      "voice": "Ngọc Trân",
+      "reference": "Có vật cản phía trước bên phải.",
+      "latency_ms": 1036,
+      "wav": "/tmp/tts_Ngọc Trân_54.wav",
+      "prediction": "có vượt cạn phía trước bên phải.",
+      "wer": 0.2857142857142857
+    },
+    {
+      "voice": "Ngọc Trân",
+      "reference": "Đưa tôi đến Vincom.",
+      "latency_ms": 779,
+      "wav": "/tmp/tts_Ngọc Trân_55.wav",
+      "prediction": "đưa tôi đến vn com.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Mỹ Duyên",
+      "reference": "Dừng lại.",
+      "latency_ms": 679,
+      "wav": "/tmp/tts_Mỹ Duyên_56.wav",
+      "prediction": "dừng lại.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Mỹ Duyên",
+      "reference": "Rẽ trái.",
+      "latency_ms": 919,
+      "wav": "/tmp/tts_Mỹ Duyên_57.wav",
+      "prediction": "rễ cháy.",
+      "wer": 1.0
+    },
+    {
+      "voice": "Mỹ Duyên",
+      "reference": "Có vật cản phía trước bên phải.",
+      "latency_ms": 1302,
+      "wav": "/tmp/tts_Mỹ Duyên_58.wav",
+      "prediction": "có vật cản phía trước bên phải.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Mỹ Duyên",
+      "reference": "Đưa tôi đến Vincom.",
+      "latency_ms": 925,
+      "wav": "/tmp/tts_Mỹ Duyên_59.wav",
+      "prediction": "đưa tôi đến vincom.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Quỳnh Anh",
+      "reference": "Dừng lại.",
+      "latency_ms": 456,
+      "wav": "/tmp/tts_Quỳnh Anh_60.wav",
+      "prediction": "dừng lại.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Quỳnh Anh",
+      "reference": "Rẽ trái.",
+      "latency_ms": 541,
+      "wav": "/tmp/tts_Quỳnh Anh_61.wav",
+      "prediction": "dễ cháy.",
+      "wer": 1.0
+    },
+    {
+      "voice": "Quỳnh Anh",
+      "reference": "Có vật cản phía trước bên phải.",
+      "latency_ms": 984,
+      "wav": "/tmp/tts_Quỳnh Anh_62.wav",
+      "prediction": "có vật cản phía trước bên phải.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Quỳnh Anh",
+      "reference": "Đưa tôi đến Vincom.",
+      "latency_ms": 765,
+      "wav": "/tmp/tts_Quỳnh Anh_63.wav",
+      "prediction": "đưa tôi đến vinh cộm.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Đức Trí",
+      "reference": "Dừng lại.",
+      "latency_ms": 506,
+      "wav": "/tmp/tts_Đức Trí_64.wav",
+      "prediction": "dừng lại.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Đức Trí",
+      "reference": "Rẽ trái.",
+      "latency_ms": 572,
+      "wav": "/tmp/tts_Đức Trí_65.wav",
+      "prediction": "dậy trái.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Đức Trí",
+      "reference": "Có vật cản phía trước bên phải.",
+      "latency_ms": 1213,
+      "wav": "/tmp/tts_Đức Trí_66.wav",
+      "prediction": "có vật cản phía trước bên phải.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Đức Trí",
+      "reference": "Đưa tôi đến Vincom.",
+      "latency_ms": 941,
+      "wav": "/tmp/tts_Đức Trí_67.wav",
+      "prediction": "đưa tôi đến vincom.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Kim Thanh",
+      "reference": "Dừng lại.",
+      "latency_ms": 561,
+      "wav": "/tmp/tts_Kim Thanh_68.wav",
+      "prediction": "chuyên lại.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Kim Thanh",
+      "reference": "Rẽ trái.",
+      "latency_ms": 585,
+      "wav": "/tmp/tts_Kim Thanh_69.wav",
+      "prediction": "rể chái.",
+      "wer": 1.0
+    },
+    {
+      "voice": "Kim Thanh",
+      "reference": "Có vật cản phía trước bên phải.",
+      "latency_ms": 1340,
+      "wav": "/tmp/tts_Kim Thanh_70.wav",
+      "prediction": "có phật cảng phía trước bên phải.",
+      "wer": 0.2857142857142857
+    },
+    {
+      "voice": "Kim Thanh",
+      "reference": "Đưa tôi đến Vincom.",
+      "latency_ms": 1090,
+      "wav": "/tmp/tts_Kim Thanh_71.wav",
+      "prediction": "đưa tôi đến vincom.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Ngọc Huyền",
+      "reference": "Dừng lại.",
+      "latency_ms": 416,
+      "wav": "/tmp/tts_Ngọc Huyền_72.wav",
+      "prediction": "dừng lại.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Ngọc Huyền",
+      "reference": "Rẽ trái.",
+      "latency_ms": 509,
+      "wav": "/tmp/tts_Ngọc Huyền_73.wav",
+      "prediction": "rẽ cháy.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Ngọc Huyền",
+      "reference": "Có vật cản phía trước bên phải.",
+      "latency_ms": 949,
+      "wav": "/tmp/tts_Ngọc Huyền_74.wav",
+      "prediction": "có vật cản phía trước bên phải.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Ngọc Huyền",
+      "reference": "Đưa tôi đến Vincom.",
+      "latency_ms": 688,
+      "wav": "/tmp/tts_Ngọc Huyền_75.wav",
+      "prediction": "đưa tôi đến vinhkhoam.",
+      "wer": 0.25
+    },
+    {
+      "voice": "Adam",
+      "reference": "Dừng lại.",
+      "latency_ms": 402,
+      "wav": "/tmp/tts_Adam_76.wav",
+      "prediction": "dừng lại.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Adam",
+      "reference": "Rẽ trái.",
+      "latency_ms": 450,
+      "wav": "/tmp/tts_Adam_77.wav",
+      "prediction": "rể trái.",
+      "wer": 0.5
+    },
+    {
+      "voice": "Adam",
+      "reference": "Có vật cản phía trước bên phải.",
+      "latency_ms": 930,
+      "wav": "/tmp/tts_Adam_78.wav",
+      "prediction": "có vật cản phía trước bên phải.",
+      "wer": 0.0
+    },
+    {
+      "voice": "Adam",
+      "reference": "Đưa tôi đến Vincom.",
+      "latency_ms": 830,
+      "wav": "/tmp/tts_Adam_79.wav",
+      "prediction": "đưa tôi đến vỉnh cỏm.",
+      "wer": 0.5
+    }
+  ],
+  "note": "Audio generated for subsequent STT round-trip scoring",
+  "voice_summary": [
+    {
+      "voice": "Phạm Tuyên",
+      "mean_wer": 0.0,
+      "samples": 4
+    },
+    {
+      "voice": "Đoan Trang",
+      "mean_wer": 0.0,
+      "samples": 4
+    },
+    {
+      "voice": "Đức Trí",
+      "mean_wer": 0.125,
+      "samples": 4
+    },
+    {
+      "voice": "Mai Anh",
+      "mean_wer": 0.1875,
+      "samples": 4
+    },
+    {
+      "voice": "Ngọc Huyền",
+      "mean_wer": 0.1875,
+      "samples": 4
+    },
+    {
+      "voice": "Adam",
+      "mean_wer": 0.25,
+      "samples": 4
+    },
+    {
+      "voice": "Minh Đức",
+      "mean_wer": 0.25,
+      "samples": 4
+    },
+    {
+      "voice": "Mỹ Duyên",
+      "mean_wer": 0.25,
+      "samples": 4
+    },
+    {
+      "voice": "Thái Sơn",
+      "mean_wer": 0.25,
+      "samples": 4
+    },
+    {
+      "voice": "Thục Đoan",
+      "mean_wer": 0.2857142857142857,
+      "samples": 4
+    },
+    {
+      "voice": "Quỳnh Anh",
+      "mean_wer": 0.375,
+      "samples": 4
+    },
+    {
+      "voice": "Quang Sơn",
+      "mean_wer": 0.4107142857142857,
+      "samples": 4
+    },
+    {
+      "voice": "Kim Thanh",
+      "mean_wer": 0.4464285714285714,
+      "samples": 4
+    },
+    {
+      "voice": "Ngọc Linh",
+      "mean_wer": 0.5,
+      "samples": 4
+    },
+    {
+      "voice": "Ngọc Trân",
+      "mean_wer": 0.5714285714285714,
+      "samples": 4
+    },
+    {
+      "voice": "Xuân Vĩnh",
+      "mean_wer": 0.6517857142857143,
+      "samples": 4
+    },
+    {
+      "voice": "Trúc Ly",
+      "mean_wer": 0.75,
+      "samples": 4
+    },
+    {
+      "voice": "Thanh Bình",
+      "mean_wer": 0.875,
+      "samples": 4
+    },
+    {
+      "voice": "Minh Triết",
+      "mean_wer": 2.5714285714285716,
+      "samples": 4
+    },
+    {
+      "voice": "Thùy Dung",
+      "mean_wer": 3.267857142857143,
+      "samples": 4
+    }
+  ]
+}

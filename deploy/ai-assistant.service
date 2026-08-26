@@ -1,0 +1,18 @@
+[Unit]
+Description=AI assistant indoor demo API (TLS)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/ai-assistant
+ExecStart=/home/ubuntu/ai-assistant/.venv/bin/python -m uvicorn api_main:app \
+  --host 0.0.0.0 --port 8443 \
+  --ssl-certfile /home/ubuntu/ai-assistant/certs/cert.pem \
+  --ssl-keyfile /home/ubuntu/ai-assistant/certs/key.pem
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

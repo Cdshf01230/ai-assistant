@@ -1,0 +1,26 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Model: pnnbao-ump/VieNeu-TTS-v3-Turbo (SDK vieneu, CPU/ONNX, precision=int8)
+Load : 5.9s
+
+--- critical ---
+     659 ms | audio  0.8s | RTF 0.82 | Dừng lại.
+     454 ms | audio  0.7s | RTF 0.63 | Rẽ trái.
+     935 ms | audio  1.7s | RTF 0.56 | Có vật cản phía trước bên phải.
+
+--- dynamic ---
+    1422 ms | audio  2.5s | RTF 0.57 | Khoảng ba mươi mét nữa rẽ phải vào đường Nguyễn Trãi.
+    1717 ms | audio  3.1s | RTF 0.55 | Đang dẫn đường tới Vincom Bà Triệu, còn khoảng bốn trăm mét.
+
+--- command ---
+     707 ms | audio  1.4s | RTF 0.52 | Đưa tôi đến Vincom.
+     690 ms | audio  1.3s | RTF 0.54 | Xung quanh có gì?
+     573 ms | audio  1.0s | RTF 0.55 | Đọc biển phía trước.
+     560 ms | audio  1.0s | RTF 0.54 | Dừng dẫn đường.
+
+--- Kết luận TTS ---
+  câu critical: median 659 ms
+  câu dynamic : median 1569 ms
+  RTF median  : 0.55 (<1.0 = nhanh hơn realtime)
+
+  WAV -> /home/ubuntu/ai-assistant/assets/tts_test
+  => Câu critical vẫn nên cache sẵn (§9): chạy scripts/05_build_alert_cache.py

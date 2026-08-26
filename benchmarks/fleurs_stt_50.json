@@ -1,0 +1,412 @@
+{
+  "dataset": "google/fleurs vi_vn validation",
+  "model": "vinai/PhoWhisper-small",
+  "device": "cuda",
+  "samples": 50,
+  "wer": 0.15248107064689137,
+  "median_latency_ms": 577.0,
+  "p90_latency_ms": 804,
+  "rtf": 0.05137902970167544,
+  "rows": [
+    {
+      "id": 1594,
+      "reference": "một số loài động vật như voi và hươu cao cổ thường hay lại gần xe và chỉ với các dụng cụ bình thường chúng ta cũng sẽ quan sát một cách dễ dàng",
+      "prediction": "một số loài động vật như vôi và hũ cao cổ thường hay lại gần xa và chỉ với các dụng cụ bình thường chúng ta cũng sẽ quan sát một cách dễ dàng.",
+      "wer": 0.11764705882352941,
+      "latency_ms": 1201,
+      "duration_s": 14.94
+    },
+    {
+      "id": 1573,
+      "reference": "điện thoại vệ tinh nói chung không phải là sự thay thế cho điện thoại di động vì bạn phải ở ngoài trời và phải có tầm nhìn thông thoáng thẳng đến vệ tinh thì mới sử dụng được",
+      "prediction": "điện thoại vệ tinh nói chung không phải là sự thay thế cho điện thoại di động vì bạn phải ở ngoài trời và có tầm nhìn thông thoáng thẳng đến vệ tinh thì mới sử dụng được.",
+      "wer": 0.05128205128205128,
+      "latency_ms": 790,
+      "duration_s": 10.2
+    },
+    {
+      "id": 1628,
+      "reference": "các sản phẩm thủ công có thể được coi là đồ cổ mặc dù tuổi đời của chúng trẻ hơn rất nhiều các sản phẩm tương tự được sản xuất hàng loạt",
+      "prediction": "các sản phẩm thủ công có thể được coi là độ cổ mặc dù tuổi đời của chúng trẻ hơn rất nhiều các sản phẩm tương tự được sản xuất hàng loạt.",
+      "wer": 0.0625,
+      "latency_ms": 591,
+      "duration_s": 8.88
+    },
+    {
+      "id": 1578,
+      "reference": "sau đó lakkha singh giữ vai trò chính khi hát các bài hát bhajan",
+      "prediction": "sau đó la kha xinh giữ vai trò chính khi hát các bài hát hazard.",
+      "wer": 0.2857142857142857,
+      "latency_ms": 275,
+      "duration_s": 8.52
+    },
+    {
+      "id": 1564,
+      "reference": "bác sĩ moll nghĩ rằng một số bệnh nhân có thể đã bị lây rệp ở bệnh viện và ít nhất hai người là nhân viên y tế trong bệnh viện",
+      "prediction": "bác sĩ mon nghĩ rằng một số bệnh nhân có thể đã bị lây nghẹt ở bệnh viện và ít nhất hai người là nhân viên y tế trong bệnh viện.",
+      "wer": 0.0967741935483871,
+      "latency_ms": 530,
+      "duration_s": 10.08
+    },
+    {
+      "id": 1654,
+      "reference": "tôi không biết bạn có nhận ra hay không nhưng hầu hết hàng hóa từ trung mỹ nhập khẩu vào nước này đều được miễn thuế",
+      "prediction": "tôi không biết bạn có nhận ra hay không nhưng hầu hết hàng hóa từ trung mỹ nhập khẩu vào nước này đều được miễn thuế.",
+      "wer": 0.038461538461538464,
+      "latency_ms": 469,
+      "duration_s": 10.56
+    },
+    {
+      "id": 1513,
+      "reference": "argentina nổi tiếng có một trong những đội bóng pô-lô và cầu thủ giỏi nhất thế giới",
+      "prediction": "agentina nổi tiếng có một trong những đội bóng boulogue và cầu thủ giỏi nhất thế giới.",
+      "wer": 0.17647058823529413,
+      "latency_ms": 393,
+      "duration_s": 9.06
+    },
+    {
+      "id": 1523,
+      "reference": "tỷ số chung cuộc là chiến thắng với cách biệt chỉ một điểm 21 - 20 chấm dứt chuỗi 15 trận toàn thắng của all blacks",
+      "prediction": "tỷ số chung cuộc là chiến thắng với cách biệt chỉ một điểm hai mươi mốt hai mươi chấm dứt chuỗi mười lăm trận toàn thắng của oan tắc.",
+      "wer": 0.34615384615384615,
+      "latency_ms": 587,
+      "duration_s": 10.8
+    },
+    {
+      "id": 1526,
+      "reference": "nếu đến thăm vùng bắc cực hoặc nam cực vào mùa đông bạn sẽ được trải nghiệm đêm vùng cực nghĩa là mặt trời không nhú lên khỏi chân trời",
+      "prediction": "nếu đến thăm vùng bắc cực hoặc nam cực vào mùa đông bạn sẽ được trải nghiệm đêm vùng cực nghĩa là mặt trời không nhú lên khỏi chân trời.",
+      "wer": 0.03333333333333333,
+      "latency_ms": 602,
+      "duration_s": 10.98
+    },
+    {
+      "id": 1517,
+      "reference": "nghiên cứu trí tuệ nhân tạo bao gồm tạo ra những cỗ máy tự động hóa các tác vụ đòi hỏi hành vi thông minh",
+      "prediction": "nghiên cứu trí tuệ nhân tạo bao gồm tạo ra những cỗ máy từ động hóa các tác dụ đòi hỏi hành vi thông minh.",
+      "wer": 0.12,
+      "latency_ms": 550,
+      "duration_s": 8.46
+    },
+    {
+      "id": 1621,
+      "reference": "lúc đầu trang phục chịu ảnh hưởng nặng nề của nền văn hóa byzantine ở phía đông",
+      "prediction": "lúc đầu trang phục chịu ảnh hưởng nặng nề của nền văn hoá pi santin ở phía đông.",
+      "wer": 0.23529411764705882,
+      "latency_ms": 376,
+      "duration_s": 6.9
+    },
+    {
+      "id": 1623,
+      "reference": "điều lệ cần có sự nhất trí từ tất cả các bang trước khi sửa đổi và các bang xem nhẹ chính quyền trung ương đến mức đại diện bang thường xuyên vắng mặt",
+      "prediction": "điều lệ cần có sự nhất trí từ tất cả các ban trước khi sửa đổi và các ban xem giả chính quyền trung ương đến mức để diện ban thường xuyên vắng mặt.",
+      "wer": 0.17647058823529413,
+      "latency_ms": 623,
+      "duration_s": 9.42
+    },
+    {
+      "id": 1569,
+      "reference": "bản báo cáo mở đầu bằng lời biện hộ cho cuộc tranh luận mở và tạo lập sự đồng thuận của hoa kỳ về chính sách đối với trung đông",
+      "prediction": "bản báo cáo mở đầu bằng lời biện hộ cho cuộc tranh luận mở và tạo lập sự đồng thuận của hoa kỳ về chính sách đối với trung đông.",
+      "wer": 0.03333333333333333,
+      "latency_ms": 583,
+      "duration_s": 13.26
+    },
+    {
+      "id": 1535,
+      "reference": "nó sử dụng công nghệ vệ tinh cơ sở trái ngược với công nghệ ra đa mặt đất cơ sở cho phép kiểm soát viên không lưu định vị máy bay với độ chính xác cao hơn và cho phép phi công những thông tin chính xác hơn",
+      "prediction": "nó sử dụng công nghệ vệ tinh cơ sở trái ngược với công nghệ radar mặt đất cơ sở cho phép kiểm sát viên không lưu định vị máy bay với độ chính xác cao hơn và cho phép thi công những thông tin chính xác hơn.",
+      "wer": 0.10416666666666667,
+      "latency_ms": 804,
+      "duration_s": 16.68
+    },
+    {
+      "id": 1602,
+      "reference": "nền ẩm thực của majorca cũng giống như những khu vực tương tự trong vùng địa trung hải chủ yếu bao gồm bánh mì rau củ và thịt nhất là thịt heo và dầu ô-liu được sử dụng rộng rãi",
+      "prediction": "nền ẩm thực của marcos cũng giống như những khu vực tương tự trong vùng địa trung hải chủ yếu bao gồm bánh mì rau củ và thịt nhất là thịt heo và dầu ô liu được sử dụng rộng rãi.",
+      "wer": 0.1,
+      "latency_ms": 824,
+      "duration_s": 13.5
+    },
+    {
+      "id": 1623,
+      "reference": "điều lệ cần có sự nhất trí từ tất cả các bang trước khi sửa đổi và các bang xem nhẹ chính quyền trung ương đến mức đại diện bang thường xuyên vắng mặt",
+      "prediction": "điều lệ cần có sự nhất trí từ tất cả các ban trước khi sửa đổi và các ban xem nhảy chính quyền trung ương đến mức đại diện ban thường xuyên vắng mặt.",
+      "wer": 0.14705882352941177,
+      "latency_ms": 637,
+      "duration_s": 12.6
+    },
+    {
+      "id": 1618,
+      "reference": "phần phía bắc của dãy núi sentinel có những ngọn núi cao nhất bắc băng dương vinson massif có đỉnh vinson cao 4892 m",
+      "prediction": "phần phía bắc của dãy núi santos có những ngọn núi cao nhất bắc băng dương vincent moscow có đỉnh cao vincent cao bốn ngàn tám trăm chín mươi hai mét.",
+      "wer": 0.5416666666666666,
+      "latency_ms": 602,
+      "duration_s": 13.86
+    },
+    {
+      "id": 1608,
+      "reference": "tôi bị lạc em gái và bạn của cô ấy và khi đang trên đường có hai người khuyết tật ngồi xe lăn mọi người cứ chồm lên và xô đẩy họ armand versace nói",
+      "prediction": "tôi bị lạc em gái và bạn của cô ấy và khi đang trên đường có hai người khuyết tật ngồi xe lăn mọi người cứ trầm lên và xô đẩy họ a khman vơ say nói.",
+      "wer": 0.17142857142857143,
+      "latency_ms": 601,
+      "duration_s": 17.52
+    },
+    {
+      "id": 1540,
+      "reference": "về nguyên tắc phật giáo tây tạng rất đơn giản nó bao gồm kundalini yoga thiền pháp và con đường bao trùm tình yêu",
+      "prediction": "về nguyên tắc phật giáo tây tạng rất đơn giản nó bao gồm cun đa li li yoga thiện pháp và con đường mang trùm tình yêu.",
+      "wer": 0.2916666666666667,
+      "latency_ms": 555,
+      "duration_s": 10.8
+    },
+    {
+      "id": 1566,
+      "reference": "tám mươi phần trăm hàng hóa của chúng ta bị đánh thuế thông qua thuế xuất nhập khẩu tại các nước trung mỹ chúng tôi đối xử với bạn",
+      "prediction": "tám mươi phần trăm hàng hóa của chúng bị đánh thuế thông qua thuế xuất nhập khẩu tại các nước chung mỹ chúng tôi đối xử với bạn.",
+      "wer": 0.10344827586206896,
+      "latency_ms": 571,
+      "duration_s": 9.36
+    },
+    {
+      "id": 1538,
+      "reference": "khoảng cách xa giữa point marion và fairmont tạo nên những điều kiện lái xe khó khăn nhất trên quốc lộ buffalo-pittsburgh thường xuyên đi qua những vùng rừng rậm cô quạnh",
+      "prediction": "khoảng cách xa giữa bon bayern và phe mon tạo nên những điều kiện lái xe khó khăn nhất trên quốc lộ buffalo bittburn thường xuyên đi qua những vùng rừng rậm cô quạnh.",
+      "wer": 0.21875,
+      "latency_ms": 631,
+      "duration_s": 16.14
+    },
+    {
+      "id": 1549,
+      "reference": "những lý thuyết này gợi ý rằng con người có một số nhu cầu và/hoặc ham muốn nhất định được tiếp thu từ bên ngoài khi họ trưởng thành",
+      "prediction": "những lý thuyết này gợi ý rằng con người có một số nhu cầu và hoặc ham muốn nhất định được tiếp thu từ bên ngoài khi họ trưởng thành.",
+      "wer": 0.10344827586206896,
+      "latency_ms": 535,
+      "duration_s": 11.76
+    },
+    {
+      "id": 1543,
+      "reference": "người bệnh cũng đã từng tới nigeria nơi một số ca mắc bệnh ebola xảy ra",
+      "prediction": "người bệnh cũng đã từng tới nigeria nơi một số ca mắc bệnh ebola sài gòn.",
+      "wer": 0.125,
+      "latency_ms": 359,
+      "duration_s": 9.6
+    },
+    {
+      "id": 1534,
+      "reference": "với đặc điểm tương đối khó tiếp cận timbuktu đã được sử dụng như một ẩn dụ chỉ về những vùng đất xa xôi kỳ lạ",
+      "prediction": "với đặc điểm tương đối khó tiếp cận trên bút cu đã được sử dụng như một ứng dụng chỉ về những vùng đất xa xôi kỳ lạ.",
+      "wer": 0.23076923076923078,
+      "latency_ms": 570,
+      "duration_s": 10.02
+    },
+    {
+      "id": 1622,
+      "reference": "tổng thống mỹ george w bush nhiệt liệt hoan nghênh thông báo này",
+      "prediction": "tổng thống mỹ george tuýp louis moyes liệt liệt hoan nghênh thông báo này.",
+      "wer": 0.38461538461538464,
+      "latency_ms": 362,
+      "duration_s": 8.82
+    },
+    {
+      "id": 1572,
+      "reference": "thêm ba quả bom nữa phát nổ gần các tòa nhà chính phủ trong khoảng hai tiếng đồng hồ",
+      "prediction": "thêm ba quả bom lửa phát đổ gần các tòa nhà chính phủ trong khoảng hai tiếng đồng hồ.",
+      "wer": 0.15789473684210525,
+      "latency_ms": 406,
+      "duration_s": 7.32
+    },
+    {
+      "id": 1591,
+      "reference": "cựu chủ tịch hạ viện newt gingrich thống đốc bang texas rick perry và nữ dân biểu michele bachmann lần lượt về thứ tư năm và sáu",
+      "prediction": "cựu chủ tịch hạ viện new zealand thống đốc băng tê sát rích ryan và nữ danh biểu michael bachman lần lượt về thứ tư năm và sáu.",
+      "wer": 0.4074074074074074,
+      "latency_ms": 606,
+      "duration_s": 16.44
+    },
+    {
+      "id": 1643,
+      "reference": "công viên có diện tích trên 19.500 km² và được chia thành 14 khu sinh thái khác nhau mỗi khu là nơi ở của một hệ động vật hoang dã",
+      "prediction": "công viên có diện tích trên 19 ngàn năm trăm km và được chia thành mười bốn khu sinh thái khác nhau mỗi khu là nơi ở của một hoài động vật hoang dã.",
+      "wer": 0.3,
+      "latency_ms": 606,
+      "duration_s": 13.02
+    },
+    {
+      "id": 1533,
+      "reference": "nhiều định dạng phổ biến ví dụ tập định dạng aps tương đương hoặc gần xấp xỉ tỷ lệ khung hình này",
+      "prediction": "nhiều định dạng phổ biến ví dụ tập định dạng a bê ết tương đương hoặc gần xấp xỉ tỉ lệ khung hình này.",
+      "wer": 0.22727272727272727,
+      "latency_ms": 523,
+      "duration_s": 9.24
+    },
+    {
+      "id": 1627,
+      "reference": "các bữa ăn thời la mã cổ đại không xuất hiện các loại thực phẩm đến châu âu từ mỹ hoặc từ châu á trong các thế kỷ sau",
+      "prediction": "các bữa ăn thời la mã cổ đại không xuất hiện các loại thực phẩm đến châu âu từ mỹ hoặc từ châu á trong các thế kỷ sau.",
+      "wer": 0.034482758620689655,
+      "latency_ms": 567,
+      "duration_s": 12.0
+    },
+    {
+      "id": 1611,
+      "reference": "các nhà khoa học cho rằng bộ lông của loài này có màu nâu hạt dẻ phía trên và màu xanh xám hoặc vàng/cam bên dưới",
+      "prediction": "các nhà khoa học cho rằng bộ lông của loài này có màu nâu hoặc dẻ phía trên và màu xanh xám hoặc vàng cam bên dưới.",
+      "wer": 0.15384615384615385,
+      "latency_ms": 473,
+      "duration_s": 11.64
+    },
+    {
+      "id": 1584,
+      "reference": "theo báo cáo tình trạng hôi của trên diện rộng tiếp diễn suốt đêm khi cảnh sát không có mặt trên đường phố bishkek",
+      "prediction": "theo báo cáo tình trạng hoi cửa trên diện rộng tiếp diễn suốt đêm khi cảnh sát không có mặt trên đường phố pitt c hen.",
+      "wer": 0.20833333333333334,
+      "latency_ms": 568,
+      "duration_s": 8.22
+    },
+    {
+      "id": 1573,
+      "reference": "điện thoại vệ tinh nói chung không phải là sự thay thế cho điện thoại di động vì bạn phải ở ngoài trời và phải có tầm nhìn thông thoáng thẳng đến vệ tinh thì mới sử dụng được",
+      "prediction": "điện thoại vệ tinh nói chung không phải là sự thay thế cho điện thoại di động vì bạn phải ở ngoài trời và phải có tầm nhìn thông thoáng thẳng đến vệ tinh thì mới sử dụng được.",
+      "wer": 0.02564102564102564,
+      "latency_ms": 791,
+      "duration_s": 12.42
+    },
+    {
+      "id": 1556,
+      "reference": "con tem thứ 1.000 của anh ấy là bức tranh tráng lệ chứng thư vĩ đại của các vị vua thụy điển của david klöcker ehrenstrahl năm 2000 được liệt kê trong sách kỷ lục guinness thế giới",
+      "prediction": "conte thứ một ngàn của anh ấy là bức tranh tráng lệ chứng thư vĩ đại của các vị vua thụy điển của david locker a rem gion năm hai ngàn được liệt kê trong sách kỷ lục premier thế giới.",
+      "wer": 0.3157894736842105,
+      "latency_ms": 759,
+      "duration_s": 18.48
+    },
+    {
+      "id": 1565,
+      "reference": "mục tiêu chính của khoa học là tìm ra cách thức mà thế giới vận hành thông qua các phương pháp khoa học phương pháp này thực tế đã dẫn dắt hầu hết các nghiên cứu khoa học",
+      "prediction": "mục tiêu chính của khoa học là tìm ra cách thức mà thế giới vận hành thông qua các phương pháp khoa học phương pháp này thực tế đã dẫn dắt hầu hết các nghiên cứu khoa học.",
+      "wer": 0.02631578947368421,
+      "latency_ms": 682,
+      "duration_s": 12.12
+    },
+    {
+      "id": 1511,
+      "reference": "ngay sau đó các cảnh sát được trang bị công cụ chống bạo động tiến vào sân và dồn tù nhân vào góc bằng hơi cay",
+      "prediction": "ngay sau đó cảnh sát được trang bị công cụ chống bạo động tiến vào sân và dồn tù nhân vào gốc bằng hơi cay.",
+      "wer": 0.11538461538461539,
+      "latency_ms": 450,
+      "duration_s": 8.82
+    },
+    {
+      "id": 1613,
+      "reference": "tiếp theo một số yên ngựa đặc biệt là yên ngựa của anh có thanh chắn an toàn cho phép phần đai da rơi xuống khỏi yên ngựa nếu người cưỡi ngựa bị ngã kéo về phía sau",
+      "prediction": "tiếp theo một số yên ngựa đặc biệt là yên ngựa của anh có thanh trắng an toàn cho phép phần đay da rơi xuống khỏi yên ngựa nếu người cư ngựa bị ngã kéo về phía sau.",
+      "wer": 0.10526315789473684,
+      "latency_ms": 714,
+      "duration_s": 18.12
+    },
+    {
+      "id": 1546,
+      "reference": "cấu trúc của lông vũ gợi ý rằng bộ lông này không dùng để bay mà để kiểm soát nhiệt độ cơ thể hoặc để khoe mẽ các nhà nghiên cứu cho rằng mặc dù đây là đuôi của một con khủng long non mẫu vật thể hiện một bộ lông trưởng thành chứ không phải là lông tơ",
+      "prediction": "cấu trúc của long vũ gợi ý rằng bộ lông này không dùng để bay mà để kiểm soát nhiều độ cơ thể hoặc để khoe mẽ các nhà nghiên cứu cho rằng mặc dù đây là đôi của một con khúng long non mẫu giặt thể hiện một bộ lông trưởng thành chứ không phải là long t",
+      "wer": 0.11864406779661017,
+      "latency_ms": 909,
+      "duration_s": 29.94
+    },
+    {
+      "id": 1555,
+      "reference": "trong sân nhà thờ có những tác phẩm điêu khắc bằng đá cẩm thạch khá là độc đáo trên một số ngôi mộ",
+      "prediction": "trong sân nhà thờ có những tác phẩm điêu khắc bằng đá cẩm thạch khá là độc đáo trên một số ngôi mộ.",
+      "wer": 0.043478260869565216,
+      "latency_ms": 485,
+      "duration_s": 7.38
+    },
+    {
+      "id": 1576,
+      "reference": "thông thường khóa học sẽ đề cập đến tất cả những vấn đề được thảo luận tại đây một cách chi tiết hơn nhiều và thường kèm theo kinh nghiệm thực tế",
+      "prediction": "thông thường khoa học sẽ đề cập đến tất cả những vấn đề được thảo luận tại đây một cách chi tiết hơn nhiều và thường kèm theo kinh nghiệm thực tế.",
+      "wer": 0.0625,
+      "latency_ms": 620,
+      "duration_s": 9.54
+    },
+    {
+      "id": 1512,
+      "reference": "môi trường mới này có những nguồn lực khác và những đối thủ cạnh tranh khác vì thế dân số mới sẽ cần những đặc điểm hoặc khả năng thích nghi khác để trở thành một đối thủ cạnh tranh hùng mạnh hơn những gì họ vốn có trước kia",
+      "prediction": "môi trường mới này có những nguồn lực khác và những đối thủ cạnh tranh khác vì thế dân số mới sẽ cần những đặc điểm hoặc khả năng thích nghi khác để trở thành một đối thủ cạnh tranh hùng mạnh hơn những gì họ vốn có trước kia.",
+      "wer": 0.02,
+      "latency_ms": 883,
+      "duration_s": 18.0
+    },
+    {
+      "id": 1621,
+      "reference": "lúc đầu trang phục chịu ảnh hưởng nặng nề của nền văn hóa byzantine ở phía đông",
+      "prediction": "lúc đầu trang phục chịu ảnh hưởng nặng nề của nền văn hoá bayern munich tin ở phía đông.",
+      "wer": 0.29411764705882354,
+      "latency_ms": 401,
+      "duration_s": 5.94
+    },
+    {
+      "id": 1587,
+      "reference": "những trường hợp mắc bệnh đầu tiên mùa này được cho là xuất hiện vào cuối tháng bảy",
+      "prediction": "những trường hợp mắc bệnh đầu tiên mùa này được cho là xuất hiện vào cuối tháng bảy.",
+      "wer": 0.05555555555555555,
+      "latency_ms": 385,
+      "duration_s": 7.44
+    },
+    {
+      "id": 1563,
+      "reference": "các nhà nghiên cứu cho rằng mặc dù đây là đuôi của một con khủng long non mẫu thử cho thấy bộ lông chim của con trưởng thành và không phải là lông của một con gà",
+      "prediction": "các nhà nghiên cứu cho rằng mặc dù đây là đuôi của một con khủng long loang mẫu thử cho thấy bộ lông chim của con trưởng thành và không phải là lông của một con gà.",
+      "wer": 0.05405405405405406,
+      "latency_ms": 621,
+      "duration_s": 14.64
+    },
+    {
+      "id": 1607,
+      "reference": "nửa giờ để đi dạo đến ngôi làng thú vị này thật xứng đáng",
+      "prediction": "nửa giờ để đi dạo đến ngôi làng thú vị này thật xứng đáng.",
+      "wer": 0.07142857142857142,
+      "latency_ms": 286,
+      "duration_s": 5.88
+    },
+    {
+      "id": 1561,
+      "reference": "hầu hết các quận được phục vụ bởi loại xe buýt coaster nhỏ của nhật vốn rất thoải mái và chắc chắn",
+      "prediction": "hầu hết các quận được phục vụ bởi lòi xe buýt costa nhỏ của nhật vốn rất thoải mái và chắc chắn.",
+      "wer": 0.13636363636363635,
+      "latency_ms": 457,
+      "duration_s": 10.08
+    },
+    {
+      "id": 1521,
+      "reference": "vệ tinh trong không gian nhận cuộc gọi và sau đó phản lại xuống gần như tức thì",
+      "prediction": "vệ tinh trong không gian nhận cuộc gọi và sau đó phản lợi xuống gần như tức thì.",
+      "wer": 0.1111111111111111,
+      "latency_ms": 381,
+      "duration_s": 7.5
+    },
+    {
+      "id": 1613,
+      "reference": "tiếp theo một số yên ngựa đặc biệt là yên ngựa của anh có thanh chắn an toàn cho phép phần đai da rơi xuống khỏi yên ngựa nếu người cưỡi ngựa bị ngã kéo về phía sau",
+      "prediction": "tiếp theo một số yên ngựa đặc biệt là yên ngựa của anh có thanh chắn an toàn cho phép phần đai da gây xuống khỏi yên ngựa nếu người cởi ngựa bị ngã kéo về phía sau.",
+      "wer": 0.07894736842105263,
+      "latency_ms": 710,
+      "duration_s": 16.62
+    },
+    {
+      "id": 1518,
+      "reference": "một cựu cảnh sát philippines đã bắt một số du khách đến từ hong kong làm con tin bằng cách cướp xe buýt chở họ ở manila thủ đô của philippines",
+      "prediction": "một cựu cảnh sát philippines đã bắt một số du khách đến từ hong kong của hong kong tin bằng cách cửa xe buýt chở họ ở manila thủ đô của philippines.",
+      "wer": 0.16129032258064516,
+      "latency_ms": 608,
+      "duration_s": 12.66
+    },
+    {
+      "id": 1555,
+      "reference": "trong sân nhà thờ có những tác phẩm điêu khắc bằng đá cẩm thạch khá là độc đáo trên một số ngôi mộ",
+      "prediction": "trong sân nhà thờ có những tác phẩm điêu khắc bằng đá cẩm thạch khá là độc đáo trên một số ngôi mộ.",
+      "wer": 0.043478260869565216,
+      "latency_ms": 481,
+      "duration_s": 9.24
+    }
+  ]
+}
