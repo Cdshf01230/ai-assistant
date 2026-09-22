@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Sinh sẵn toàn bộ audio cảnh báo tối quan trọng (§9, §17.3).
+"""Sinh sẵn audio cảnh báo và hội thoại voice-first.
 
 Decision Engine chỉ trả message_code; server/frontend phát WAV tương ứng,
 không inference TTS -> latency gần như bằng 0 cho đúng nhóm câu quan trọng nhất.
 
 Sinh ra:
-    assets/audio/STOP.wav, TURN_LEFT.wav, ...
-    assets/audio/manifest.json   (message_code -> file, text, duration)
+    assets/audio/STOP.wav, GUIDE_ENABLED.wav, ...
+    assets/audio/manifest.json   (alerts/system -> code, file, text, duration)
 
 Dùng:
     python scripts/05_build_alert_cache.py
@@ -40,41 +40,49 @@ def main() -> int:
 
     os.makedirs(cfg.ALERT_AUDIO_DIR, exist_ok=True)
 
-    print(f"Sinh {len(cfg.ALERT_PHRASES)} câu cảnh báo -> {cfg.ALERT_AUDIO_DIR}")
+    groups = {
+        "alerts": cfg.ALERT_PHRASES,
+        "system": cfg.SYSTEM_PHRASES,
+    }
+    phrase_count = sum(len(group) for group in groups.values())
+    print(f"Sinh {phrase_count} câu cảnh báo/hệ thống -> {cfg.ALERT_AUDIO_DIR}")
     tts = Vieneu()
     sr = getattr(tts, "sample_rate", 48000)
     kwargs = {"voice_id": args.voice} if args.voice else {}
 
-    manifest: dict[str, dict] = {}
+    manifest: dict[str, dict[str, dict]] = {name: {} for name in groups}
     t_all = time.perf_counter()
 
-    for code, text in cfg.ALERT_PHRASES.items():
-        path = os.path.join(cfg.ALERT_AUDIO_DIR, f"{code}.wav")
-        if os.path.exists(path) and not args.force:
-            print(f"  bỏ qua {code} (đã có)")
-        else:
-            audio = tts.infer(text, **kwargs)
-            tts.save(audio, path)
+    for group_name, phrases in groups.items():
+        for code, text in phrases.items():
+            path = os.path.join(cfg.ALERT_AUDIO_DIR, f"{code}.wav")
+            if os.path.exists(path) and not args.force:
+                print(f"  bỏ qua {code} (đã có)")
+            else:
+                audio = tts.infer(text, **kwargs)
+                tts.save(audio, path)
 
-        size = os.path.getsize(path)
-        # WAV PCM16 mono: (bytes - 44 byte header) / 2 / sample_rate
-        dur = max(0.0, (size - 44) / 2 / sr)
-        manifest[code] = {
-            "file": f"{code}.wav",
-            "text": text,
-            "duration_s": round(dur, 2),
-            "bytes": size,
-        }
-        print(f"  {code:<22} {dur:4.1f}s  {size / 1024:6.0f} KB  {text}")
+            size = os.path.getsize(path)
+            # WAV PCM16 mono: (bytes - 44 byte header) / 2 / sample_rate
+            dur = max(0.0, (size - 44) / 2 / sr)
+            manifest[group_name][code] = {
+                "file": f"{code}.wav",
+                "text": text,
+                "duration_s": round(dur, 2),
+                "bytes": size,
+            }
+            print(f"  {code:<26} {dur:4.1f}s  {size / 1024:6.0f} KB  {text}")
 
     manifest_path = os.path.join(cfg.ALERT_AUDIO_DIR, "manifest.json")
     with open(manifest_path, "w", encoding="utf-8") as f:
         json.dump(
-            {"sample_rate": sr, "voice": args.voice or "default", "alerts": manifest},
+            {"sample_rate": sr, "voice": args.voice or "default", **manifest},
             f, ensure_ascii=False, indent=2,
         )
 
-    total_kb = sum(m["bytes"] for m in manifest.values()) / 1024
+    total_kb = sum(
+        item["bytes"] for group in manifest.values() for item in group.values()
+    ) / 1024
     print(f"\nXong trong {time.perf_counter() - t_all:.1f}s | tổng {total_kb:.0f} KB")
     print(f"Manifest: {manifest_path}")
     print("\nFrontend nên preload toàn bộ file này khi mở app để phát tức thì.")

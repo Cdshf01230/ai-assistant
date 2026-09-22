@@ -24,7 +24,8 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path('/home/ubuntu/ai-assistant')
+DEPLOY_ROOT = Path('/home/ubuntu/ai-assistant')
+ROOT = DEPLOY_ROOT if DEPLOY_ROOT.exists() else Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 import mvp_config as cfg   # noqa: E402
 import fusion              # noqa: E402
@@ -38,7 +39,8 @@ def fail(msg: str) -> None:
 
 
 def load_cases(name: str) -> dict:
-    return json.load(open(GOLDEN / name))
+    with open(GOLDEN / name, encoding='utf-8') as source:
+        return json.load(source)
 
 
 # ------------------------------------------------------- manifest check ----
@@ -210,13 +212,16 @@ def run_units(verbose: bool) -> None:
     alerts = [x['alert'] for x in seq]
     if alerts != [False, True, False, False, False, False]:
         fail(f'unit dedup_repeat ({alerts})')
-    e7 = fusion.update_session(sess, dec_pos, ev('person', 'front_right', 'near', 'move_left'),
-                               now=6.0)
-    if not (e7['alert'] and e7['message_code'] == 'PERSON_AHEAD'):
-        fail('unit key_change_realert')
+    person = ev('person', 'front_right', 'near', 'move_left')
+    e7a = fusion.update_session(sess, dec_pos, person, now=6.0)
+    e7b = fusion.update_session(sess, dec_pos, person, now=7.0)
+    e7 = fusion.update_session(sess, dec_pos, person, now=8.0)
+    if e7a['alert'] or e7b['alert'] or not (
+            e7['alert'] and e7['message_code'] == 'PERSON_AHEAD'):
+        fail('unit person_key_requires_three_semantic_confirmations')
     # VLM bịa vật khi depth trống -> không alert, chờ clear_frames mới tắt
     e8 = fusion.update_session(sess, {'frame_positive': False},
-                               ev('object', 'front', 'mid', 'slow'), now=7.0)
+                               ev('object', 'front', 'mid', 'slow'), now=9.0)
     if e8['alert'] or e8['message_code']:
         fail('unit hallucinated_no_alert')
     if verbose:

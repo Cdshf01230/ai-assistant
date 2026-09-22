@@ -48,10 +48,13 @@ const params = new URLSearchParams(location.search);
 // Mặc định cùng host/port với trang (https). Có thể ghi đè ?api=wss://host:port
 const API_BASE = params.get('api') || location.origin.replace(/^http/, 'ws');
 const HTTP = API_BASE.replace(/^ws/, 'http');
-const FRAME_MS = parseInt(params.get('fps') || '1000', 10);   // ~1 FPS (§14)
+const requestedFps = Number.parseFloat(params.get('fps') || '5');
+const TARGET_FPS = Math.min(5, Math.max(1, Number.isFinite(requestedFps) ? requestedFps : 5));
+const FRAME_MS = 1000 / TARGET_FPS;
 const LONG_EDGE = 640, JPEG_Q = 0.80;                          // §13
 
 let ws = null, busy = false, running = false, lastFrameAt = 0;
+const responseTimes = [];
 const audioCache = {};   // message_code -> HTMLAudioElement
 let micStream = null, mediaRec = null, chunks = [];
 
@@ -110,7 +113,14 @@ function onVision(ev) {
   let m; try { m = JSON.parse(ev.data); } catch { return; }
   if (!m.ok) { hud('lỗi: ' + (m.error || '?')); return; }
   const d = m.decision || {}, g = m.geometry || {};
-  hud(`vlm=${(m.vlm_raw||'').trim()} | free=${g.free_min}m rank=${g.near_rank} | risk=${d.streaks ? '' : ''}${JSON.stringify(d.streaks)} ${m.latency_ms}ms`);
+  const receivedAt = performance.now();
+  responseTimes.push(receivedAt);
+  while (responseTimes.length > 1 && receivedAt - responseTimes[0] > 5000) responseTimes.shift();
+  const measuredFps = responseTimes.length > 1
+    ? (1000 * (responseTimes.length - 1) / (receivedAt - responseTimes[0])).toFixed(1)
+    : '—';
+  const source = m.vlm_fresh ? 'new' : `cache ${m.vlm_age_ms || 0}ms`;
+  hud(`fps=${measuredFps}/${TARGET_FPS} | depth=${m.depth_latency_ms || '?'}ms | vlm=${source}/${m.vlm_latency_ms || '?'}ms | ${(m.vlm_raw||'').trim()} | free=${g.free_min}m | total=${m.latency_ms}ms`);
 
   if (d.alert && d.message_code) {
     showBanner(textOf(d.message_code), 2600);
@@ -208,7 +218,7 @@ $('startBtn').addEventListener('click', async () => {
     busy = true; lastFrameAt = now;
     try { ws.send(JSON.stringify({ image_base64: grabJpeg(document.createElement('canvas')) })); }
     catch (e) { busy = false; }
-  }, Math.max(FRAME_MS, 200));
+  }, Math.max(Math.floor(FRAME_MS / 2), 50));
 });
 </script>
 </body>

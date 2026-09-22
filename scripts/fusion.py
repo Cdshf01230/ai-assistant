@@ -77,7 +77,11 @@ class FusionConfig:
     depth_emergency_threshold: float = 2.0
 
     # Trễ thời gian — indoor_demo_pipeline_full.json chạy confirm=2/clear=3.
+    # confirm_frames giờ đếm các kết quả Qwen MỚI, không đếm lại cùng cache trên
+    # nhiều frame depth. PERSON cần thêm một lần xác nhận vì lỗi nhầm lớp này
+    # gây câu cảnh báo cụ thể và khó chịu hơn cảnh báo vật cản chung.
     confirm_frames: int = 2
+    person_confirm_frames: int = 3
     clear_frames: int = 3
 
     # Khi depth hỏng hoàn toàn (NaN/không đủ pixel): 'trust_vlm_near' = chỉ tin
@@ -103,6 +107,8 @@ class FusionSession:
     clear_streak: int = 0
     last_key: tuple[str, str] | None = None
     last_severity: int = 0
+    candidate_key: tuple[str, str] | None = None
+    candidate_streak: int = 0
     _last_narrate_t: float = float("-inf")
     _last_narrate_key: tuple[str, str] | None = None
 
@@ -207,6 +213,7 @@ def decide_frame(ev_vlm: dict, ev_geo: dict, config: FusionConfig) -> dict[str, 
         return {"frame_positive": False, "reason": "vlm_clear"}
 
     obj, dist = ev_vlm.get("type"), ev_vlm.get("distance")
+    action = ev_vlm.get("action") or "none"
 
     if ev_geo.get("valid"):
         # Quy tắc lai đã hiệu chuẩn: ngưỡng tuyệt đối bắt vật mảnh trong phòng
@@ -221,6 +228,13 @@ def decide_frame(ev_vlm: dict, ev_geo: dict, config: FusionConfig) -> dict[str, 
         risk = max(0.35 if geo_near else 0.15, 0.75 if escape else 0.0) if frame_positive else 0.1
         if mismatch and frame_positive:
             risk *= config.mismatch_risk_penalty
+        direction_ok = (
+            action not in {"move_left", "move_right"}
+            or (action == "move_left" and ev_vlm.get("position") in {"right", "front_right"}
+                and ev_geo.get("col") == 2)
+            or (action == "move_right" and ev_vlm.get("position") in {"left", "front_left"}
+                and ev_geo.get("col") == 0)
+        )
         reason = ("geo+escape" if escape and geo_near else
                   "escape_blind_type" if escape else
                   "geometry_blocked" if geo_near else "depth_clear")
@@ -233,18 +247,20 @@ def decide_frame(ev_vlm: dict, ev_geo: dict, config: FusionConfig) -> dict[str, 
             frame_positive = False
             reason = "depth_failed_silent"
         mismatch = False
+        direction_ok = False
         risk = 0.55 if frame_positive else 0.05
 
     return {
         "frame_positive": frame_positive,
         "risk": round(risk, 4),
         "mismatch": mismatch,
+        "direction_ok": direction_ok,
         "reason": reason,
     }
 
 
 def update_session(session: FusionSession, decision: dict, ev_vlm: dict,
-                   now: float | None = None) -> dict[str, Any]:
+                   now: float | None = None, *, new_semantics: bool = True) -> dict[str, Any]:
     """State machine trễ + dedup + chọn message_code + gate thuyết minh (§14).
 
     Chỉ phát audio khi: vừa active, đổi (type,position), hoặc severity tăng —
@@ -253,15 +269,37 @@ def update_session(session: FusionSession, decision: dict, ev_vlm: dict,
     cfg = session.config
     now = now if now is not None else time.monotonic()
 
+    emergency = bool(decision.get("emergency"))
+    raw_key = None
     if decision.get("frame_positive"):
-        session.positive_streak += 1
+        if emergency:
+            raw_key = ((ev_vlm.get("type") or "object") if ev_vlm.get("hazard") else "object",
+                       (ev_vlm.get("position") or "front") if ev_vlm.get("hazard") else "front")
+            session.positive_streak += 1
+        elif ev_vlm.get("valid") and ev_vlm.get("hazard"):
+            raw_key = (ev_vlm.get("type") or "object", ev_vlm.get("position") or "front")
+            if new_semantics:
+                if raw_key == session.candidate_key:
+                    session.candidate_streak += 1
+                else:
+                    session.candidate_key = raw_key
+                    session.candidate_streak = 1
+                session.positive_streak = session.candidate_streak
         session.clear_streak = 0
     else:
         session.clear_streak += 1
         session.positive_streak = 0
+        # Một kết quả Qwen mới phủ nhận vật cản làm đứt chuỗi xác nhận ngữ
+        # nghĩa. Frame depth trung gian dùng lại cache thì không được xóa chuỗi.
+        if new_semantics:
+            session.candidate_key = None
+            session.candidate_streak = 0
 
     was_active = session.active
-    if not session.active and session.positive_streak >= cfg.confirm_frames:
+    required = (cfg.person_confirm_frames
+                if raw_key and raw_key[0] == "person" and not emergency
+                else cfg.confirm_frames)
+    if not session.active and session.positive_streak >= required:
         session.active = True
     if session.active and session.clear_streak >= cfg.clear_frames:
         session.active = False
@@ -269,11 +307,12 @@ def update_session(session: FusionSession, decision: dict, ev_vlm: dict,
     key = None
     severity = 0
     action = "none"
-    emergency = bool(decision.get("emergency"))
     # Chỉ nhận diện vật từ frame CÓ BẰNG CHỨNG (positive). Frame không positive
     # nhưng VLM vẫn nói hazard (bịa trên lối trống) thì KHÔNG được đổi key,
     # không alert — chờ clear_frames frame để state tự tắt.
-    if session.active and decision.get("frame_positive") and (ev_vlm.get("valid") or emergency):
+    candidate_confirmed = emergency or session.candidate_streak >= required
+    key_stable = raw_key == session.last_key or candidate_confirmed
+    if session.active and raw_key is not None and key_stable:
         vlm_counts = ev_vlm.get("valid") and ev_vlm.get("hazard")
         if emergency:
             # depth khẳng định chắn cực gần — STOP tuyệt đối, không nhận action
@@ -286,6 +325,8 @@ def update_session(session: FusionSession, decision: dict, ev_vlm: dict,
             action = ev_vlm.get("action") or "slow"
             if decision.get("mismatch"):
                 action = "slow" if action == "stop" else action   # chặn STOP khi lệch hướng
+            if action in {"move_left", "move_right"} and not decision.get("direction_ok"):
+                action = "slow"
         severity = ACTION_SEVERITY.get(action, 1)
 
     just_activated = session.active and not was_active

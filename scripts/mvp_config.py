@@ -4,6 +4,8 @@
 from __future__ import annotations
 
 import os
+import re
+import unicodedata
 
 MODELS_DIR = "/home/ubuntu/ai-assistant/models"
 os.environ.setdefault("HF_HOME", f"{MODELS_DIR}/hf")
@@ -41,6 +43,17 @@ ATTN_IMPL = "sdpa"
 # là bottleneck. Nên giữ 640 để VLM "nhìn" rõ hơn.
 FRAME_LONG_EDGE = 640
 JPEG_QUALITY = 80
+
+# Luồng realtime tách hai nhịp: depth chạy trên mọi frame để phản ứng nhanh,
+# Qwen cập nhật ngữ nghĩa nền rồi dùng lại kết quả gần nhất. 4B đã đo khoảng
+# 845 ms/frame nên 1 Hz là mục tiêu thực tế trên một T4; depth có thể phục vụ 5 Hz.
+VLM_REFRESH_HZ = float(os.getenv("VLM_REFRESH_HZ", "1"))
+VLM_MAX_STALE_S = float(os.getenv("VLM_MAX_STALE_S", "2.5"))
+
+# Qwen3-VL dùng hệ số nén không gian 32. Giữ frame camera 640p trong ngân sách
+# 128..320 visual token để processor không tự phóng ảnh nhỏ lên mức mặc định.
+VLM_MIN_VISUAL_TOKENS = int(os.getenv("VLM_MIN_VISUAL_TOKENS", "128"))
+VLM_MAX_VISUAL_TOKENS = int(os.getenv("VLM_MAX_VISUAL_TOKENS", "320"))
 
 # --- Prompt VLM ---------------------------------------------------------------
 # §7: ép VLM trả schema ngắn, cố định.
@@ -219,5 +232,166 @@ ALERT_PHRASES: dict[str, str] = {
     "REPEAT_PLEASE": "Xin nói lại.",
     "GPS_LOST": "Mất tín hiệu định vị.",
 }
+
+# Voice-first UI protocol. These phrases are short enough to pre-generate/cache as
+# WAV later; the intent router itself is deterministic and does not call an LLM.
+VOICE_MODES = frozenset({"waiting", "guide", "narration", "paused"})
+VOICE_AUDIO_PRIORITIES = {
+    "emergency": 100,
+    "repeat": 80,
+    "confirmation": 60,
+    "answer": 40,
+    "filler": 20,
+}
+SYSTEM_PHRASES: dict[str, str] = {
+    "SAFETY_UNAVAILABLE": "Mất kết nối cảnh báo. Hãy tạm dừng di chuyển trong lúc kết nối lại.",
+    "SAFETY_RESUMED": "Đã kết nối lại cảnh báo.",
+    "WELCOME": (
+        "Xin chào, tôi là trợ lý thị giác. "
+        "Hãy nói dẫn đường hoặc thuyết minh."
+    ),
+    "GUIDE_ENABLED": "Đã bật chế độ dẫn đường.",
+    "NARRATION_ENABLED": (
+        "Đã bật chế độ thuyết minh. Bạn muốn biết điều gì?"
+    ),
+    "NARRATION_QUERY_ACCEPTED": (
+        "Đã bật chế độ thuyết minh. Mình đang kiểm tra cảnh trước mặt."
+    ),
+    "HEARD_THINKING": "Mình đã nghe rõ. Đang kiểm tra cảnh trước mặt.",
+    "PAUSED": "Đã tạm dừng.",
+    "RESUMED": "Đã tiếp tục.",
+    "HELP": (
+        "Bạn có thể nói dẫn đường, thuyết minh, tạm dừng, "
+        "tiếp tục hoặc lặp lại."
+    ),
+    "UNKNOWN_COMMAND": (
+        "Tôi chưa hiểu. Hãy nói dẫn đường, thuyết minh hoặc trợ giúp."
+    ),
+}
+SYSTEM_PHRASE_KINDS = {
+    "SAFETY_UNAVAILABLE": "repeat",
+    "SAFETY_RESUMED": "confirmation",
+    "WELCOME": "confirmation",
+    "GUIDE_ENABLED": "confirmation",
+    "NARRATION_ENABLED": "confirmation",
+    "NARRATION_QUERY_ACCEPTED": "filler",
+    "HEARD_THINKING": "filler",
+    "PAUSED": "confirmation",
+    "RESUMED": "confirmation",
+    "HELP": "confirmation",
+    "UNKNOWN_COMMAND": "repeat",
+}
+
+
+def normalize_voice_text(text: str) -> str:
+    """Chuẩn hóa tiếng Việt để bắt intent, không thay transcript gốc."""
+    value = unicodedata.normalize("NFD", str(text).strip().lower())
+    value = "".join(ch for ch in value if unicodedata.category(ch) != "Mn")
+    value = value.replace("đ", "d")
+    return re.sub(r"[^a-z0-9]+", " ", value).strip()
+
+
+def route_voice_intent(
+    text: str,
+    current_mode: str = "waiting",
+    resume_mode: str = "guide",
+) -> dict:
+    """Ánh xạ transcript sang intent và mode kế tiếp.
+
+    Backend trả quyết định thuần dữ liệu; frontend chịu trách nhiệm phát audio,
+    chụp frame và hủy response cũ bằng request_id.
+    """
+    mode = current_mode if current_mode in VOICE_MODES else "waiting"
+    previous = resume_mode if resume_mode in {"guide", "narration"} else "guide"
+    original = str(text).strip()
+    normalized = normalize_voice_text(original)
+    # Match complete commands: mentioning a stop sign in a question is not PAUSE.
+    command = re.sub(
+        r"^(?:(?:xin|hay|vui long|ban|toi muon|cho toi|chuyen sang|bat|che do) )+",
+        "", normalized,
+    )
+    command = re.sub(r" (?:nhe|di|giup toi|cho toi)$", "", command)
+    if normalized == "bat dau di":
+        command = "bat dau di"
+
+    def response(intent, next_mode, reply_code, **extra):
+        audio_kind = SYSTEM_PHRASE_KINDS.get(reply_code)
+        return {
+            "intent": intent,
+            "mode": next_mode,
+            "reply_code": reply_code,
+            "reply_text": SYSTEM_PHRASES.get(reply_code),
+            "audio_kind": audio_kind,
+            "audio_priority": VOICE_AUDIO_PRIORITIES.get(audio_kind, 0),
+            "interruptible": audio_kind in {"answer", "filler"},
+            "should_describe": False,
+            "question": None,
+            **extra,
+        }
+
+    if not normalized:
+        return response("unknown", mode, "UNKNOWN_COMMAND")
+
+    if command in (
+        "tam dung", "dung lai", "ngung lai", "ngung tro ly"
+    ):
+        return response("pause", "paused", "PAUSED", resume_mode=(
+            mode if mode in {"guide", "narration"} else previous
+        ))
+
+    if command in (
+        "tiep tuc", "hoat dong lai", "bat dau lai"
+    ):
+        target = previous if mode == "paused" else (mode if mode in {"guide", "narration"} else previous)
+        return response("resume", target, "RESUMED", resume_mode=target)
+
+    if command in (
+        "tro giup", "huong dan su dung", "toi co the noi gi"
+    ):
+        return response("help", mode, "HELP")
+
+    if command in (
+        "lap lai", "noi lai", "nhac lai"
+    ):
+        return response("repeat_last", mode, None)
+
+    if command in ("dan duong", "chi duong", "bat dau di"):
+        return response("switch_mode", "guide", "GUIDE_ENABLED",
+                        resume_mode="guide")
+
+    narration_markers = (
+        "che do thuyet minh", "xung quanh co gi", "thuyet minh", "mo ta"
+    )
+    if command in {"thuyet minh", "mo ta"}:
+        return response("switch_mode", "narration", "NARRATION_ENABLED",
+                        resume_mode="narration")
+    marker = next((item for item in narration_markers if command.startswith(item)), None)
+    if marker:
+        # Một câu như "mô tả phía trước có gì" vừa chuyển mode vừa là câu hỏi.
+        remainder = command.replace(marker, " ", 1).strip()
+        direct_question = marker == "xung quanh co gi" or len(remainder.split()) >= 2
+        if direct_question:
+            return response(
+                "ask_description",
+                "narration",
+                "NARRATION_QUERY_ACCEPTED",
+                should_describe=True,
+                question=original,
+                resume_mode="narration",
+            )
+        return response("switch_mode", "narration", "NARRATION_ENABLED",
+                        resume_mode="narration")
+
+    if mode == "narration":
+        return response(
+            "ask_description",
+            "narration",
+            "HEARD_THINKING",
+            should_describe=True,
+            question=original,
+            resume_mode="narration",
+        )
+
+    return response("unknown", mode, "UNKNOWN_COMMAND")
 
 ALERT_AUDIO_DIR = "/home/ubuntu/ai-assistant/assets/audio"

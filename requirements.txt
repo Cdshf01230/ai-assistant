@@ -5,13 +5,13 @@
 # --- Core inference (GPU: VLM) ---
 torch
 torchvision
-transformers>=5.0.0
+transformers==4.57.6
 accelerate
 safetensors
 pillow
 
-# --- Model download (huggingface_hub 1.x: hf-xet thay cho hf_transfer) ---
-huggingface_hub
+# --- Model download (Transformers 4.57.x yêu cầu huggingface_hub < 1.0) ---
+huggingface_hub>=0.34.0,<1.0
 
 # --- STT (CPU: PhoWhisper) ---
 librosa
@@ -20,7 +20,7 @@ numpy
 
 # --- TTS (CPU/ONNX: VieNeu-TTS v3 Turbo, torch-free path) ---
 # Kéo theo: sea-g2p, onnxruntime, soxr, kaldi-native-fbank, perth, gradio
-vieneu>=3.3.0
+vieneu==3.6.4
 
 # --- Serving ---
 fastapi

@@ -5,6 +5,8 @@ benchmarks/data/
 logs/
 certs/
 .env
+api.txt
+*.zip
 __pycache__/
 **/__pycache__
 *.pyc

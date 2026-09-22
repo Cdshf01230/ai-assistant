@@ -1,6 +1,8 @@
 # Môi trường / secret
 .venv/
 .env
+api.txt
+*.zip
 certs/
 
 # Weights — tải lại bằng scripts/01_download_models.py (~12 GB)
@@ -15,7 +17,20 @@ benchmarks/data/coco/*
 
 # Log runtime (kết quả eval JSON/MD vẫn được track — golden builder cần)
 logs/api_server.log
+logs/gemini_describe_model_test.json
+logs/gemma4_vs_gemini35lite_describe.json
+logs/gemini31_flash_lite_describe.json
+
+# Notebook thử nghiệm cũ; production dùng kaggle_ai_assistant.ipynb.
+qwen-api.ipynb
+assets/frames/assistant_labels.json
 
 # Cache python
 __pycache__/
 *.pyc
+
+# Frontend build dependencies and imported review copy
+node_modules/
+_lovable_review/
+frontend/coverage/
+.venv-api-test/
